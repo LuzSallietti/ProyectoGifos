@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btn">Click y buscar en giphy</button>
+
+    <script>
+        //llamar API Giphy
+
+let APIKEY = "ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef";
+document.addEventListener('DOMContentLoaded', init);
+
+function init (){
+    let btn = document.getElementById("btn").addEventListener('click', ev =>{
+        ev.preventDefault();
+        let url=`https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}q=dogs`;
+        console.log(url);
+    })
+    
+}
+
+    </script>
+</body>
+</html>

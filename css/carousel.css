@@ -1,0 +1,25 @@
+.container {
+    overflow: hidden;
+    
+}
+.carousel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    right: 0;
+    
+}
+.gif{
+    margin:1rem;
+    width: 23%;
+}
+.gif img{
+    width: 100%;
+    height: auto;
+}
+
+.animation{
+
+    transform: translateX(-50px);
+}

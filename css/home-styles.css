@@ -1,0 +1,352 @@
+@font-face {
+  font-family: "Roboto-Black";
+  src: url(../Roboto-Black.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: normal;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 5px solid #572ee5;
+}
+
+h1,
+h2,
+h3 {
+  color: #572ee5;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dark-mode_body {
+  background-color: #37383c;
+  color: #fff;
+  border-bottom: 5px solid #000;
+}
+
+.dark-mode_texts {
+  color: #fff;
+}
+
+.top-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 5px solid #572ee5;
+  padding: 20px 25px;
+}
+
+.dark-mode_top-bar {
+  border-top: 5px solid #000;
+}
+
+.hamburger {
+  color: #572ee5;
+}
+
+.dark-mode_hamburger {
+  color: #fff;
+}
+
+nav {
+  visibility: hidden;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(87, 46, 229, 0.9);
+  padding-top: 1rem;
+  z-index: 25;
+}
+
+nav ul {
+  text-align: center;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  line-height: 60px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.071rem;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.dark-mode_nav {
+  background-color: #000;
+}
+
+.menu-line {
+  margin: auto;
+  width: 41px;
+  color: #fff;
+}
+
+form {
+  border: 1px solid #572ee5;
+  border-radius: 27px;
+  width: 89%;
+  margin: auto;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form input[type="text"] {
+  background-color: transparent;
+  margin: auto;
+  outline: none;
+  border: none;
+  color: #6b7989;
+  font-size: 1.143rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.dark-mode_form {
+  border: 1px solid #fff;
+}
+
+main h1 {
+  font-size: 1.786rem;
+  text-align: center;
+  width: 76%;
+  margin: auto;
+  font-weight: 800;
+}
+
+main h1 .mint {
+  color: #5ed7c6;
+  font-weight: 800;
+}
+
+main .illustration {
+  width: 76%;
+  margin: 2rem auto 0 auto;
+}
+
+main .illustration img {
+  width: 100%;
+}
+
+main h3 {
+  font-size: 1.143rem;
+  font-weight: 800;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+main .trends {
+  width: 60%;
+  margin: 0.5rem auto 3rem auto;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: #572ee5;
+  font-weight: 600;
+}
+
+main .trends a {
+  font-weight: 600;
+}
+
+main .grey-bg {
+  background-color: #f3f5f8;
+}
+
+main .dark-grey-bg {
+  background-color: #222326;
+}
+
+main .trending-gifos {
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+}
+
+main h2 {
+  font-weight: bold;
+  font-size: 1.429rem;
+  text-align: center;
+}
+
+main h4 {
+  width: 46%;
+  line-height: 1.643rem;
+  font-size: 1.143rem;
+  margin: auto;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 2.25rem;
+}
+
+main .container {
+  overflow: hidden;
+}
+
+main .container .carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+  padding: 0 0.75rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+main .container .carousel .gif {
+  margin: 0.5rem;
+  height: 13.5rem;
+  position: relative;
+}
+
+main .container .carousel .gif img {
+  width: auto;
+  height: 100%;
+}
+
+main .container .carousel .gif-card {
+  position: absolute;
+  top: 0;
+  background-color: rgba(87, 46, 229, 0.6);
+  width: 100%;
+  height: 13.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 0.75rem;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+main .container .carousel .gif-card .icon-btn {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 6px;
+  margin: 0.25rem;
+}
+
+main .container .carousel .gif-card .icon-btn img {
+  width: 1rem;
+  margin: auto;
+}
+
+main .container .carousel .gif-card .user-details {
+  width: 100%;
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+main .container .carousel .gif-card .user-details .user {
+  color: #fff;
+}
+
+main .container .carousel .gif-card .user-details .gif-title {
+  color: #fff;
+  font-weight: 600;
+}
+
+footer {
+  padding-top: 3rem;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.share {
+  font-size: 1.071rem;
+}
+
+.icons {
+  font-size: 1.429rem;
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 2rem auto 3rem auto;
+}
+
+.copy {
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  main .illustration {
+    width: 35%;
+    margin: 2rem auto 0 auto;
+  }
+  main .illustration img {
+    width: 100%;
+  }
+  main form {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1440px) {
+  main .illustration {
+    width: 28%;
+    margin: 2rem auto 0 auto;
+  }
+  main .illustration img {
+    width: 100%;
+  }
+  main form {
+    width: 38.2%;
+  }
+}
+/*# sourceMappingURL=home-styles.css.map */

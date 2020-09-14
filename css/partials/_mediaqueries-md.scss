@@ -1,14 +1,124 @@
-@media (min-width:768px){
-    main{
-        .illustration{
-        width: 35%;
-        margin: 2rem auto 0 auto;
-        img{
-            width: 100%;
-            }
-        }
-        form{
-            width:45%;
-        }
+@media (min-width: 768px) {
+  main {
+    .illustration {
+      width: 50%;
+      margin: 2rem auto 0 auto;
+      img {
+        width: 100%;
+      }
     }
+    form {
+      width: 55%;
+    }
+    .search-gif-cards {
+      width: 30%;
+      margin: 1rem 0;
+      img {
+        width: 100%;
+        height: calc(50vw / 2);
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+    }
+  }
+  .gifo-max {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0px;
+  }
+
+  .close-icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    grid-column: 3/4;
+    margin-left: 6rem;
+  }
+  .gifo-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .gif-content {
+    width: 100%;
+    object-fit: contain;
+  }
+  .arrow-left {
+    display: block;
+    width:40px;
+    height: 40px;
+    border:1px solid $purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: self-end;
+    margin: 0 25px;
+    &:hover{
+        background-color: $purple;
+        transition: all .5s ease;
+        .GIFOS-text{
+          fill:$white;
+          
+        }
+      }
+  }
+  .arrow-right {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: self-start;
+    margin: 0 25px;
+    &:hover{
+        background-color: $purple;
+        transition: all .5s ease;
+        .GIFOS-text{
+          fill:$white;
+          
+        }
+      }
+  }
+  .dark-mode_arrow-right{
+    border:1px solid $white;
+    &:hover{
+      background-color: $white;
+      transition: all .5s ease;
+      .GIFOS-text{
+        fill:$black;
+        
+      }
+    }
+  
+  }
+  .dark-mode_arrow-left{
+    border:1px solid $white;
+    &:hover{
+      background-color: $white;
+      transition: all .5s ease;
+      .GIFOS-text{
+        fill:$black;
+        
+      }
+    }
+  
+  }    
+  .actions {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+  .btns-container {
+    width: 18%;
+  }
 }

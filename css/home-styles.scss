@@ -444,10 +444,11 @@ footer {
   }
 }
 .creator-container {
-  margin: 14px;
+  margin: 14px;  
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 75vw 12.5vw auto;
+  grid-template-rows: 50vh 12.5vh 12.5vh;
+  height: 100%;
   .btn-view-more {
     grid-column: 1/2;
     grid-row: 3/4;

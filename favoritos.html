@@ -239,7 +239,7 @@
           <img src="./img/icon-favoritos.svg" alt="ícono de Favoritos" />
         </div>
         <h2>Favoritos</h2>
-        <div class="empty align-center">
+        <div class="empty align-center d-none" id="empty-favs">
           <svg
             version="1.1"
             id="Capa_1"
@@ -303,82 +303,10 @@
             ¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!
           </p>
         </div>
-        <div class="gifs-container">
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/p4NLw3I4U0idi/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/ekjmhJUGHJm7FC4Juo/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/USV0ym3bVWQJJmNu3N/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-          <div class="search-gif-cards">
-            <img
-              src="https://media.giphy.com/media/QX6ruFElzFdeIfblrg/giphy.gif"
-              alt=""
-            />
-          </div>
-
-          <button id="view-more" class="btn-view-more">Ver más</button>
+        <div class="gifs-container d-none" id="favs-container">
+         <!-- completa dinámicamente con el array de Favoritos almacenados en localStorage-->          
         </div>
+        <button id="view-more" class="btn-view-more d-none">Ver más</button>
       </section>
       <!--SECCION TRENDING GIFOS-->
       <section class="grey-bg trending-gifos" id="trendingGifos">
@@ -768,5 +696,7 @@
     </footer>
     <!--JS-->
     <script src="./js/home-functions.js"></script>
+    <script src="./js/show-gifos-details.js"></script>
+    <script src="./js/favoritos.js"></script>
   </body>
 </html>

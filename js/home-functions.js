@@ -1,15 +1,3 @@
-//llamar API Giphy
-let giphySearch = "http://api.giphy.com/v1/gifs/search?"
-let APIKEY = "&api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef";
-let searchQuery = "q=luis+miguel";
-let searchLimit = "&limit=3";
-
-let url = `${giphySearch + searchQuery + APIKEY + searchLimit}`;
-console.log(url);
-
-"http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&limit=5"
-
-
 // mostrar menu mobile
 let hamburger = document.getElementById("hamburger");
 hamburger.addEventListener('click', showMenu);
@@ -25,7 +13,7 @@ function showMenu() {
 
 let create_GIFO_btn = document.getElementsByClassName("create-btn");
 
-for (i = 0; i < create_GIFO_btn.length; i++) {
+for (i = 0; i < create_GIFO_btn.length; i++) { 
    create_GIFO_btn[i].addEventListener("click", () => document.location.href = "./crear-gifo.html");
 }
 
@@ -58,7 +46,8 @@ function switchTheme() {
    let arrow_left = document.getElementsByClassName("arrow-left");
    let arrow_right = document.getElementsByClassName("arrow-right");
    let desktop_header = document.getElementsByClassName("desktop-header");
-
+   let search_term = document.getElementsByClassName("search-query");
+   let trends_p = document.getElementsByClassName("trends");
 
 
    //función que togglea entre clases
@@ -88,6 +77,9 @@ function switchTheme() {
    toggleClasses(arrow_right, "dark-mode_arrow-right");
    toggleClasses(create_GIFO_btn, "dark-mode_create-btn");
    toggleClasses(desktop_header, "dark-mode_desktop-header");
+   toggleClasses(search_term, "dark_mode-search-query");
+   toggleClasses(trends_p,"dark-mode_trends");
+  
 
 
 
@@ -128,7 +120,7 @@ let header = document.getElementsByClassName("desktop-header");
 
 function apply_shadow() {
    for (i = 0; i < header.length; i++) {
-      console.log("m ejecuto");
+      
       
       if (window.innerWidth >= 1024) {
          header[i].style.boxShadow = "0 2px 4px 1px rgba(156,175,195,0.55)";

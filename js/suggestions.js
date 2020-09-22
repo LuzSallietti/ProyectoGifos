@@ -1,4 +1,4 @@
-const tags_URL = "http://api.giphy.com/v1/"
+const tags_URL = "https://api.giphy.com/v1/"
 const giphy_SUGGESTIONS_endopoint = "gifs/search/tags"
 let userQuery = document.querySelector("#userQuery");
 let form = document.getElementById("search-form");
@@ -109,7 +109,7 @@ for (i = 0; i < search_inputs.length; i++) {
 
     query.value = kw.value;
 
-    let url = `http://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
     showGIFS(url)
       .then(response => {
         console.log(response);
@@ -134,7 +134,7 @@ lupa.addEventListener('click', () => {
 
   title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
   title.style.display = "block";
-  let url = `http://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
+  let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
   showGIFS(url)
     .then(response => {
       console.log(response);

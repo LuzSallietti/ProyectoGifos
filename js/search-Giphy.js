@@ -1,5 +1,5 @@
 //llamar API Giphy
-const base_URL = "http://api.giphy.com/v1/gifs"
+const base_URL = "https://api.giphy.com/v1/gifs"
 const giphy_SEARCH_endopoint = "/search?"
 let searchQuery = "q=luis+miguel"; //se reemplazará con el input del usuario
 const APIKEY = "&api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef";

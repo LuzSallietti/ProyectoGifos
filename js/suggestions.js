@@ -15,6 +15,9 @@ let remaindersArray;
 
 
 
+
+
+
 window.onload = evaluateTheme(); // determinar color/clase que llevará el ícono de cruz que se crea dinámicamente al clickear el form
 
 function evaluateTheme() {
@@ -76,53 +79,54 @@ form.addEventListener('input', () => {
       return data;
     }
     search_suggestions()
-      .then(response => {        
-        autocompleteArray = response;        
-        show_suggestions(autocompleteArray)})
+      .then(response => {
+        autocompleteArray = response;
+        show_suggestions(autocompleteArray)
+      })
       .catch(error => console.log(error));
   }
 });
 
 
-function show_suggestions(response) { 
-  
+function show_suggestions(response) {
+
   for (i = 0; i < search_inputs.length; i++) {
 
     search_inputs[i].style.display = "flex";
-    let text_input=terms[i];
-    let value = response[i].name; 
+    let text_input = terms[i];
+    let value = response[i].name;
     text_input.value = value;
 
   }
 
 }
+// //crea un event listener por cada término que puede ser clickeado y dispara la búsqueda en GIPHY
 
-for (i=0; i<search_inputs.length;i++){
-let kw = terms[i];
+for (i = 0; i < search_inputs.length; i++) {
+  let kw = terms[i];
 
-search_inputs[i].addEventListener("click", () => { //un event listener por cada término que puede ser clickeado y dispara la búsqueda en GIPHY            
-  
-  query.value=kw.value;
-  
-  let url = `http://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
-  showGIFS(url)
-    .then(response => {
-      console.log(response);
+  search_inputs[i].addEventListener("click", () => {
 
-      if (response.length != 0) {
-        empty_search.classList.add("d-none");
-        resultados = response;
-        displayResults(resultados, 0, 12);
-      } else {
-        empty_search.classList.remove("d-none");
-        console.log("No hay resultados para ese término");
-      }
-    })
-    .catch(error => console.log(error));
+    query.value = kw.value;
 
-})
+    let url = `http://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
+    showGIFS(url)
+      .then(response => {
+        console.log(response);
+
+        if (response.length != 0) {
+          empty_search.classList.add("d-none");
+          resultados = response;
+          displayResults(resultados, 0, 12);
+        } else {
+          empty_search.classList.remove("d-none");
+          console.log("No hay resultados para ese término");
+        }
+      })
+      .catch(error => console.log(error));
+
+  })
 }
-
 
 //disparar búsqueda con icono lupa
 
@@ -163,6 +167,7 @@ query.addEventListener("keyup", (e) => {
           empty_search.classList.add("d-none");
           resultados = response;
           displayResults(resultados, 0, 12);
+          
         } else {
           empty_search.classList.remove("d-none");
           console.log("No hay resultados para ese término");
@@ -174,7 +179,7 @@ query.addEventListener("keyup", (e) => {
 
 //realizar la búsqueda y devolver resultados de GIPHY
 async function showGIFS(url) {
-  console.log(url);
+
   let response = await fetch(url);
   let JSON_array = await response.json();
   let gifs_data = JSON_array.data;
@@ -193,6 +198,12 @@ function displayResults(array, posicion, longitud) {
   const results_container = document.querySelector("#results-container");
   results_container.classList.remove("d-none");
   view_more_btn.classList.replace("d-none", "d-block");
+  if ((array.length) <= 14) {
+    view_more_btn.classList.replace("d-block", "d-none");
+    console.log("La longitud del array es " + array.length)
+  }
+  //elementos que necesito para guardar Fav
+
 
   let i = posicion;
 
@@ -202,40 +213,77 @@ function displayResults(array, posicion, longitud) {
     DIV.setAttribute("class", "gif");
     DIV.classList.add("small");
     results_container.appendChild(DIV);
-    DIV.innerHTML = `<img class="gif-img" src=${array[i].images.fixed_height_downsampled.url}>
+    DIV.innerHTML = `<img class="gif-img" src=${array[i].images.fixed_height_downsampled.url} id="${array[i].id}-img">
         <div class="gif-card small">
         <div class="icon-btn">
-                  <img src="./img/icon-fav-hover.svg" class="icon heart">
+                  <img src="./img/icon-fav-hover.svg" class="icon heart" id=${array[i].id}>
                 </div>
                 <div class="icon-btn">
-                  <img src="./img/icon-download.svg" class="icon">
+                  <img src="./img/icon-download.svg" class="icon" id="${array[i].id}-dload">
                 </div>
                 <div class="icon-btn">
                   <img src="./img/icon-max.svg" class="icon">
                 </div>
         <div class="user-details">
-          <h6 class="user white-text">${array[i].username}</h6>
-          <h5 class="gif-title white-text">${array[i].title}</h5>
+          <h6 class="user white-text" id="${array[i].id}-user">${array[i].username}</h6>
+          <h5 class="gif-title white-text" id="${array[i].id}-title">${array[i].title}</h5>
         </div>
       </div>`;
+
+      let heart = document.getElementById(`${array[i].id}`);
+      let download = document.getElementById(`${array[i].id}-dload`)
+      let image = (document.getElementById(`${array[i].id}-img`)).src;
+      let title = (document.getElementById(`${array[i].id}-title`).innerHTML);
+      let username = (document.getElementById(`${array[i].id}-user`).innerHTML);
+
+      //crear event listener para almacenar en Favoritos
+
+      heart.addEventListener ('click',() => {
+        let gifo = new Gifo(image, title, username, true);
+        console.log(gifo);
+        if (JSON.parse(localStorage.getItem("favs"))) {
+            favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
+            favourite_GIFOS.push(gifo);
+            localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+        } else {
+            favourite_GIFOS = [];
+            favourite_GIFOS.push(gifo);
+            localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+
+        };
+      });
+        //crear event listener para Descargar
+        download.addEventListener('click', async () => {
+          //create new a element
+          let a = document.createElement('a');
+          // get image as blob
+          let response = await fetch(image);
+          let file = await response.blob();
+          // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+          a.download = `${title}`;
+          a.href = window.URL.createObjectURL(file);
+          //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+          a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+          //click on element to start download
+          a.click();
+        });
+
+   
   }
-  array.splice(0, 12);
-  remaindersArray = array;
-
-
-  if (array.length == 2) {
-    view_more_btn.classList.replace("d-block", "d-none");
-  }
-
-
   show_hide_gifCards();
-  saveFav();//acá podría llamar a la función favoritos/corregir porque está creando un event listener por c/ciclo
+   
+
+
+  array.splice(0, 12);
+  remaindersArray = array; 
+  
 
 }
 
 //mostrar más resultados
 view_more_btn.addEventListener('click', () => {
   displayResults(remaindersArray, 0, 12);
+  
 })
 
 

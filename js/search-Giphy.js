@@ -16,18 +16,18 @@ const giphy_TRENDS_endopoint = "/trending?"
 
 searchLimit = "&limit=5";
 
-const trending_url= `${base_URL+giphy_TRENDS_endopoint+APIKEY+searchLimit}`;
+const trending_url = `${base_URL + giphy_TRENDS_endopoint + APIKEY + searchLimit}`;
 
 
-function add_to_DOM (response){
-    for ( i = 0; i< response.length ; i++) { //Crear dinámicamente los GIFOS del trending
-        
-        const carousel = document.querySelector("#carousel");               
-        let DIV = document.createElement("div");
-        DIV.setAttribute("class","gif");
-        DIV.classList.add("large");
-        carousel.appendChild(DIV);
-        DIV.innerHTML=`<img class="gif-img" src=${response[i].images.fixed_height_downsampled.url}>
+function add_to_DOM(response) {
+  for (i = 0; i < response.length; i++) { //Crear dinámicamente los GIFOS del trending
+
+    const carousel = document.querySelector("#carousel");
+    let DIV = document.createElement("div");
+    DIV.setAttribute("class", "gif");
+    DIV.classList.add("large");
+    carousel.appendChild(DIV);
+    DIV.innerHTML = `<img class="gif-img" src=${response[i].images.fixed_height_downsampled.url}>
         <div class="gif-card large">
                 <div class="icon-btn">
                   <img src="./img/icon-fav-hover.svg" class="icon">
@@ -43,20 +43,24 @@ function add_to_DOM (response){
                   <h5 class="gif-title white-text">${response[i].title}</h5>
                 </div>
               </div>`;
-    }       
-    show_hide_gifCards();    
+  }
+  //mostrar las tarjetas en hover solo a partir devices 1024px
+  if (window.innerWidth >= 1024) {
+    show_hide_gifCards();
+  }
+
 }
 
-async function get_Trending_GIF (){
-    let response = await fetch(trending_url);
-    let JSON_response = await response.json();
-    let GIF_data = JSON_response.data;
-    
-    return GIF_data;
+async function get_Trending_GIF() {
+  let response = await fetch(trending_url);
+  let JSON_response = await response.json();
+  let GIF_data = JSON_response.data;
+
+  return GIF_data;
 }
 get_Trending_GIF()
-.then(response => add_to_DOM(response))
-.catch (error => console.log (error));
+  .then(response => add_to_DOM(response))
+  .catch(error => console.log(error));
 
 
 

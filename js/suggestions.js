@@ -108,6 +108,8 @@ for (i = 0; i < search_inputs.length; i++) {
   search_inputs[i].addEventListener("click", () => {
 
     query.value = kw.value;
+    title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
+    title.style.display = "block";
 
     let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
     showGIFS(url)
@@ -167,7 +169,7 @@ query.addEventListener("keyup", (e) => {
           empty_search.classList.add("d-none");
           resultados = response;
           displayResults(resultados, 0, 12);
-          
+
         } else {
           empty_search.classList.remove("d-none");
           console.log("No hay resultados para ese término");
@@ -202,10 +204,13 @@ function displayResults(array, posicion, longitud) {
     view_more_btn.classList.replace("d-block", "d-none");
     console.log("La longitud del array es " + array.length)
   }
-  //elementos que necesito para guardar Fav
+  
 
 
   let i = posicion;
+  if (array.length<12){
+    longitud = array.length;
+  }
 
   for (i; i < longitud; i++) {
 
@@ -222,7 +227,7 @@ function displayResults(array, posicion, longitud) {
                   <img src="./img/icon-download.svg" class="icon" id="${array[i].id}-dload">
                 </div>
                 <div class="icon-btn">
-                  <img src="./img/icon-max.svg" class="icon">
+                  <img src="./img/icon-max.svg" class="icon" id="${array[i].id}-max">
                 </div>
         <div class="user-details">
           <h6 class="user white-text" id="${array[i].id}-user">${array[i].username}</h6>
@@ -230,61 +235,101 @@ function displayResults(array, posicion, longitud) {
         </div>
       </div>`;
 
-      let heart = document.getElementById(`${array[i].id}`);
-      let download = document.getElementById(`${array[i].id}-dload`)
-      let image = (document.getElementById(`${array[i].id}-img`)).src;
-      let title = (document.getElementById(`${array[i].id}-title`).innerHTML);
-      let username = (document.getElementById(`${array[i].id}-user`).innerHTML);
+    let heart = document.getElementById(`${array[i].id}`);
+    let id = `${array[i].id}`;
+    let download = document.getElementById(`${array[i].id}-dload`);
+    let maximize = document.getElementById(`${array[i].id}-max`);
+    let image = (document.getElementById(`${array[i].id}-img`)).src;
+    let title = (document.getElementById(`${array[i].id}-title`).innerHTML);
+    let username = (document.getElementById(`${array[i].id}-user`).innerHTML);
 
-      //crear event listener para almacenar en Favoritos
+    //crear event listener para almacenar en Favoritos
 
-      heart.addEventListener ('click',() => {
-        let gifo = new Gifo(image, title, username, true);
-        console.log(gifo);
-        if (JSON.parse(localStorage.getItem("favs"))) {
-            favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
-            favourite_GIFOS.push(gifo);
-            localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
-        } else {
-            favourite_GIFOS = [];
-            favourite_GIFOS.push(gifo);
-            localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+    heart.addEventListener('click', () => {
+      let gifo = new Gifo(id, image, title, username, true);
+      console.log(gifo);
+      if (JSON.parse(localStorage.getItem("favs"))) {
+        favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
+        favourite_GIFOS.push(gifo);
+        localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+      } else {
+        favourite_GIFOS = [];
+        favourite_GIFOS.push(gifo);
+        localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
 
-        };
-      });
-        //crear event listener para Descargar
-        download.addEventListener('click', async () => {
-          //create new a element
-          let a = document.createElement('a');
-          // get image as blob
-          let response = await fetch(image);
-          let file = await response.blob();
-          // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
-          a.download = `${title}`;
-          a.href = window.URL.createObjectURL(file);
-          //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-          a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-          //click on element to start download
-          a.click();
-        });
+      }
+    });
+    //crear event listener para Descargar
+    download.addEventListener('click', async () => {
+      //create new a element
+      let a = document.createElement('a');
+      // get image as blob
+      let response = await fetch(image);
+      let file = await response.blob();
+      // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+      a.download = `${title}`;
+      a.href = window.URL.createObjectURL(file);
+      //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+      a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+      //click on element to start download
+      a.click();
+    });
 
-   
+    //crear event listener para Maximizar y crear el contenido de la tarjeta max
+
+    maximize.addEventListener('click',() => {   
+      
+      
+      gifoMax_cards[0].style.display="grid";
+      max_heart[0].setAttribute("id", `${heart.id}`);
+      gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
+      gifoMax_title.innerText=`${title}`;
+      gifoMax_user.innerText=`${username}`;      
+    })
+    
+
+  } //FIN DEL CICLO FOR  
+
+  //mostrar las tarjetas en hover solo a partir devices 1024px
+  if (window.innerWidth >= 1024) {
+    show_hide_gifCards();
   }
-  show_hide_gifCards();
-   
-
 
   array.splice(0, 12);
-  remaindersArray = array; 
-  
+  remaindersArray = array;
+
 
 }
 
 //mostrar más resultados
 view_more_btn.addEventListener('click', () => {
   displayResults(remaindersArray, 0, 12);
-  
+
 })
+
+// guardar en Favoritos desde Gifo Max
+max_heart[0].addEventListener('click', () => {
+  let id = max_heart[0].getAttribute("id");
+  let image = (document.getElementById("max-img")).src;
+  let title = (document.getElementById("gif-max-title")).innerHTML;
+  let username = (document.getElementById("gif-max-user")).innerHTML;
+  console.log("Guardar en Favoritos");
+  let gifo = new Gifo(id, image, title, username, true);
+      console.log(gifo);
+      if (JSON.parse(localStorage.getItem("favs"))) {
+        favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
+        favourite_GIFOS.push(gifo);
+        localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+      } else {
+        favourite_GIFOS = [];
+        favourite_GIFOS.push(gifo);
+        localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+
+      };
+  
+
+});
+//falta--> descargar desde Gifo Max
 
 
 

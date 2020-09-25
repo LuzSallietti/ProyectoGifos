@@ -232,9 +232,184 @@
         </div>
       </nav>
     </header>
+    <!--SECTION (GIFO MAX) QUE SE DESPLIEGA AL HACER CLICK EN CADA GIFO decidir dónde irá finalmente en el html o crearlo dinámicamente con JS?-->
+    <section class="gifo-max">
+      <div class="close-icon align-items-center justify-content-end">
+        <svg
+          version="1.1"
+          id="close"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="14px"
+          height="14px"
+          viewBox="0 0 14 14"
+          enable-background="new 0 0 14 14"
+          xml:space="preserve"
+        >
+          <g>
+            <path
+              id="path-1"
+              fill="#FFFFFF"
+              d="M0.293,0.293c0.391-0.391,1.023-0.391,1.414,0l0,0L7,5.585l5.293-5.292
+              c0.36-0.36,0.928-0.388,1.32-0.083l0.094,0.083c0.391,0.391,0.391,1.023,0,1.414l0,0L8.415,7l5.292,5.293
+              c0.36,0.36,0.389,0.928,0.083,1.32l-0.083,0.094c-0.391,0.391-1.023,0.391-1.414,0l0,0L7,8.415l-5.293,5.292
+              c-0.36,0.36-0.928,0.389-1.32,0.084l-0.094-0.084c-0.391-0.391-0.391-1.023,0-1.414l0,0L5.585,7L0.293,1.707
+              c-0.36-0.36-0.388-0.928-0.083-1.32L0.293,0.293z"
+            />
+          </g>
+          <title>close</title>
+          <desc>Created with Sketch.</desc>
+          <g id="GIFOS">
+            <g
+              id="_x30_0-UI-Kit"
+              transform="translate(-669.000000, -2993.000000)"
+            >
+              <g transform="translate(669.000000, 2993.000000)">
+                <g>
+                  <path
+                    id="path-1_1_"
+                    class="GIFOS-text"
+                    d="M0.293,0.293c0.391-0.391,1.023-0.391,1.414,0l0,0L7,5.585l5.293-5.292
+                          c0.36-0.36,0.928-0.388,1.32-0.083l0.094,0.083c0.391,0.391,0.391,1.023,0,1.414l0,0L8.415,7l5.292,5.293
+                          c0.36,0.36,0.389,0.928,0.083,1.32l-0.083,0.094c-0.391,0.391-1.023,0.391-1.414,0l0,0L7,8.415l-5.293,5.292
+                          c-0.36,0.36-0.928,0.389-1.32,0.084l-0.094-0.084c-0.391-0.391-0.391-1.023,0-1.414l0,0L5.585,7L0.293,1.707
+                          c-0.36-0.36-0.388-0.928-0.083-1.32L0.293,0.293z"
+                  />
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="arrow-left">
+        <svg
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="8px"
+          height="14px"
+          viewBox="0 0 8 14"
+          enable-background="new 0 0 8 14"
+          xml:space="preserve"
+        >
+          <g>
+            <path
+              id="path-1"
+              fill="#FFFFFF"
+              d="M2.414,7l5.293-5.293c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0l-6,6
+  c-0.391,0.391-0.391,1.023,0,1.414l6,6c0.391,0.391,1.023,0.391,1.414,0s0.391-1.023,0-1.414L2.414,7z"
+            />
+          </g>
+          <title>button-left</title>
+          <desc>Created with Sketch.</desc>
+          <g id="GIFOS">
+            <g
+              id="_x30_0-UI-Kit"
+              transform="translate(-192.000000, -2978.000000)"
+            >
+              <g
+                id="button-slider-left"
+                transform="translate(176.000000, 2965.000000)"
+              >
+                <g
+                  id="button-left"
+                  transform="translate(16.000000, 13.000000)"
+                >
+                  <g>
+                    <path
+                      id="path-1_1_"
+                      class="GIFOS-text"
+                      d="M2.414,7l5.293-5.293c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0l-6,6
+          c-0.391,0.391-0.391,1.023,0,1.414l6,6c0.391,0.391,1.023,0.391,1.414,0s0.391-1.023,0-1.414L2.414,7z"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="gifo-container" id="gifo-container">
+        <img
+          id="max-img"
+          src="https://media.giphy.com/media/12rTjvF0ANQJsk/giphy.gif"
+          class="gif-content"
+        />
+      </div>
+      <div class="arrow-right">
+        <svg
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="8px"
+          height="14px"
+          viewBox="0 0 8 14"
+          enable-background="new 0 0 8 14"
+          xml:space="preserve"
+        >
+          <g>
+            <path
+              id="path-1"
+              fill="#FFFFFF"
+              d="M5.586,7l-5.293,5.293c-0.391,0.391-0.391,1.023,0,1.414s1.023,0.391,1.414,0l6-6
+  c0.391-0.391,0.391-1.023,0-1.414l-6-6c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414L5.586,7z"
+            />
+          </g>
+          <title>button-right</title>
+          <desc>Created with Sketch.</desc>
+          <g id="GIFOS">
+            <g
+              id="_x30_0-UI-Kit"
+              transform="translate(-192.000000, -2924.000000)"
+            >
+              <g
+                id="button-slider-right"
+                transform="translate(176.000000, 2911.000000)"
+              >
+                <g
+                  id="button-right"
+                  transform="translate(16.000000, 13.000000)"
+                >
+                  <g>
+                    <path
+                      id="path-1_1_"
+                      class="GIFOS-text"
+                      d="M5.586,7l-5.293,5.293c-0.391,0.391-0.391,1.023,0,1.414s1.023,0.391,1.414,0l6-6
+          c0.391-0.391,0.391-1.023,0-1.414l-6-6c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414L5.586,7z"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="actions space-between">
+        <div>
+          <h6 class="user" id="gif-max-user">User</h6>
+          <h5 class="gif-title montserrat-font" id="gif-max-title">Título GIFO</h5>
+        </div>
+        <div class="btns-container space-between">
+          <div class="icon-btn">
+            <img src="./img/icon-fav-active.svg" class="icon heart max-heart">
+          </div>
+          <div class="icon-btn">
+            <img src="./img/icon-download.svg" class="icon" id="max-download">
+          </div>
+        </div>
+      </div>
+    </section>
     <main>
       <!-- SECCION FAVORITOS  editar!-->
-      <section>
+      <section id="favouriteGifos">
         <div class="section-icon align-center">
           <img src="./img/icon-favoritos.svg" alt="ícono de Favoritos" />
         </div>
@@ -695,6 +870,7 @@
       <p class="align-center copy">© GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <!--JS-->
+    <script src="./js/hide-gifosMax.js"></script>
     <script src="./js/home-functions.js"></script>
     <script src="./js/show-gifos-details.js"></script>
     <script src="./js/favoritos.js"></script>

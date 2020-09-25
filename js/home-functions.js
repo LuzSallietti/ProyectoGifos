@@ -83,7 +83,7 @@ function switchTheme() {
 
 
 
-   // Almacenar la elección del modo en Local Storage (diurno/nocturno)
+   // Almacenar la elección del modo en localStorage (diurno/nocturno)
 
    document.body.classList.contains("dark-mode_body") ? localStorage.setItem("dark_mode", "true") : localStorage.setItem("dark_mode", "false");
 }
@@ -131,15 +131,4 @@ function apply_shadow() {
 
 
 
-//carrusel tendencias
-
-let gifs_carousel = document.getElementById("carousel");
-gifs_carousel.addEventListener("click", () => {
-   let position = 250;
-   setInterval(() => {
-      gifs_carousel.style.right = `${position}px`;
-      gifs_carousel.style.trasition = "all ease";
-      position = position + 250;
-   }, 2000);
-});
 

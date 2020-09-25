@@ -12,6 +12,7 @@ let title = document.getElementById("search-kw");
 let autocompleteArray;
 let resultados;
 let remaindersArray;
+const section_container = document.getElementById("searchedGifos"); 
 
 
 
@@ -199,6 +200,8 @@ function displayResults(array, posicion, longitud) {
 
   const results_container = document.querySelector("#results-container");
   results_container.classList.remove("d-none");
+  section_container.style.paddingBottom="5rem";
+  
   view_more_btn.classList.replace("d-none", "d-block");
   if ((array.length) <= 14) {
     view_more_btn.classList.replace("d-block", "d-none");
@@ -246,6 +249,7 @@ function displayResults(array, posicion, longitud) {
     //crear event listener para almacenar en Favoritos
 
     heart.addEventListener('click', () => {
+      heart.setAttribute("src", "./img/icon-fav-active.svg");
       let gifo = new Gifo(id, image, title, username, true);
       console.log(gifo);
       if (JSON.parse(localStorage.getItem("favs"))) {
@@ -277,22 +281,45 @@ function displayResults(array, posicion, longitud) {
 
     //crear event listener para Maximizar y crear el contenido de la tarjeta max
 
-    maximize.addEventListener('click',() => {   
-      
-      
+    maximize.addEventListener('click',() => { 
+           
       gifoMax_cards[0].style.display="grid";
-      max_heart[0].setAttribute("id", `${heart.id}`);
+      //cambiar color corazón
+      max_heart[0].getAttribute("src") === "./img/icon-fav-hover.svg" ? max_heart[0].setAttribute("src", "./img/icon-fav-active.svg") : max_heart[0].setAttribute("src", "./img/icon-fav-hover.svg");
+      max_heart[0].setAttribute("id", `${heart.id}`);      
       gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
       gifoMax_title.innerText=`${title}`;
       gifoMax_user.innerText=`${username}`;      
-    })
+    });
+
+  // mostrar el contenido de la tarjeta max en mobile, al hacer clic en el gif 
+  if (window.innerWidth < 1024){
+    DIV.addEventListener('click', () =>{
+      gifoMax_cards[0].style.display="grid";   
+      max_heart[0].setAttribute("id", `${heart.id}`);      
+      gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
+      gifoMax_title.innerText=`${title}`;
+      gifoMax_user.innerText=`${username}`;  
+    });
+  }
     
 
   } //FIN DEL CICLO FOR  
 
-  //mostrar las tarjetas en hover solo a partir devices 1024px
+  //mostrar las tarjetas en hover solo a partir devices 1024px > para dispositivos menores mostrar gifoMax cuando se hace click sobre la tarjeta
   if (window.innerWidth >= 1024) {
     show_hide_gifCards();
+  } else {
+    let gif_imgs = document.getElementsByClassName("gif");
+    let gif_cards = document.getElementsByClassName("gif-card");
+    
+    for (i=0; i<gif_imgs.length; i++){
+      let gif_card = gif_cards[i];
+
+      gif_imgs[i].addEventListener('click', ()=> {        
+        gif_card.style.display="hidden";          
+      });
+    }
   }
 
   array.splice(0, 12);
@@ -309,11 +336,17 @@ view_more_btn.addEventListener('click', () => {
 
 // guardar en Favoritos desde Gifo Max
 max_heart[0].addEventListener('click', () => {
+
+  //evaluar color corazon
+  if (window.innerWidth<1024){
+    max_heart[0].setAttribute("src", "./img/icon-fav-active.svg"); }   
+  
   let id = max_heart[0].getAttribute("id");
   let image = (document.getElementById("max-img")).src;
   let title = (document.getElementById("gif-max-title")).innerHTML;
   let username = (document.getElementById("gif-max-user")).innerHTML;
   console.log("Guardar en Favoritos");
+
   let gifo = new Gifo(id, image, title, username, true);
       console.log(gifo);
       if (JSON.parse(localStorage.getItem("favs"))) {
@@ -325,11 +358,26 @@ max_heart[0].addEventListener('click', () => {
         favourite_GIFOS.push(gifo);
         localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
 
-      };
-  
+      }; 
 
 });
-//falta--> descargar desde Gifo Max
+//descargar desde Gifo Max
+max_download.addEventListener('click', async () => {
+  let image = (document.getElementById("max-img")).src;
+  let title = (document.getElementById("gif-max-title")).innerHTML;
+  //create new a element
+  let a = document.createElement('a');
+  // get image as blob
+  let response = await fetch(image);
+  let file = await response.blob();
+  // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+  a.download = `${title}`;
+  a.href = window.URL.createObjectURL(file);
+  //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+  a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+  //click on element to start download
+  a.click();
+});
 
 
 

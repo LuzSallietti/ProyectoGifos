@@ -275,7 +275,7 @@ main .btn-view-more {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   border: 1px solid #572ee5;
-  margin: 5rem auto;
+  margin: 5rem auto 0rem auto;
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
 }
@@ -354,6 +354,15 @@ main h4 {
 
 .container {
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .carousel {
@@ -366,14 +375,12 @@ main h4 {
           flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   position: relative;
-  padding: 0 0.75rem;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  padding: 0 2rem;
+  width: auto;
 }
 
 .gif {
@@ -508,9 +515,11 @@ footer {
   height: 100vh;
   width: 100%;
   margin: auto;
-  position: absolute;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0px;
   background-color: #fff;
+  z-index: 100;
 }
 
 .close-icon {
@@ -867,7 +876,6 @@ footer {
     -ms-flex-item-align: center;
         align-self: center;
     justify-self: self-end;
-    margin: 0 25px;
   }
   .arrow-left:hover {
     background-color: #572ee5;
@@ -894,7 +902,6 @@ footer {
     -ms-flex-item-align: center;
         align-self: center;
     justify-self: self-start;
-    margin: 0 25px;
   }
   .arrow-right:hover {
     background-color: #572ee5;

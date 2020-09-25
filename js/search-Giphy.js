@@ -1,4 +1,5 @@
 //llamar API Giphy
+/*
 const base_URL = "https://api.giphy.com/v1/gifs"
 const giphy_SEARCH_endopoint = "/search?"
 let searchQuery = "q=luis+miguel"; //se reemplazará con el input del usuario
@@ -61,7 +62,7 @@ async function get_Trending_GIF() {
 get_Trending_GIF()
   .then(response => add_to_DOM(response))
   .catch(error => console.log(error));
-
+*/
 
 
 

@@ -4,7 +4,16 @@ const favs_container = document.querySelector("#favs-container");
 const view_more_btn = document.getElementById("view-more");
 const empty_favs=document.getElementById("empty-favs")
 let remainders_Favs;
-let favourites_storage = JSON.parse(localStorage.getItem("favs"));
+let favourites_storage = []; //Evaluar si hay gifos almacenados como favoritos (con valor true) para mostrar solo esos
+if (JSON.parse(localStorage.getItem("favs"))){
+  let favs = JSON.parse(localStorage.getItem("favs"));
+  for (i=0; i<favs.length; i++){
+    if (favs[i].fav==true){
+      favourites_storage.push(favs[i]);
+      console.log(favourites_storage);
+    }
+  }
+}
 
 document.onload = (JSON.parse(localStorage.getItem("favs"))) ? displayFavs(favourites_storage,0 ,12) : empty_favs.classList.replace("d-none", "d-block"); //si el key no existe en localStorage, mostrar diseño de Favoritos sin contenido
 
@@ -50,12 +59,45 @@ for (i = 0; i < longitud; i++){
         </div>
       </div>`;
 
-    let heart = document.getElementById(`${array[i].id}`); //sirve para algo usar el heart? desfavoritear?
+    let heart = document.getElementById(`${array[i].id}`);
+    let gif_id = heart.getAttribute("id");
     let download = document.getElementById(`${array[i].id}-dload`);
     let maximize = document.getElementById(`${array[i].id}-max`);
     let image = (document.getElementById(`${array[i].id}-img`)).src;
     let title = (document.getElementById(`${array[i].id}-title`).innerHTML);
     let username = (document.getElementById(`${array[i].id}-user`).innerHTML);
+
+    //crear event listener para desfavoritear o volver a favoritear desde pagina Favoritos
+
+    heart.addEventListener('click', () => {      
+        
+        
+      if (heart.getAttribute("src") == "./img/icon-fav-active.svg"){
+        heart.setAttribute("src","./img/icon-fav-hover.svg");
+        console.log("Me desfavoriteo");
+        //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
+        
+        console.log(gif_id);
+        deleteFav(gif_id);
+
+      }
+      else {
+        heart.setAttribute("src","./img/icon-fav-active.svg");
+        console.log("Me tengo que favoritear.Mi id es "+gif_id);
+                    
+        favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
+
+        for (i = 0; i<favourite_GIFOS.length; i++){
+          if (favourite_GIFOS[i].id == gif_id && favourite_GIFOS[i].fav == false){              
+          
+              favourite_GIFOS[i].fav = true;
+              localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+          }          
+
+          }
+      }                
+      
+  });
 
     //crear event listener para Descargar
     download.addEventListener('click', async () => {

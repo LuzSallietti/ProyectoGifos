@@ -44,30 +44,35 @@ function deleteFav(id){
 }
 
 function addFav(id){
-  let flag=false;
+  let isStorage;
   if (JSON.parse(localStorage.getItem("favs"))){
     favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
+    console.log(favourite_GIFOS.length);
 
     for (i = 0; i<favourite_GIFOS.length; i++){
-      if (favourite_GIFOS[i].id == id && favourite_GIFOS[i].fav == false){              
+      if ((favourite_GIFOS[i].id) == id && (favourite_GIFOS[i].fav) == false){              
           
           favourite_GIFOS[i].fav = true;
-          localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
-      }
-      if ((favourite_GIFOS[i].id) !== id) {
-        flag =true;
-        console.log("Hay contenidos pero no es el gif que querés guardar. La bandera es "+ flag)
-                
+          console.log("Me encontré, me cambié y salgo del ciclo");
+          console.log(favourite_GIFOS[i]);
+          isStorage=true;
+          break;
+          
+      }      
+      else { 
+        isStorage = false;
+        console.log("Hay contenidos pero no es el gif que querés guardar. La bandera es "+ isStorage)
+        console.log(favourite_GIFOS[i]);                
       } 
     }
-    if (flag==true){
+    if (isStorage == false){
       let image = (document.getElementById(`${id}-img`)).src;
       let title = (document.getElementById(`${id}-title`).innerHTML);
       let username = (document.getElementById(`${id}-user`).innerHTML);
       let gifo = new Gifo(id, image, title, username, true); //almacena un Gifo favorito nuevo en localStorage
       console.log(gifo);
       favourite_GIFOS.push(gifo);
-      localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+     
 
     }
 
@@ -79,7 +84,8 @@ function addFav(id){
   console.log(gifo);
   favourite_GIFOS = [];
   favourite_GIFOS.push(gifo);
-  localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
+ 
   
  }
+ localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
 }

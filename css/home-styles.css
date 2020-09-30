@@ -703,21 +703,23 @@ footer {
       align-content: space-between;
   padding: 1rem;
   margin-bottom: .5rem;
-  position: relative;
 }
 
 .creator-container .creator-frame .video-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid grey;
+  margin: auto;
+  display: block;
   position: absolute;
-  width: 90%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  height: 90%;
+  top: 0;
 }
 
 .creator-container .creator-frame .text-container {
   width: 90%;
   text-align: center;
+  position: relative;
+  height: 95%;
 }
 
 .creator-container .creator-frame .text-container h1 {
@@ -732,7 +734,27 @@ footer {
 
 .creator-container .creator-frame #img-container {
   text-align: center;
-  display: none;
+  border: 1px solid red;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.creator-container .creator-frame #img-container img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .creator-container .creator-frame .frame-details {
@@ -777,6 +799,7 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: .5rem;
+  position: relative;
 }
 
 .step-numbers .number {
@@ -798,6 +821,87 @@ footer {
           align-items: center;
   margin: 0 12.5px;
   background-color: transparent;
+}
+
+.clock {
+  position: absolute;
+  right: 2%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #572ee5;
+}
+
+.clock span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #572ee5;
+}
+
+.upload-gif {
+  background-color: rgba(87, 46, 229, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 300;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 50% 1fr;
+      grid-template-columns: 1fr 50% 1fr;
+  -ms-grid-rows: 40% 20% 40%;
+      grid-template-rows: 40% 20% 40%;
+  visibility: hidden;
+}
+
+.load-icons {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
+.loading-msg {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  width: 100%;
+  line-height: normal;
+  margin: 0;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.upload-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  justify-self: end;
+  margin-right: 12px;
+  margin-top: 12px;
+  visibility: hidden;
 }
 
 .purple-division {
@@ -1215,7 +1319,6 @@ footer {
     padding: 20px;
   }
   .creator-container .creator-frame .text-container {
-    margin-top: 5rem;
     width: 90%;
     text-align: center;
   }

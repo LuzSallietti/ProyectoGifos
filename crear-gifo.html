@@ -239,12 +239,9 @@
       <div class="creator-container">
         <img class="camera" src="./img/camara.svg" />
         <div class="creator-frame">
-          <video id="video-container" class="video-container"></video>
-          
+            
           <div class="frame-details border-top border-left"></div>
-          <div id="img-container">
-            <img id="img-element">
-          </div> 
+           
           <div class="text-container" id="text-container">
                        
             <h1 id="main-title">
@@ -254,6 +251,22 @@
               ¡Crea tu GIFO en sólo 3 pasos!<br>(solo necesitas una cámara
               para grabar un video)
             </p>
+            <video id="video-container" class="video-container"></video>
+            <div id="upload-details" class="upload-gif">
+              <div class="upload-btns" id="upload-btns">
+                <div class="icon-btn">
+                  <img src="./img/icon-download.svg" class="icon" id="mygif-dload">
+                </div>
+                <div class="icon-btn">
+                  <img src="./img/icon-link.svg" class="icon" id="mygif-share">
+                </div>
+              </div>
+              <img src="./img/loader.svg" class="load-icons" alt="loader" id="loader">
+              <h4 class="loading-msg" id="loading-msg">Estamos subiendo tu GIFO</p>
+            </div>
+            <div id="img-container">
+              <img id="img-element">
+            </div>        
           </div>
           <div class="frame-details border-top border-right"></div>
           <div class="frame-details border-bottom border-left"></div>
@@ -263,7 +276,8 @@
         <div class="step-numbers">
           <button class="number" id="one-btn">1</button>
           <button class="number" id="two-btn">2</button>
-          <button class="number">3</button>
+          <button class="number" id="three-btn">3</button>
+          <p class="clock">00:0<span id="seconds">0</span></p>
         </div>
         <img class="tape" src="./img/pelicula.svg" />
         <div class="purple-division"></div>

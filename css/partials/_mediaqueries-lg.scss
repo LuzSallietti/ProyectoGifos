@@ -199,7 +199,7 @@
       align-content: space-between;
       padding:20px;
       .text-container{
-        margin-top:5rem;
+    
         width: 90%;        
         text-align: center;
         
@@ -213,6 +213,7 @@
         }
         
       }
+
       .frame-details{
         width: 27px;
         height: 27px;
@@ -233,6 +234,7 @@
       
     }
   }
+  
   .tape{
     display: block;
     grid-column:3/4;

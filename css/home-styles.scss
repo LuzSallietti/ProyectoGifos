@@ -542,17 +542,36 @@ footer {
   align-content: space-between;
   padding: 1rem;
   margin-bottom: .5rem;
+  position: relative;
+  .video-container{
+    
+    position: absolute;
+    width: 90%;
+    align-self: center;
+    height: 90%;
+  }
+
   .text-container {
       
       width: 90%;
       text-align: center;
 
-    h1 {
-        
+    h1 {        
         margin: 2rem auto;
         width: 80%;
       }
+      p{
+        width: 80%;
+        margin: auto;
+      }
+    
+
     }
+  #img-container{
+    text-align: center;
+    display: none;
+    
+  }  
   .frame-details {
      width: 5%;
      height: 5%;

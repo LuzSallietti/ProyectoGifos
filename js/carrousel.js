@@ -12,6 +12,9 @@ let counter = 0;
 let trending_results = [];
 
 
+
+
+
 function add_to_DOM(response) {
     for (i = 0; i < 3; i++) { //Crear dinámicamente los GIFOS del trending
 
@@ -23,7 +26,7 @@ function add_to_DOM(response) {
         DIV.innerHTML = `<img class="gif-img" src=${response[i].images.fixed_height_downsampled.url} id="${response[i].id}-img">
         <div class="gif-card large">
                 <div class="icon-btn">
-                  <img src="./img/icon-fav-hover.svg" class="icon heart" id=${response[i].id}>
+                  <img src="./img/icon-fav-hover.svg" class="icon heart trend-heart" id=${response[i].id}>
                 </div>
                 <div class="icon-btn">
                   <img src="./img/icon-download.svg" class="icon" id="${response[i].id}-dload">
@@ -36,11 +39,21 @@ function add_to_DOM(response) {
                   <h5 class="gif-title white-text" id="${response[i].id}-title">${response[i].title}</h5>
                 </div>
               </div>`;
-        counter = counter + 1;       
-        iconsEvents(response);
+        
+      counter = counter + 1;
+         
+      
+      /*analizeFavs(response[i].id);*/    
+          
+        
+      iconsEvents(response);
+        
+                               
+        
                   
-    }  //fin del ciclo for
+    }  //fin del ciclo for        
 
+        
     if (window.innerWidth >= 1024) {
         show_hide_gifCards();
     } else {
@@ -61,6 +74,7 @@ async function get_Trending_GIF() {
     let response = await fetch(trending_url);
     let JSON_response = await response.json();
     let GIF_data = JSON_response.data;
+    console.log(GIF_data);
 
     return GIF_data;
 }
@@ -100,7 +114,11 @@ function goFoward() {
               </div>
             </div>`;
         counter = counter + 1;
+        analizeFavs(trending_results[i].id);            
+          
+               
         iconsEvents(trending_results);
+        
     }
     //mostrar las tarjetas en hover solo a partir devices 1024px
     if (window.innerWidth >= 1024) {
@@ -149,7 +167,9 @@ function goBack() {
               </div>
             </div>`;
             counter = counter + 1;
+            /*analizeFavs(trending_results[i].id);*/             
             iconsEvents(trending_results);
+            
 
             
         }// fin de for

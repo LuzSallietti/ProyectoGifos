@@ -12,11 +12,7 @@ let title = document.getElementById("search-kw");
 let autocompleteArray;
 let resultados;
 let remaindersArray;
-const section_container = document.getElementById("searchedGifos"); 
-
-
-
-
+const section_container = document.getElementById("searchedGifos");
 
 
 window.onload = evaluateTheme(); // determinar color/clase que llevará el ícono de cruz que se crea dinámicamente al clickear el form

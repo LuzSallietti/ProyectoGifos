@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+<script>
+    let favourite_storage =
+    [{"id":"pM4rTCiW41OIo","src":"https://media1.giphy.com/media/pM4rTCiW41OIo/200_d.gif?cid=c981e419020rr2tl08pdxiex1cmnbpqmvepli5w25csio2dx&rid=200_d.gif","title":"greece GIF","user":"","fav":true},{"id":"XMnLxoweojBlK","src":"https://media1.giphy.com/media/XMnLxoweojBlK/200_d.gif?cid=c981e419020rr2tl08pdxiex1cmnbpqmvepli5w25csio2dx&rid=200_d.gif","title":"summer travel GIF","user":"","fav":true},{"id":"5RORsXDYXUOelTmtsQ","src":"https://media4.giphy.com/media/5RORsXDYXUOelTmtsQ/200_d.gif?cid=c981e419020rr2tl08pdxiex1cmnbpqmvepli5w25csio2dx&rid=200_d.gif","title":"the smurfs world GIF by Boomerang Official","user":"boomerangtoons","fav":true},{"id":"3ohzB3gCsIPAiBDmX6","src":"https://media3.giphy.com/media/3ohzB3gCsIPAiBDmX6/200_d.gif?cid=c981e419d8q3aez23q4pc590gmfemgk7my1gsnyv6ookdotp&rid=200_d.gif","title":"","user":"alimac","fav":true},{"id":"5bdcPvhFqXBcsGeThb","src":"https://media1.giphy.com/media/5bdcPvhFqXBcsGeThb/200_d.gif?cid=c981e419d8q3aez23q4pc590gmfemgk7my1gsnyv6ookdotp&rid=200_d.gif","title":"art illustration GIF by Simon Cooper","user":"simoncooper-07d3","fav":true},{"id":"l2JI71QjIQrObqCJy","src":"https://media4.giphy.com/media/l2JI71QjIQrObqCJy/200_d.gif?cid=c981e419d8q3aez23q4pc590gmfemgk7my1gsnyv6ookdotp&rid=200_d.gif","title":"valentine's day love GIF by Studio 360","user":"mygifyvalentine","fav":true},{"id":"xT5LMSzyiuOaRtIVIA","src":"https://media4.giphy.com/media/xT5LMSzyiuOaRtIVIA/200_d.gif?cid=c981e419d8q3aez23q4pc590gmfemgk7my1gsnyv6ookdotp&rid=200_d.gif","title":"hungry homer simpson GIF","user":"","fav":false},{"id":"hvAmlaCmhlDj8JWI95","src":"https://media1.giphy.com/media/hvAmlaCmhlDj8JWI95/200_d.gif?cid=c981e419a0oqt130r8dnt41xnpskld6bpjjcnfn17rp30ymd&rid=200_d.gif","title":"Vice Tv Scandal GIF by STICK TO SPORTS","user":"sticktosports","fav":true},{"id":"BCgcfnaGDaYai5eYD1","src":"https://media0.giphy.com/media/9rtpurjbqiqZXbBBet/200_d.gif?cid=c981e419a0oqt130r8dnt41xnpskld6bpjjcnfn17rp30ymd&rid=200_d.gif","title":"Dog Computer GIF","user":"","fav":false},{"id":"5QW23oYYEgPPAULUsb","src":"https://media0.giphy.com/media/5QW23oYYEgPPAULUsb/200_d.gif?cid=c981e419j67elf85w150mb9idncohj4pumz9hnxrjpel16o7&rid=200_d.gif","title":"Confused Seth Meyers GIF by Late Night with Seth Meyers","user":"latenightseth","fav":true},{"id":"j1zHtIvDtLIy7vi5tf","src":"https://media0.giphy.com/media/j1zHtIvDtLIy7vi5tf/200_d.gif?cid=c981e4193peg6munpdnkxvbwhruu6tx9ntr6yaub03a1gdho&rid=200_d.gif","title":"Reaction Gif GIF by MOODMAN","user":"","fav":true}];
+
+    function analizeFavsTrends(array, id) {   
+        for (i=0;i<array.length;i++){
+            if (array[i].id==id && array[i].fav==true){
+                console.log("Está favoriteado.Mostrar en violeta " + id);
+            }
+        }
+    }
+    analizeFavsTrends(favourite_storage, "5RORsXDYXUOelTmtsQ"); 
+
+    
+
+</script>
+</body>
+</html>

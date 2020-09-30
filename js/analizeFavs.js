@@ -1,7 +1,7 @@
 //comprobar si el id ya existe como favorito en localStorage para mostrarlo con el corazon violeta
 
 function analizeFavs(id){
-
+  let heart;
 
 if (JSON.parse(localStorage.getItem("favs"))){
           favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
@@ -9,11 +9,11 @@ if (JSON.parse(localStorage.getItem("favs"))){
           for (i = 0; i<favourite_GIFOS.length; i++){
             if (favourite_GIFOS[i].id == id && favourite_GIFOS[i].fav == true){
                 
-                let heart = document.getElementById(id);
+                heart = document.getElementById(id);
                 heart.src=`./img/icon-fav-active.svg`;    //existe en localStorage como fav          
             } else if (favourite_GIFOS[i].id == id && favourite_GIFOS[i].fav == false) {
-                let heart = document.getElementById(id);
-                heart.src=`./img/icon-fav-hover.svg`; //existe en localStorage desfavoriteado
+                heart = document.getElementById(id);
+                 heart.src=`./img/icon-fav-hover.svg`; //existe en localStorage desfavoriteado
             } 
           }
         }
@@ -21,7 +21,7 @@ if (JSON.parse(localStorage.getItem("favs"))){
         
 else {
     console.log ("No hay nada guardado en local Storage");
-    let heart = document.getElementById(id);
+    heart = document.getElementById(id);
     heart.src=`./img/icon-fav-hover.svg`
 }
 }

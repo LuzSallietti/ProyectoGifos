@@ -8,7 +8,9 @@
       src="https://kit.fontawesome.com/2b49350120.js"
       crossorigin="anonymous"
     ></script>
+    <script defer src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script defer src="./js/home-functions.js"></script>
+    <script defer src="./js/create-Gifo.js"></script>
     <title>GIFOS Favoritos</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto&display=swap"
@@ -237,14 +239,19 @@
       <div class="creator-container">
         <img class="camera" src="./img/camara.svg" />
         <div class="creator-frame">
+          <video id="video-container" class="video-container"></video>
+          
           <div class="frame-details border-top border-left"></div>
-
-          <div class="text-container">
-            <h1>
+          <div id="img-container">
+            <img id="img-element">
+          </div> 
+          <div class="text-container" id="text-container">
+                       
+            <h1 id="main-title">
               Aquí podrás crear tus propios <span class="mint">GIFOS</span>
             </h1>
-            <p class="instructions">
-              ¡Crea tu GIFO en sólo 3 pasos!<br />(solo necesitas una cámara
+            <p class="instructions" id="instructions">
+              ¡Crea tu GIFO en sólo 3 pasos!<br>(solo necesitas una cámara
               para grabar un video)
             </p>
           </div>
@@ -254,13 +261,13 @@
         </div>
 
         <div class="step-numbers">
-          <button class="number">1</button>
-          <button class="number">2</button>
+          <button class="number" id="one-btn">1</button>
+          <button class="number" id="two-btn">2</button>
           <button class="number">3</button>
         </div>
         <img class="tape" src="./img/pelicula.svg" />
         <div class="purple-division"></div>
-        <button id="view-more" class="btn-view-more">Comenzar</button>
+        <button id="start-button" class="btn-view-more">Comenzar</button>
       </div>
     </main>
     <footer>
@@ -424,5 +431,6 @@
       </div>
       <p class="align-center copy">© GIFOS 2020 All Rights Reserved.</p>
     </footer>
+    
   </body>
 </html>

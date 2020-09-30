@@ -703,6 +703,16 @@ footer {
       align-content: space-between;
   padding: 1rem;
   margin-bottom: .5rem;
+  position: relative;
+}
+
+.creator-container .creator-frame .video-container {
+  position: absolute;
+  width: 90%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 90%;
 }
 
 .creator-container .creator-frame .text-container {
@@ -713,6 +723,16 @@ footer {
 .creator-container .creator-frame .text-container h1 {
   margin: 2rem auto;
   width: 80%;
+}
+
+.creator-container .creator-frame .text-container p {
+  width: 80%;
+  margin: auto;
+}
+
+.creator-container .creator-frame #img-container {
+  text-align: center;
+  display: none;
 }
 
 .creator-container .creator-frame .frame-details {
@@ -1202,7 +1222,10 @@ footer {
   .creator-container .creator-frame .text-container h1 {
     padding: .5rem;
     margin: auto;
-    width: 46%;
+    width: 60%;
+  }
+  .creator-container .creator-frame .text-container p {
+    width: 60%;
   }
   .creator-container .creator-frame .frame-details {
     width: 27px;

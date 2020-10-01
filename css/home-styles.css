@@ -904,6 +904,14 @@ footer {
   visibility: hidden;
 }
 
+#repeat-capture {
+  font-family: "Montserrat", sans-serif;
+  color: #572ee5;
+  font-size: 13px;
+  border-bottom: 2px solid #5ed7c6;
+  font-weight: 700;
+}
+
 .purple-division {
   height: 7px;
   background-color: #572ee5;

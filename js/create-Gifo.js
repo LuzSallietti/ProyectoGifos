@@ -1,4 +1,15 @@
+class MyGifos {
+  constructor(id , src, title, user, display) {
+      this.id = id;
+      this.src = src;
+      this.title = title;
+      this.user = user;
+      this.display = display;
 
+  }
+}
+let storaged_GIFOS;
+let myGifo;
 let start_button = document.getElementById("start-button");
 const img_element = document.getElementById("img-element");
 const video_container = document.getElementById("video-container");
@@ -13,6 +24,8 @@ let instructions_paragraph = document.getElementById("instructions");
 let one_btn = document.getElementById("one-btn");
 let two_btn = document.getElementById("two-btn");
 let three_btn = document.getElementById("three-btn");
+let record_counter= document.getElementById("record-counter");
+
 const text_container=document.getElementById("text-container");
 
 
@@ -30,16 +43,44 @@ let gifId;
 let gifUrl;
 
 let seconds = document.getElementById("seconds");
+let decimal = document.getElementById("decimal");
+let minutes = document.getElementById("minutes");
 
 let form;
 let src;
 let blob;
 let contador=0;
+let decimals=0;
+let minutes_count=0
 let clock = function(){
-  contador=contador+1;                
-  seconds.innerText=contador;      
+  contador=contador+1;
+  if (contador==10){
+    contador=0;
+    decimals=decimals+1;
+    if(decimals==6){
+      decimals=0;
+      minutes_count = minutes_count+1;
+    }
+  }              
+  seconds.innerText=contador;
+  decimal.innerText=decimals;
+  minutes.innerText=minutes_count;
+       
 }  
 let interval;
+
+function storage_my_gifo(myGifo){
+  if (JSON.parse(localStorage.getItem("myGifos"))) {
+    storaged_GIFOS = JSON.parse(localStorage.getItem("myGifos"));
+    storaged_GIFOS.push(myGifo);
+    localStorage.setItem("myGifos", JSON.stringify(storaged_GIFOS));
+  } else {
+    storaged_GIFOS = [];
+    storaged_GIFOS.push(myGifo);
+    localStorage.setItem("myGifos", JSON.stringify(storaged_GIFOS));
+
+  }; 
+}
 
 function generate_dload(url) {
     download_icon.addEventListener("click", async () => {
@@ -141,14 +182,17 @@ function getStreamAndRecord () {
 function stop_recording() {
   clearInterval(interval);
     recorder.stopRecording();
+    
+    record_counter.innerHTML=`<p id="repeat-capture">REPETIR CAPTURA</p>`;
+   
+    record_counter.addEventListener("click", () => {
+      location.reload();
+      
+    });
 
     start_button.removeEventListener("click", stop_recording);
-    start_button.innerText="Subir GIFO";   
-                
-    /*let form;
-    let src;
-    let blob;*/
-
+    start_button.innerText="Subir GIFO";               
+   
     recorder.camera.stop();    
     blob = recorder.getBlob();
     console.log(blob);
@@ -170,6 +214,7 @@ function upload_gif(){
     upload_details.style.visibility="visible";
     start_button.removeEventListener("click",upload_gif);
     start_button.style.visibility="hidden";
+    record_counter.style.display="none";
     two_btn.style.backgroundColor="#fff";
     two_btn.style.color="#572ee5";
     three_btn.style.color="#fff";
@@ -178,7 +223,7 @@ function upload_gif(){
     
 
     form = new FormData();
-    form.append("file", blob, 'mygifo.gif');
+    form.append("file", blob, 'migifo.gif');
     // here is where upload happens
   
     fetch(url, {
@@ -197,17 +242,20 @@ function upload_gif(){
           upload_succes();
           generate_dload(gifUrl);
           generate_share(gifUrl);
+          myGifo= new MyGifos(data.data.id, gifUrl, data.data.title, data.data.username, true);
+          console.log(myGifo);
+          storage_my_gifo(myGifo);
+
         })
     });
-  
-    localStorage.setItem('misGifos', JSON.stringify(gifUrl));
+
   
    
 }
 
 start_button.addEventListener("click", startCamera);
 
-function startCamera (e){
+function startCamera (){
      
         if (!is_recording)
             

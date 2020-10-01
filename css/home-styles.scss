@@ -689,9 +689,13 @@ footer {
   margin-top: 12px;
   visibility: hidden;
 }
-
-
-
+#repeat-capture{
+  font-family: $montserrat;
+  color: $purple;
+  font-size: 13px;
+  border-bottom: 2px solid $mint;
+  font-weight: 700;
+}
 .purple-division {
   height: 7px;
   background-color: $purple;

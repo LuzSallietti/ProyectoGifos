@@ -16,6 +16,7 @@ let trending_results = [];
 
 
 function add_to_DOM(response) {
+  let i;
     for (i = 0; i < 3; i++) { //Crear dinámicamente los GIFOS del trending
 
         const carousel = document.querySelector("#carousel");
@@ -43,10 +44,10 @@ function add_to_DOM(response) {
       counter = counter + 1;
          
       
-      /*analizeFavs(response[i].id);*/    
+      analizeFavs(response[i].id);    
           
         
-      iconsEvents(response);
+      /*iconsEvents(response);*/
         
                                
         

@@ -1,29 +1,30 @@
 //comprobar si el id ya existe como favorito en localStorage para mostrarlo con el corazon violeta
 
-function analizeFavs(id){
-  let heart;
+function analizeFavs(id) {
+  let i;
+  let heart = document.getElementById(id);
+  let favourites = JSON.parse(localStorage.getItem("favs"));
+  let favourite;
+ 
 
-if (JSON.parse(localStorage.getItem("favs"))){
-          favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
-          
-          for (i = 0; i<favourite_GIFOS.length; i++){
-            if (favourite_GIFOS[i].id == id && favourite_GIFOS[i].fav == true){
-                
-                heart = document.getElementById(id);
-                heart.src=`./img/icon-fav-active.svg`;    //existe en localStorage como fav          
-            } else if (favourite_GIFOS[i].id == id && favourite_GIFOS[i].fav == false) {
-                heart = document.getElementById(id);
-                 heart.src=`./img/icon-fav-hover.svg`; //existe en localStorage desfavoriteado
-            } 
+  if (favourites){         
+    for (i = 0; i<favourites.length; i++){      
+      favourite=favourites[i];      
+
+      if (favourite.id === id) {
+          if (favourite.fav === true) {
+            heart.src=`./img/icon-fav-active.svg`;    //existe en localStorage como fav          
           }
-        }
-
-        
-else {
+          else {
+            heart.src=`./img/icon-fav-hover.svg`; //existe en localStorage desfavoriteado
+          }
+      }
+    }   
+  }
+  else {
     console.log ("No hay nada guardado en local Storage");
-    heart = document.getElementById(id);
     heart.src=`./img/icon-fav-hover.svg`
-}
+  }
 }
 
 

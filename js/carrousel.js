@@ -10,6 +10,7 @@ const back_arrow = document.getElementById("back-arrow");
 const forward_arow = document.getElementById("forward-arrow");
 let counter = 0;
 let trending_results = [];
+let carrousel_container = document.getElementsByClassName("container");
 
 
 
@@ -87,6 +88,7 @@ get_Trending_GIF()
 
 function goFoward() {
     back_arrow.classList.replace("hidden", "visible");
+    
     let trending_gif = document.getElementsByClassName("trending");
     
 
@@ -141,6 +143,7 @@ forward_arow.addEventListener("click", goFoward);
 //mostrar 3 anteriores (retroceder)
 
 function goBack() {
+ 
    
     let trending_gif = document.getElementsByClassName("trending");
     if (counter > 0) {

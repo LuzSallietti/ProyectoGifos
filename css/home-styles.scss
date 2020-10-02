@@ -274,6 +274,8 @@ main {
   .trending-gifos {
     padding-top: 3rem;
     padding-bottom: 6rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
   h2 {
     font-weight: bold;
@@ -324,8 +326,9 @@ main {
   flex-wrap: nowrap;
   justify-content: space-evenly;
   position: relative;
-  padding: 0 2rem;
+  padding: 0 1rem;
   width: auto; 
+  
 }
 .gif {
   margin: 0.5rem;

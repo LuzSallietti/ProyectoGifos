@@ -353,13 +353,14 @@ main h4 {
 }
 
 .container {
-  overflow: hidden;
+  overflow: scroll;
+  padding-bottom: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -564,11 +565,11 @@ footer {
 }
 
 .arrow-left {
-  display: none;
+  display: block;
 }
 
 .arrow-right {
-  display: none;
+  display: block;
 }
 
 .btns-container {
@@ -1254,6 +1255,19 @@ footer {
   .small {
     width: 260px;
     height: 200px;
+  }
+  .container {
+    overflow: hidden;
+    padding-bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .gifs-container {
     display: -webkit-box;

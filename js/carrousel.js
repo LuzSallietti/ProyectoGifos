@@ -41,14 +41,10 @@ function add_to_DOM(response) {
                 </div>
               </div>`;
         
-      counter = counter + 1;
-         
+      counter = counter + 1;         
       
-      analizeFavs(response[i].id);    
-          
-        
-      /*iconsEvents(response);*/
-        
+      analizeFavs(response[i].id); 
+      //iconsEvents(response);    
                                
         
                   
@@ -92,8 +88,10 @@ get_Trending_GIF()
 function goFoward() {
     back_arrow.classList.replace("hidden", "visible");
     let trending_gif = document.getElementsByClassName("trending");
+    
 
     for (i = 0; i < 3; i++) {
+
         if (counter >= 44) {
             forward_arow.classList.replace("visible", "hidden");
         }
@@ -115,7 +113,7 @@ function goFoward() {
               </div>
             </div>`;
         counter = counter + 1;
-        analizeFavs(trending_results[i].id);            
+        analizeFavs(trending_results[i].id);          
           
                
         iconsEvents(trending_results);
@@ -143,6 +141,7 @@ forward_arow.addEventListener("click", goFoward);
 //mostrar 3 anteriores (retroceder)
 
 function goBack() {
+   
     let trending_gif = document.getElementsByClassName("trending");
     if (counter > 0) {
 
@@ -168,7 +167,7 @@ function goBack() {
               </div>
             </div>`;
             counter = counter + 1;
-            /*analizeFavs(trending_results[i].id);*/             
+            analizeFavs(trending_results[i].id);           
             iconsEvents(trending_results);
             
 

@@ -382,7 +382,7 @@ main h4 {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   position: relative;
-  padding: 0 1rem;
+  padding: 0 10px;
   width: auto;
 }
 
@@ -1270,6 +1270,23 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .carousel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    position: relative;
+    padding: 0 1rem;
+    width: auto;
   }
   .gifs-container {
     display: -webkit-box;

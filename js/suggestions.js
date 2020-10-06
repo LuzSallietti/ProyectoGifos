@@ -117,7 +117,7 @@ for (i = 0; i < search_inputs.length; i++) {
           empty_search.classList.add("d-none");
           resultados = response;
           displayResults(resultados, 0, 12);
-          
+
         } else {
           empty_search.classList.remove("d-none");
           console.log("No hay resultados para ese término");
@@ -143,7 +143,7 @@ lupa.addEventListener('click', () => {
         empty_search.classList.add("d-none");
         resultados = response;
         displayResults(resultados, 0, 12);
-        
+
       } else {
         empty_search.classList.remove("d-none");
         console.log("No hay resultados para ese término");
@@ -167,7 +167,7 @@ query.addEventListener("keyup", (e) => {
         if (response.length != 0) {
           empty_search.classList.add("d-none");
           resultados = response;
-          displayResults(resultados, 0, 12);                   
+          displayResults(resultados, 0, 12);
 
         } else {
           empty_search.classList.remove("d-none");
@@ -198,17 +198,17 @@ function displayResults(array, posicion, longitud) {
 
   const results_container = document.querySelector("#results-container");
   results_container.classList.remove("d-none");
-  section_container.style.paddingBottom="5rem";
-  
+  section_container.style.paddingBottom = "5rem";
+
   view_more_btn.classList.replace("d-none", "d-block");
   if ((array.length) <= 14) {
     view_more_btn.classList.replace("d-block", "d-none");
     console.log("La longitud del array es " + array.length)
-  } 
+  }
 
 
   let i = posicion;
-  if (array.length<12){
+  if (array.length < 12) {
     longitud = array.length;
   }
 
@@ -218,10 +218,10 @@ function displayResults(array, posicion, longitud) {
     DIV.setAttribute("class", "gif");
     DIV.classList.add("small");
     results_container.appendChild(DIV);
-    DIV.innerHTML = `<img class="gif-img" src=${array[i].images.fixed_height_downsampled.url} id="${array[i].id}-img">
-        <div class="gif-card small">
+    DIV.innerHTML = `<img class="gif-img search-img" src=${array[i].images.fixed_height_downsampled.url} id="${array[i].id}-img">
+        <div class="gif-card small search-card">
         <div class="icon-btn">
-                  <img src="./img/icon-fav-hover.svg" class="icon heart" id=${array[i].id}>
+                  <img src="./img/icon-fav-hover.svg" class="icon heart search-heart" id=${array[i].id}>
                 </div>
                 <div class="icon-btn">
                   <img src="./img/icon-download.svg" class="icon" id="${array[i].id}-dload">
@@ -235,105 +235,105 @@ function displayResults(array, posicion, longitud) {
         </div>
       </div>`;
 
-      analizeFavs(array[i].id);
-   
-      let heart = document.getElementById(`${array[i].id}`);
-      let gif_id = heart.getAttribute("id");    
-      let id = `${array[i].id}`;
-      let download = document.getElementById(`${array[i].id}-dload`);
-      let maximize = document.getElementById(`${array[i].id}-max`);
-      let image = (document.getElementById(`${array[i].id}-img`)).src;
-      let title = (document.getElementById(`${array[i].id}-title`).innerHTML);
-      let username = (document.getElementById(`${array[i].id}-user`).innerHTML);   
-      
-      //crear event listener para almacenar en Favoritos
+    analizeFavs(array[i].id);
 
-      heart.addEventListener('click', () => {      
-        
-        
-          if (heart.getAttribute("src") == "./img/icon-fav-active.svg"){
-            heart.setAttribute("src","./img/icon-fav-hover.svg");
-            console.log("Me desfavoriteo");
-            //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
-            
-            console.log(gif_id);
-            deleteFav(gif_id);
+    let heart = document.getElementById(`${array[i].id}`);
+    let gif_id = heart.getAttribute("id");
+    let id = `${array[i].id}`;
+    let download = document.getElementById(`${array[i].id}-dload`);
+    let maximize = document.getElementById(`${array[i].id}-max`);
+    let image = (document.getElementById(`${array[i].id}-img`)).src;
+    let title = (document.getElementById(`${array[i].id}-title`).innerHTML);
+    let username = (document.getElementById(`${array[i].id}-user`).innerHTML);
 
-          }
-          else {
-            heart.setAttribute("src","./img/icon-fav-active.svg");
-            console.log("Me tengo que favoritear");            
-            addFav(gif_id);          
+    //crear event listener para almacenar en Favoritos
 
-          }              
-          
-      });
-      
-      
-      //crear event listener para Descargar
-      download.addEventListener('click', async () => {
-          //create new a element
-          let a = document.createElement('a');
-          // get image as blob
-          let response = await fetch(image);
-          let file = await response.blob();
-          // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
-          a.download = `${title}`;
-          a.href = window.URL.createObjectURL(file);
-          //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-          a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-          //click on element to start download
-          a.click();
-      });
-      //crear event listener para Maximizar y crear el contenido de la tarjeta max
+    heart.addEventListener('click', () => {
 
-      maximize.addEventListener('click',() => { 
-          
-          gifoMax_cards[0].style.display="grid";
-          //cambiar color corazón
-          max_heart[0].getAttribute("src") === "./img/icon-fav-hover.svg" ? max_heart[0].setAttribute("src", "./img/icon-fav-active.svg") : max_heart[0].setAttribute("src", "./img/icon-fav-hover.svg");
-          max_heart[0].setAttribute("id", `${heart.id}`);      
-          gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
-          gifoMax_title.innerText=`${title}`;
-          gifoMax_user.innerText=`${username}`;      
-      });
 
-      if (window.innerWidth < 1024){
-          DIV.addEventListener('click', () => {
-          gifoMax_cards[0].style.display="grid";   
-          max_heart[0].setAttribute("id", `${heart.id}`);      
-          gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
-          gifoMax_title.innerText=`${title}`;
-          gifoMax_user.innerText=`${username}`;  
-          });
-      }         
-  } //FIN DEL CICLO FOR
-  
+      if (heart.getAttribute("src") == "./img/icon-fav-active.svg") {
+        heart.setAttribute("src", "./img/icon-fav-hover.svg");
+        console.log("Me desfavoriteo");
+        //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
+
+        console.log(gif_id);
+        deleteFav(gif_id);
+
+      }
+      else {
+        heart.setAttribute("src", "./img/icon-fav-active.svg");
+        console.log("Me tengo que favoritear");
+        addFav(gif_id);
+
+      }
+
+    });
+
+
+    //crear event listener para Descargar
+    download.addEventListener('click', async () => {
+      //create new a element
+      let a = document.createElement('a');
+      // get image as blob
+      let response = await fetch(image);
+      let file = await response.blob();
+      // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+      a.download = `${title}`;
+      a.href = window.URL.createObjectURL(file);
+      //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+      a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+      //click on element to start download
+      a.click();
+    });
+    //crear event listener para Maximizar y crear el contenido de la tarjeta max
+
+    maximize.addEventListener('click', () => {
+
+      gifoMax_cards[0].style.display = "grid";
+      max_heart[0].setAttribute("id", `${id}`);
+      max_heart[0].src = `${heart.src}`; 
+      gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
+      gifoMax_title.innerText = `${title}`;
+      gifoMax_user.innerText = `${username}`;
+    });
     
-   
+  } //FIN DEL CICLO FOR
+
+
+  array.splice(0, 12);
+  remaindersArray = array;
 
   //mostrar las tarjetas en hover solo a partir devices 1024px > para dispositivos menores mostrar gifoMax cuando se hace click sobre la tarjeta
   if (window.innerWidth >= 1024) {
     show_hide_gifCards();
   } else {
-    let gif_imgs = document.getElementsByClassName("gif");
-    let gif_cards = document.getElementsByClassName("gif-card");
+    let gif_imgs = document.getElementsByClassName("search-img");
+    let gif_cards = document.getElementsByClassName("search-card");
+    let hearts = document.getElementsByClassName("search-heart");
     
-    for (i=0; i<gif_imgs.length; i++){
-      let gif_card = gif_cards[i];
+    let i;
 
-      gif_imgs[i].addEventListener('click', ()=> {        
-        gif_card.style.display="hidden";          
+    for (i = 0; i < gif_imgs.length; i++) {
+      let gif_card = gif_cards[i];
+      let gif_img = gif_imgs[i];
+      let id = hearts[i].id;
+      console.log(id);
+      let image = gif_img.src;
+      let gifo_title = document.getElementById(`${id}-title`);      
+      let gifo_user = document.getElementById(`${id}-user`);          
+
+      gif_img.addEventListener('click', () => {
+        gif_card.style.display = "hidden";
+        gifoMax_cards[0].style.display = "grid";
+        max_heart[0].setAttribute("id", `${id}`);        
+        analizeFavs(id);
+        gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
+        gifoMax_title.innerText = `${gifo_title.innerHTML}`;
+        gifoMax_user.innerText = `${gifo_user.innerHTML}`;
       });
     }
-  }
-
-  array.splice(0, 12);
-  remaindersArray = array;
-
-
+  } 
 }
-
 
 //mostrar más resultados
 view_more_btn.addEventListener('click', () => {
@@ -344,30 +344,18 @@ view_more_btn.addEventListener('click', () => {
 // guardar en Favoritos desde Gifo Max
 max_heart[0].addEventListener('click', () => {
 
-  //evaluar color corazon
-  if (window.innerWidth<1024){
-    max_heart[0].setAttribute("src", "./img/icon-fav-active.svg"); }   
-  
-  let id = max_heart[0].getAttribute("id");
-  let image = (document.getElementById("max-img")).src;
-  let title = (document.getElementById("gif-max-title")).innerHTML;
-  let username = (document.getElementById("gif-max-user")).innerHTML;
-  console.log("Guardar en Favoritos");
-
-  let gifo = new Gifo(id, image, title, username, true);
-      console.log(gifo);
-      if (JSON.parse(localStorage.getItem("favs"))) {
-        favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
-        favourite_GIFOS.push(gifo);
-        localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
-      } else {
-        favourite_GIFOS = [];
-        favourite_GIFOS.push(gifo);
-        localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
-
-      }; 
-
+  let gif_id = max_heart[0].getAttribute("id");
+  console.log(gif_id);
+  let isFavourite = max_heart[0].src.includes("active");
+  if (isFavourite) {
+    max_heart[0].src = "./img/icon-fav-hover.svg";
+    deleteFav(gif_id);
+  } else {
+    max_heart[0].src = "./img/icon-fav-active.svg";
+    addFav(gif_id);
+  }
 });
+
 //descargar desde Gifo Max
 max_download.addEventListener('click', async () => {
   let image = (document.getElementById("max-img")).src;

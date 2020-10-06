@@ -1,32 +1,13 @@
 
-
-/*function analizeTrends(array,id){
-    for(i=0; i<array.lenght;i++){
-        if(array[i].id==id && array[i].fav==true){
-            console.log("Hay uno en favoritos. Cambio el color");
-            let heart=document.getElementById(id);
-            heart.src=`./img/icon-fav-active.svg`;
-        }
-    }
-}*/
-
-
-function iconsEvents(array){
-    let heart = document.getElementById(`${array[i].id}`);
+function iconsEvents(id){
+    let heart = document.getElementById(id);    
     let gif_id = heart.getAttribute("id");   
-    let download = document.getElementById(`${array[i].id}-dload`);
-    let maximize = document.getElementById(`${array[i].id}-max`);
-    let image = (document.getElementById(`${array[i].id}-img`)).src;
-    let title = (document.getElementById(`${array[i].id}-title`).innerHTML);
-    let username = (document.getElementById(`${array[i].id}-user`).innerHTML);
+    let download = document.getElementById(`${id}-dload`);
+    let maximize = document.getElementById(`${id}-max`);
+    let image = (document.getElementById(`${id}-img`)).src;
+    let title = (document.getElementById(`${id}-title`).innerHTML);
+    let username = (document.getElementById(`${id}-user`).innerHTML);   
     
-    console.log(gif_id);
-    
-    
-
-
-    
-
     //crear event listener para almacenar en Favoritos
 
     heart.addEventListener('click', () => {
@@ -65,22 +46,15 @@ function iconsEvents(array){
 
     maximize.addEventListener('click',() => { 
         
-        gifoMax_cards[0].style.display="grid";
+        gifoMax_cards[0].style.display="grid";        
+        //max_heart[0].getAttribute("src") === "./img/icon-fav-hover.svg" ? max_heart[0].setAttribute("src", "./img/icon-fav-active.svg") : max_heart[0].setAttribute("src", "./img/icon-fav-hover.svg");
+        max_heart[0].setAttribute("id", `${heart.id}`);
         //cambiar color corazón
-        max_heart[0].getAttribute("src") === "./img/icon-fav-hover.svg" ? max_heart[0].setAttribute("src", "./img/icon-fav-active.svg") : max_heart[0].setAttribute("src", "./img/icon-fav-hover.svg");
-        max_heart[0].setAttribute("id", `${heart.id}`);      
+        analizeFavs(heart.id);      
         gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
         gifoMax_title.innerText=`${title}`;
-        gifoMax_user.innerText=`${username}`;      
+        gifoMax_user.innerText=`${username}`;        
+        
     });
-    if (window.innerWidth < 1024){
-        let trending_DIV= document.getElementsByClassName("trending");
-        trending_DIV[i].addEventListener('click', () => {
-        gifoMax_cards[0].style.display="grid";   
-        max_heart[0].setAttribute("id", `${heart.id}`);      
-        gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
-        gifoMax_title.innerText=`${title}`;
-        gifoMax_user.innerText=`${username}`;  
-        });
-    }  
+     
 }

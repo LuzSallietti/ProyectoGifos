@@ -69,7 +69,7 @@ for (i = 0; i < longitud; i++){
 
     //crear event listener para desfavoritear o volver a favoritear desde pagina Favoritos
 
-    heart.addEventListener('click', () => {      
+    heart.addEventListener('click', () => {    
         
         
       if (heart.getAttribute("src") == "./img/icon-fav-active.svg"){
@@ -79,6 +79,7 @@ for (i = 0; i < longitud; i++){
         
         console.log(gif_id);
         deleteFav(gif_id);
+        location.reload();
 
       }
       else {
@@ -120,7 +121,8 @@ for (i = 0; i < longitud; i++){
     maximize.addEventListener('click',() => { 
       
       gifoMax_cards[0].style.display="grid";
-      max_heart[0].setAttribute("id", `${heart.id}`);      
+      max_heart[0].setAttribute("id", `${heart.id}`);
+      max_heart[0].setAttribute("src", `${heart.src}`);           
       gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
       gifoMax_title.innerText=`${title}`;
       gifoMax_user.innerText=`${username}`;      
@@ -128,8 +130,10 @@ for (i = 0; i < longitud; i++){
     // mostrar el contenido de la tarjeta max en mobile, al hacer clic en el gif 
   if (window.innerWidth < 1024){
     DIV.addEventListener('click', () =>{
+      console.log("Version mobile, heart src modificado");
       gifoMax_cards[0].style.display="grid";
-      max_heart[0].setAttribute("id", `${heart.id}`);      
+      max_heart[0].setAttribute("id", `${heart.id}`);
+      max_heart[0].setAttribute("src", `${heart.src}`);           
       gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
       gifoMax_title.innerText=`${title}`;
       gifoMax_user.innerText=`${username}`;  
@@ -161,8 +165,31 @@ view_more_btn.addEventListener('click', () => {
   displayFavs(remainders_Favs, 0, 12);
 
 })
+// guardar en Favoritos desde Gifo Max
+max_heart[0].addEventListener('click', () => {
+  let gif_id = `${max_heart[0].getAttribute("id")}`;
+  console.log(gif_id);
+  max_heart[0].setAttribute("src","./img/icon-fav-hover.svg");
+  deleteFav(gif_id);
+  location.reload();
+  
 
+  /*if ((max_heart[0].getAttribute("src")) == "./img/icon-fav-active.svg"){
+    
+    console.log("Me desfavoriteo");
+    //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
+    
+    console.log(gif_id);
+    deleteFav(gif_id);
 
+  }
+  else {
+    max_heart[0].setAttribute("src","./img/icon-fav-active.svg");
+    console.log("Me tengo que favoritear");            
+    addFav(gif_id);          
+
+  }*/  
+});
 
 //descargar desde Gifo Max
 max_download.addEventListener('click', async () => {

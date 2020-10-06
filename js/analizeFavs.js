@@ -13,10 +13,12 @@ function analizeFavs(id) {
 
       if (favourite.id === id) {
           if (favourite.fav === true) {
-            heart.src=`./img/icon-fav-active.svg`;    //existe en localStorage como fav          
+            heart.src="./img/icon-fav-active.svg";    //existe en localStorage como fav
+            console.log("Existe en localstorage y es favorito");          
           }
           else {
-            heart.src=`./img/icon-fav-hover.svg`; //existe en localStorage desfavoriteado
+            heart.src="./img/icon-fav-hover.svg"; //existe en localStorage desfavoriteado
+            console.log("Existe en localstorage desfavoriteado");
           }
       }
     }   

@@ -158,6 +158,17 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+   
+  }
+  .carousel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    position: relative;
+    padding: 0 1rem;
+    width: auto; 
+  
   }
   .gifs-container {
     display: -webkit-box;

@@ -119,6 +119,7 @@ let header = document.getElementsByClassName("desktop-header");
 
 
 function apply_shadow() {
+   let i;
    for (i = 0; i < header.length; i++) {
       
       

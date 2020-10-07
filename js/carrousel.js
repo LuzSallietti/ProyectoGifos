@@ -73,11 +73,12 @@ function add_to_DOM(response) {
       gif_img.addEventListener('click', () => {
         gif_card.style.display = "hidden";
         gifoMax_cards[0].style.display = "grid";
-        max_heart[0].setAttribute("id", `${id}`);        
-        analizeFavs(id);
+        max_heart[0].setAttribute("id", `${id}`);
         gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
         gifoMax_title.innerText = `${title}`;
-        gifoMax_user.innerText = `${user}`;
+        gifoMax_user.innerText = `${user}`;        
+        analizeFavs(id);//max_heart.src = analizeFavs(id);
+        
       });
     }
   }
@@ -159,7 +160,7 @@ function goFoward() {
         gifoMax_cards[0].style.display = "grid";
         max_heart[0].setAttribute("id", `${id}`);
         analizeFavs(id);
-        max_heart.src = analizeFavs(id);
+        //max_heart.src = analizeFavs(id);
         gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
         gifoMax_title.innerText = `${title}`;
         gifoMax_user.innerText = `${user}`;
@@ -227,7 +228,8 @@ function goBack() {
           gif_card.style.display = "hidden";
           gifoMax_cards[0].style.display = "grid";
           max_heart[0].setAttribute("id", `${id}`);
-          analizeFavs(id);          
+          analizeFavs(id);
+          //max_heart.src = analizeFavs(id);          
           gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
           gifoMax_title.innerText = `${title}`;
           gifoMax_user.innerText = `${user}`;

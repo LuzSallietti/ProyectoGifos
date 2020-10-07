@@ -7,7 +7,8 @@ let remainders_Favs;
 let favourites_storage = []; //Evaluar si hay gifos almacenados como favoritos (con valor true) para mostrar solo esos
 if (JSON.parse(localStorage.getItem("favs"))){
   let favs = JSON.parse(localStorage.getItem("favs"));
-  for (i=0; i<favs.length; i++){
+  let i;
+  for (i = 0; i<favs.length; i++){
     if (favs[i].fav==true){
       favourites_storage.push(favs[i]);
       console.log(favourites_storage);
@@ -26,8 +27,7 @@ favs_section.style.paddingBottom="5rem";
 
 //ocultar botón cuando hay menos de 12 resultados por mostrar
 if ((array.length) <= 12) {
-  view_more_btn.classList.replace("d-block", "d-none");
-  console.log("La longitud del array es " + array.length)
+  view_more_btn.classList.replace("d-block", "d-none");  
 }
 let i=posicion; 
 
@@ -35,37 +35,36 @@ if (array.length<12){
   longitud = array.length;
 }
 
-for (i = 0; i < longitud; i++){
-  
-  console.log(array);  
+for (i = 0; i < longitud; i++){ 
     let DIV = document.createElement("div");
     DIV.setAttribute("class", "gif");
     DIV.classList.add("small");
     favs_container.appendChild(DIV);
-    DIV.innerHTML = `<img src=${array[i].src} id="${array[i].id}-img">
+    DIV.innerHTML = `<img src=${array[i].src} id="${array[i].id}-fav-img">
         <div class="gif-card small">
         <div class="icon-btn">
-        <img src="./img/icon-fav-active.svg" class="icon" id="${array[i].id}">
+        <img src="./img/icon-fav-active.svg" class="icon" id="fav-${array[i].id}" data-identifier="${array[i].id}">
       </div>
       <div class="icon-btn">
-        <img src="./img/icon-download.svg" class="icon" id="${array[i].id}-dload">
+        <img src="./img/icon-download.svg" class="icon" id="${array[i].id}-fav-dload">
       </div>
       <div class="icon-btn">
-        <img src="./img/icon-max.svg" class="icon" id="${array[i].id}-max">
+        <img src="./img/icon-max.svg" class="icon" id="${array[i].id}-fav-max">
       </div>
         <div class="user-details">
-          <h6 class="user white-text" id="${array[i].id}-user">${array[i].user}</h6>
-          <h5 class="gif-title white-text" id="${array[i].id}-title">${array[i].title}</h5>
+          <h6 class="user white-text" id="${array[i].id}-fav-user">${array[i].user}</h6>
+          <h5 class="gif-title white-text" id="${array[i].id}-fav-title">${array[i].title}</h5>
         </div>
       </div>`;
 
-    let heart = document.getElementById(`${array[i].id}`);
-    let gif_id = heart.getAttribute("id");
-    let download = document.getElementById(`${array[i].id}-dload`);
-    let maximize = document.getElementById(`${array[i].id}-max`);
-    let image = (document.getElementById(`${array[i].id}-img`)).src;
-    let title = (document.getElementById(`${array[i].id}-title`).innerHTML);
-    let username = (document.getElementById(`${array[i].id}-user`).innerHTML);
+    let heart = document.getElementById(`fav-${array[i].id}`);
+    let gif_id = heart.dataset.identifier;
+    console.log(gif_id);
+    let download = document.getElementById(`${array[i].id}-fav-dload`);
+    let maximize = document.getElementById(`${array[i].id}-fav-max`);
+    let image = (document.getElementById(`${array[i].id}-fav-img`)).src;
+    let title = (document.getElementById(`${array[i].id}-fav-title`).innerHTML);
+    let username = (document.getElementById(`${array[i].id}-fav-user`).innerHTML);
 
     //crear event listener para desfavoritear o volver a favoritear desde pagina Favoritos
 
@@ -121,7 +120,7 @@ for (i = 0; i < longitud; i++){
     maximize.addEventListener('click',() => { 
       
       gifoMax_cards[0].style.display="grid";
-      max_heart[0].setAttribute("id", `${heart.id}`);
+      max_heart[0].setAttribute("id", `${gif_id}`);
       max_heart[0].setAttribute("src", `${heart.src}`);           
       gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
       gifoMax_title.innerText=`${title}`;
@@ -132,7 +131,7 @@ for (i = 0; i < longitud; i++){
     DIV.addEventListener('click', () =>{
       console.log("Version mobile, heart src modificado");
       gifoMax_cards[0].style.display="grid";
-      max_heart[0].setAttribute("id", `${heart.id}`);
+      max_heart[0].setAttribute("id", `${gif_id}`);
       max_heart[0].setAttribute("src", `${heart.src}`);           
       gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
       gifoMax_title.innerText=`${title}`;
@@ -166,12 +165,12 @@ view_more_btn.addEventListener('click', () => {
 
 })
 // guardar en Favoritos desde Gifo Max
-max_heart[0].addEventListener('click', () => {
+/*max_heart[0].addEventListener('click', () => {
   let gif_id = `${max_heart[0].getAttribute("id")}`;
   console.log(gif_id);
   max_heart[0].setAttribute("src","./img/icon-fav-hover.svg");
   deleteFav(gif_id);
-  location.reload();
+  location.reload(); //OJO! RELOADEA también el gifMax del carrusel
   
 
   /*if ((max_heart[0].getAttribute("src")) == "./img/icon-fav-active.svg"){
@@ -188,11 +187,11 @@ max_heart[0].addEventListener('click', () => {
     console.log("Me tengo que favoritear");            
     addFav(gif_id);          
 
-  }*/  
-});
+  } 
+});*/ 
 
 //descargar desde Gifo Max
-max_download.addEventListener('click', async () => {
+/*max_download.addEventListener('click', async () => {
   let image = (document.getElementById("max-img")).src;
   let title = (document.getElementById("gif-max-title")).innerHTML;
   //create new a element
@@ -207,7 +206,7 @@ max_download.addEventListener('click', async () => {
   a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
   //click on element to start download
   a.click();
-});
+});*/
 
 
 

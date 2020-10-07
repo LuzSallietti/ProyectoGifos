@@ -248,9 +248,8 @@ function displayResults(array, posicion, longitud) {
 
     //crear event listener para almacenar en Favoritos
 
-    heart.addEventListener('click', () => {
-
-
+    heart.addEventListener('click', () => {      
+      
       if (heart.getAttribute("src") == "./img/icon-fav-active.svg") {
         heart.setAttribute("src", "./img/icon-fav-hover.svg");
         console.log("Me desfavoriteo");
@@ -341,38 +340,7 @@ view_more_btn.addEventListener('click', () => {
 
 })
 
-// guardar en Favoritos desde Gifo Max
-max_heart[0].addEventListener('click', () => {
 
-  let gif_id = max_heart[0].getAttribute("id");
-  console.log(gif_id);
-  let isFavourite = max_heart[0].src.includes("active");
-  if (isFavourite) {
-    max_heart[0].src = "./img/icon-fav-hover.svg";
-    deleteFav(gif_id);
-  } else {
-    max_heart[0].src = "./img/icon-fav-active.svg";
-    addFav(gif_id);
-  }
-});
-
-//descargar desde Gifo Max
-max_download.addEventListener('click', async () => {
-  let image = (document.getElementById("max-img")).src;
-  let title = (document.getElementById("gif-max-title")).innerHTML;
-  //create new a element
-  let a = document.createElement('a');
-  // get image as blob
-  let response = await fetch(image);
-  let file = await response.blob();
-  // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
-  a.download = `${title}`;
-  a.href = window.URL.createObjectURL(file);
-  //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-  a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-  //click on element to start download
-  a.click();
-});
 
 
 

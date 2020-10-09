@@ -135,7 +135,7 @@ form {
   border: 1px solid $purple;
   border-radius: 27px;
   width: 89%;
-  margin: auto;
+  margin: 0 auto 45px auto;
   padding: 0.5rem 1rem;
   
 
@@ -154,6 +154,8 @@ form {
   color: $black;
   border: none;
   line-height: 22px;
+  
+  
 }
 .dark_mode-search-query{
   color: $white;
@@ -163,8 +165,24 @@ form {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center; 
-
+  align-items: center;
+   
+}
+#search_{
+  position: relative;
+  width: 100%;
+}
+.autocomplete{  
+  position: absolute;
+  width: 100%;
+  z-index: 3000;
+  //border: 1px solid rebeccapurple; 
+  color: #6b7989;    
+  line-height: 22px;  
+  font-size: 1.143rem;
+  left: 0;
+  top: 0;
+  padding: 6px 15px;  
 }
 .suggestions {
   display: none;
@@ -304,8 +322,10 @@ main {
   margin: 0.5rem auto 3rem auto;
   text-align: center;
   font-family: $montserrat;
-  color: $purple;
-  font-weight: 600;
+  color: $purple;  
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 500;
   
 }
 .dark-mode_trends{

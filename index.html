@@ -414,7 +414,10 @@ c0.391-0.391,0.391-1.023,0-1.414l-6-6c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.
         <form action="" method="POST" class="" id="search-form">
           <div class="search-field">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" class="d-none" id="lupa"><style>.a{fill:#FFF;}.b{fill:#9CAFC3;}</style><path d="M8.5 0C13.2 0 17 3.8 17 8.5c0 2-0.7 3.8-1.8 5.3l4.5 4.5c0.4 0.4 0.4 1 0 1.4s-1 0.4-1.4 0l0 0 -4.5-4.5C12.3 16.3 10.5 17 8.5 17 3.8 17 0 13.2 0 8.5S3.8 0 8.5 0zM8.5 2C4.9 2 2 4.9 2 8.5S4.9 15 8.5 15c1.8 0 3.4-0.7 4.5-1.9l0-0.1c0 0 0 0 0.1 0C14.3 11.9 15 10.3 15 8.5 15 4.9 12.1 2 8.5 2z" class="a"/><title class="undefined">  icon-search</title><desc class="undefined">  Created with Sketch.</desc><path d="M8.5 0C13.2 0 17 3.8 17 8.5c0 2-0.7 3.8-1.8 5.3l4.5 4.5c0.4 0.4 0.4 1 0 1.4s-1 0.4-1.4 0l0 0 -4.5-4.5C12.3 16.3 10.5 17 8.5 17 3.8 17 0 13.2 0 8.5S3.8 0 8.5 0zM8.5 2C4.9 2 2 4.9 2 8.5S4.9 15 8.5 15c1.8 0 3.4-0.7 4.5-1.9l0-0.1c0 0 0 0 0.1 0C14.3 11.9 15 10.3 15 8.5 15 4.9 12.1 2 8.5 2z" class="b"/></svg>
-            <input type="text" class="search-query" id="userQuery" name="" placeholder="Busca GIFOS y más"/>          
+            <div id="search_">
+              <input type="text" class="search-query" id="userQuery" name="" placeholder="Busca GIFOS y más"/>
+              <span class="autocomplete" id="autocomplete"></span>                     
+            </div>
             <svg
               id="search-icon"
               version="1.1"
@@ -479,11 +482,12 @@ c0.391-0.391,0.391-1.023,0-1.414l-6-6c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.
           </div>
 
         </form>
-        <!--llamar endpoint trending GIPHY?-->
-        <h3>Trending:</h3>
-        <p class="trends">
-          Reactions, Entertainment, Sports, Stickers, Artists
-        </p>
+        <div id="trends-headings">
+          <h3>Trending:</h3>
+          <p class="trends" id="giphy-trends">
+            Reactions, Entertainment, Sports, Stickers, Artists
+          </p>
+        </div>
       </section>     
 
       <!-- SECCION GIFOS SEGUN BÚSQUEDA -->
@@ -766,7 +770,7 @@ c0.391-0.391,0.391-1.023,0-1.414l-6-6c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.
     <footer>      
       <p class="align-center share">Compartir en:</p>
       <div class="align-center icons">
-        <a href="#">
+        <a href="https://www.facebook.com/sharer.php?u=https://luzsallietti.github.io/ProyectoGifos/" target="blank">
           <svg
             version="1.1"
             id="Capa_1"
@@ -803,7 +807,7 @@ c0.391-0.391,0.391-1.023,0-1.414l-6-6c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.
             </g>
           </svg>
         </a>
-        <a href="#">
+        <a href="https://twitter.com/share?text=ProyectoGifos&url=https://luzsallietti.github.io/ProyectoGifos/" target="blank">
           <svg
             version="1.1"
             id="Capa_1"
@@ -924,16 +928,15 @@ c0.391-0.391,0.391-1.023,0-1.414l-6-6c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.
       </div>
       <p class="align-center copy">© GIFOS 2020 All Rights Reserved.</p>
     </footer>
-    <!-- JS-->
-   
+    <!-- JS-->   
     <script src="./js/analizeFavs.js"></script>
     <script src="./js/gifos-icons-actions.js"></script>      
     <script src="./js/hide-gifosMax.js"></script>
-    <script src="./js/suggestions.js"></script>    
+    <script src="./js/suggestions.js"></script>
+    <script src="./js/get-trending-topics.js"></script>    
     <script src="./js/home-functions.js"></script>
     <script src="./js/show-gifos-details.js"></script>  
     <script src="./js/storage-favourites.js"></script>
-    <script src="./js/carrousel.js"></script>
-    
+    <script src="./js/carrousel.js"></script>    
   </body>
 </html>

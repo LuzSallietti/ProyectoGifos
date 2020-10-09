@@ -1,5 +1,6 @@
-const tags_URL = "https://api.giphy.com/v1/"
-const giphy_SUGGESTIONS_endopoint = "gifs/search/tags"
+const tags_URL = "https://api.giphy.com/v1/";
+const giphy_SUGGESTIONS_endopoint = "tags/related/";
+const giphy_AUTOCOMPLETE_endpoint = "gifs/search/tags";
 let userQuery = document.querySelector("#userQuery");
 let form = document.getElementById("search-form");
 const view_more_btn = document.getElementById("view-more");
@@ -8,8 +9,13 @@ let query = document.getElementById("userQuery");
 let search_inputs = document.getElementsByClassName("suggestions");
 let terms = document.getElementsByClassName("giphy-terms");
 const lupa = document.getElementById("lupa");
+const trends_headings = document.getElementById("trends-headings");
 let title = document.getElementById("search-kw");
+let autocomplete_field = document.getElementById('autocomplete');
+let autocomplete_words;
 let autocompleteArray;
+let searchBox = document.getElementById("search_");
+let deleted_input;
 let resultados;
 let remaindersArray;
 const section_container = document.getElementById("searchedGifos");
@@ -33,14 +39,9 @@ function evaluateTheme() {
 
 form.addEventListener('input', () => {
   userQuery.style.borderBottom = "1px solid #9CAFC3"; //mostrar subrayado gris
-
-
   lupa.classList.remove("d-none");
   lupa.classList.add("d-block");
-
   let search_icon = document.getElementById("search-icon"); //cambiar icono lupa por icono cruz
-
-
   search_icon.innerHTML = `<g>
 	<path id="path-1" fill="#FFFFFF" d="M0.293,0.293c0.391-0.391,1.023-0.391,1.414,0l0,0L7,5.585l5.293-5.292
 		c0.36-0.36,0.928-0.388,1.32-0.083l0.094,0.083c0.391,0.391,0.391,1.023,0,1.414l0,0L8.415,7l5.292,5.293
@@ -64,12 +65,11 @@ form.addEventListener('input', () => {
 	</g>
 </g>`;
 
-
-
   if ((userQuery.value).length > 1) {
-
+    //llamar al endpoint sugerencias
     async function search_suggestions() {
-      let link = `${tags_URL + giphy_SUGGESTIONS_endopoint}?&api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${userQuery.value}`;
+      let link = `${tags_URL + giphy_SUGGESTIONS_endopoint + userQuery.value}?&api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef`;
+      //let link = `${tags_URL + giphy_SUGGESTIONS_endopoint}?&api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${userQuery.value}`;
       let response = await fetch(link);
       let JSON_response = await response.json();
       let data = JSON_response.data;
@@ -83,6 +83,42 @@ form.addEventListener('input', () => {
       .catch(error => console.log(error));
   }
 });
+userQuery.addEventListener('keyup', () => {
+  if (userQuery.value.length > 0) {
+    // llamar al endpoint autocomplete
+    async function autocomplete_request() {
+      let link = `${tags_URL + giphy_AUTOCOMPLETE_endpoint}?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${userQuery.value}`;
+      let response = await fetch(link);
+      let JSON_response = await response.json();
+      let data = JSON_response.data;
+      return data;
+    }
+    autocomplete_request()
+      .then(response => {
+        
+        show_autocomplete(response);
+        
+      })
+      .catch(error => console.log(error));    
+  }
+})
+
+function show_autocomplete(array){
+  let input = userQuery.value;
+  autocomplete.innerText=`${input}`;  
+
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].name.match(input)) {
+        autocomplete.innerText += array[i].name.slice(input.length, array[i].name.length);
+        break;
+      }
+    }
+}
+userQuery.addEventListener('keydown', (e) => {
+	if(userQuery.value.length <= 1 && e.keyCode == 8){
+		autocomplete.innerHTML = '';
+  }
+})
 
 
 function show_suggestions(response) {
@@ -97,7 +133,35 @@ function show_suggestions(response) {
   }
 
 }
-// //crea un event listener por cada término que puede ser clickeado y dispara la búsqueda en GIPHY
+// crea un event listener que dispara la búsqueda al hacer click en al elegir una palabra desde autocompletar
+autocomplete.addEventListener("click", () => {
+  query.value = autocomplete.innerText;
+  console.log("click");
+  autocomplete.innerText = "";
+  deleted_input = searchBox.removeChild(autocomplete_field);
+  title.innerText = `${query.value}`;
+  title.style.display = "block";
+  let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
+    showGIFS(url)
+      .then(response => {
+        console.log(response);
+
+        if (response.length != 0) {
+          empty_search.classList.add("d-none");
+          resultados = response;
+          displayResults(resultados, 0, 12);
+
+        } else {
+          empty_search.classList.remove("d-none");
+          console.log("No hay resultados para ese término");
+        }
+      })
+      .catch(error => console.log(error));
+  
+});
+
+
+//crea un event listener por cada término de sugerencias, que puede ser clickeado y dispara la búsqueda en GIPHY
 
 for (i = 0; i < search_inputs.length; i++) {
   let kw = terms[i];
@@ -107,7 +171,7 @@ for (i = 0; i < search_inputs.length; i++) {
     query.value = kw.value;
     title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
     title.style.display = "block";
-
+    deleted_input = searchBox.removeChild(autocomplete_field);
     let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
     showGIFS(url)
       .then(response => {
@@ -134,6 +198,7 @@ lupa.addEventListener('click', () => {
 
   title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
   title.style.display = "block";
+  deleted_input = searchBox.removeChild(autocomplete_field);
   let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
   showGIFS(url)
     .then(response => {
@@ -158,6 +223,7 @@ query.addEventListener("keyup", (e) => {
     console.log("Enter");
     title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
     title.style.display = "block";
+    deleted_input = searchBox.removeChild(autocomplete_field);
     let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
     showGIFS(url)
 
@@ -198,6 +264,7 @@ function displayResults(array, posicion, longitud) {
 
   const results_container = document.querySelector("#results-container");
   results_container.classList.remove("d-none");
+  trends_headings.classList.add("d-none");
   section_container.style.paddingBottom = "5rem";
 
   view_more_btn.classList.replace("d-none", "d-block");
@@ -248,8 +315,8 @@ function displayResults(array, posicion, longitud) {
 
     //crear event listener para almacenar en Favoritos
 
-    heart.addEventListener('click', () => {      
-      
+    heart.addEventListener('click', () => {
+
       if (heart.getAttribute("src") == "./img/icon-fav-active.svg") {
         heart.setAttribute("src", "./img/icon-fav-hover.svg");
         console.log("Me desfavoriteo");
@@ -290,12 +357,12 @@ function displayResults(array, posicion, longitud) {
 
       gifoMax_cards[0].style.display = "grid";
       max_heart[0].setAttribute("id", `${id}`);
-      max_heart[0].src = `${heart.src}`; 
+      max_heart[0].src = `${heart.src}`;
       gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
       gifoMax_title.innerText = `${title}`;
       gifoMax_user.innerText = `${username}`;
     });
-    
+
   } //FIN DEL CICLO FOR
 
 
@@ -309,7 +376,7 @@ function displayResults(array, posicion, longitud) {
     let gif_imgs = document.getElementsByClassName("search-img");
     let gif_cards = document.getElementsByClassName("search-card");
     let hearts = document.getElementsByClassName("search-heart");
-    
+
     let i;
 
     for (i = 0; i < gif_imgs.length; i++) {
@@ -318,20 +385,20 @@ function displayResults(array, posicion, longitud) {
       let id = hearts[i].id;
       console.log(id);
       let image = gif_img.src;
-      let gifo_title = document.getElementById(`${id}-title`);      
-      let gifo_user = document.getElementById(`${id}-user`);          
+      let gifo_title = document.getElementById(`${id}-title`);
+      let gifo_user = document.getElementById(`${id}-user`);
 
       gif_img.addEventListener('click', () => {
         gif_card.style.display = "hidden";
         gifoMax_cards[0].style.display = "grid";
-        max_heart[0].setAttribute("id", `${id}`);        
+        max_heart[0].setAttribute("id", `${id}`);
         analizeFavs(id);
         gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
         gifoMax_title.innerText = `${gifo_title.innerHTML}`;
         gifoMax_user.innerText = `${gifo_user.innerHTML}`;
       });
     }
-  } 
+  }
 }
 
 //mostrar más resultados

@@ -2,40 +2,40 @@
 const favs_section = document.getElementById("favouriteGifos");
 const favs_container = document.querySelector("#favs-container");
 const view_more_btn = document.getElementById("view-more");
-const empty_favs=document.getElementById("empty-favs")
+const empty_favs = document.getElementById("empty-favs")
 let remainders_Favs;
 let favourites_storage = []; //Evaluar si hay gifos almacenados como favoritos (con valor true) para mostrar solo esos
-if (JSON.parse(localStorage.getItem("favs"))){
+if (JSON.parse(localStorage.getItem("favs"))) {
   let favs = JSON.parse(localStorage.getItem("favs"));
   let i;
-  for (i = 0; i<favs.length; i++){
-    if (favs[i].fav==true){
+  for (i = 0; i < favs.length; i++) {
+    if (favs[i].fav == true) {
       favourites_storage.push(favs[i]);
       console.log(favourites_storage);
     }
   }
 }
 
-document.onload = (JSON.parse(localStorage.getItem("favs"))) ? displayFavs(favourites_storage,0 ,12) : empty_favs.classList.replace("d-none", "d-block"); //si el key no existe en localStorage, mostrar diseño de Favoritos sin contenido
+document.onload = (JSON.parse(localStorage.getItem("favs"))) ? displayFavs(favourites_storage, 0, 12) : empty_favs.classList.replace("d-none", "d-block"); //si el key no existe en localStorage, mostrar diseño de Favoritos sin contenido
 
 
-function displayFavs(array, posicion, longitud){   
+function displayFavs(array, posicion, longitud) {
 
-favs_container.classList.remove("d-none");  
-view_more_btn.classList.replace("d-none", "d-block");
-favs_section.style.paddingBottom="5rem";
+  favs_container.classList.remove("d-none");
+  view_more_btn.classList.replace("d-none", "d-block");
+  favs_section.style.paddingBottom = "5rem";
 
-//ocultar botón cuando hay menos de 12 resultados por mostrar
-if ((array.length) <= 12) {
-  view_more_btn.classList.replace("d-block", "d-none");  
-}
-let i=posicion; 
+  //ocultar botón cuando hay menos de 12 resultados por mostrar
+  if ((array.length) <= 12) {
+    view_more_btn.classList.replace("d-block", "d-none");
+  }
+  let i = posicion;
 
-if (array.length<12){
-  longitud = array.length;
-}
+  if (array.length < 12) {
+    longitud = array.length;
+  }
 
-for (i = 0; i < longitud; i++){ 
+  for (i = 0; i < longitud; i++) {
     let DIV = document.createElement("div");
     DIV.setAttribute("class", "gif");
     DIV.classList.add("small");
@@ -68,36 +68,36 @@ for (i = 0; i < longitud; i++){
 
     //crear event listener para desfavoritear o volver a favoritear desde pagina Favoritos
 
-    heart.addEventListener('click', () => {    
-        
-        
-      if (heart.getAttribute("src") == "./img/icon-fav-active.svg"){
-        heart.setAttribute("src","./img/icon-fav-hover.svg");
+    heart.addEventListener('click', () => {
+
+
+      if (heart.getAttribute("src") == "./img/icon-fav-active.svg") {
+        heart.setAttribute("src", "./img/icon-fav-hover.svg");
         console.log("Me desfavoriteo");
         //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
-        
+
         console.log(gif_id);
         deleteFav(gif_id);
         location.reload();
 
       }
       else {
-        heart.setAttribute("src","./img/icon-fav-active.svg");
-        console.log("Me tengo que favoritear.Mi id es "+gif_id);
-                    
+        heart.setAttribute("src", "./img/icon-fav-active.svg");
+        console.log("Me tengo que favoritear.Mi id es " + gif_id);
+
         favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
 
-        for (i = 0; i<favourite_GIFOS.length; i++){
-          if (favourite_GIFOS[i].id == gif_id && favourite_GIFOS[i].fav == false){              
-          
-              favourite_GIFOS[i].fav = true;
-              localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
-          }          
+        for (i = 0; i < favourite_GIFOS.length; i++) {
+          if (favourite_GIFOS[i].id == gif_id && favourite_GIFOS[i].fav == false) {
 
+            favourite_GIFOS[i].fav = true;
+            localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
           }
-      }                
-      
-  });
+
+        }
+      }
+
+    });
 
     //crear event listener para Descargar
     download.addEventListener('click', async () => {
@@ -117,27 +117,27 @@ for (i = 0; i < longitud; i++){
 
     //crear event listener para Maximizar y crear el contenido de la tarjeta max
 
-    maximize.addEventListener('click',() => { 
-      
-      gifoMax_cards[0].style.display="grid";
+    maximize.addEventListener('click', () => {
+
+      gifoMax_cards[0].style.display = "grid";
       max_heart[0].setAttribute("id", `${gif_id}`);
-      max_heart[0].setAttribute("src", `${heart.src}`);           
-      gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
-      gifoMax_title.innerText=`${title}`;
-      gifoMax_user.innerText=`${username}`;      
+      max_heart[0].setAttribute("src", `${heart.src}`);
+      gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
+      gifoMax_title.innerText = `${title}`;
+      gifoMax_user.innerText = `${username}`;
     })
     // mostrar el contenido de la tarjeta max en mobile, al hacer clic en el gif 
-  if (window.innerWidth < 1024){
-    DIV.addEventListener('click', () =>{
-      console.log("Version mobile, heart src modificado");
-      gifoMax_cards[0].style.display="grid";
-      max_heart[0].setAttribute("id", `${gif_id}`);
-      max_heart[0].setAttribute("src", `${heart.src}`);           
-      gifo_container.innerHTML=`<img src=${image} class="gif-content" id="max-img">`;
-      gifoMax_title.innerText=`${title}`;
-      gifoMax_user.innerText=`${username}`;  
-    });
-  }
+    if (window.innerWidth < 1024) {
+      DIV.addEventListener('click', () => {
+        console.log("Version mobile, heart src modificado");
+        gifoMax_cards[0].style.display = "grid";
+        max_heart[0].setAttribute("id", `${gif_id}`);
+        max_heart[0].setAttribute("src", `${heart.src}`);
+        gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
+        gifoMax_title.innerText = `${title}`;
+        gifoMax_user.innerText = `${username}`;
+      });
+    }
   } //fin de ciclo FOR
 
   if (window.innerWidth >= 1024) {
@@ -145,12 +145,12 @@ for (i = 0; i < longitud; i++){
   } else {
     let gif_imgs = document.getElementsByClassName("gif");
     let gif_cards = document.getElementsByClassName("gif-card");
-    
-    for (i=0; i<gif_imgs.length; i++){
+
+    for (i = 0; i < gif_imgs.length; i++) {
       let gif_card = gif_cards[i];
 
-      gif_imgs[i].addEventListener('click', ()=> {        
-        gif_card.style.display="hidden";          
+      gif_imgs[i].addEventListener('click', () => {
+        gif_card.style.display = "hidden";
       });
     }
   }
@@ -171,24 +171,24 @@ view_more_btn.addEventListener('click', () => {
   max_heart[0].setAttribute("src","./img/icon-fav-hover.svg");
   deleteFav(gif_id);
   location.reload(); //OJO! RELOADEA también el gifMax del carrusel
-  
+
 
   /*if ((max_heart[0].getAttribute("src")) == "./img/icon-fav-active.svg"){
-    
+
     console.log("Me desfavoriteo");
     //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
-    
+
     console.log(gif_id);
     deleteFav(gif_id);
 
   }
   else {
     max_heart[0].setAttribute("src","./img/icon-fav-active.svg");
-    console.log("Me tengo que favoritear");            
-    addFav(gif_id);          
+    console.log("Me tengo que favoritear");
+    addFav(gif_id);
 
-  } 
-});*/ 
+  }
+});*/
 
 //descargar desde Gifo Max
 /*max_download.addEventListener('click', async () => {

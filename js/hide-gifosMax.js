@@ -23,9 +23,9 @@ function hide(array) {
     return array[i].style.display = "none";
   };
 }
-// guardar en Favoritos desde Gifo Max
-max_heart[0].addEventListener('click', () => {
 
+// guardar en Favoritos desde Gifo Max
+function heartActions (){
   let gif_id = max_heart[0].getAttribute("id");     
   let isFavourite = max_heart[0].src.includes("active");
   
@@ -38,7 +38,11 @@ max_heart[0].addEventListener('click', () => {
     max_heart[0].src = "./img/icon-fav-active.svg";
     addFav(gif_id);
   }
-});
+}
+max_heart[0].addEventListener('click', heartActions);
+  
+ 
+
 
 //descargar desde Gifo Max
 max_download.addEventListener('click', async () => {

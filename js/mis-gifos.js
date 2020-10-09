@@ -5,6 +5,22 @@ const view_more_btn = document.getElementById("view-more");
 const empty_mis_gifos = document.getElementById("empty-mis-gifos");
 let remainders_misGifos;
 let misGifos_storage = [];
+
+// Eliminar miGifo desde Gifo Max
+
+function deleteMyGifo (id){
+  let misGifos = JSON.parse(localStorage.getItem("myGifos"));
+  let i;
+  for (i = 0; i < misGifos.length; i++) {
+    if (misGifos[i].id == id) {
+      misGifos[i].display = false;
+      localStorage.setItem("myGifos", JSON.stringify(misGifos));
+      break;                
+    }
+  }
+  location.reload();
+}
+
 //Evaluar si hay Mis Gifos almacenados (con valor true) para mostrarlos en la página
 
 if (JSON.parse(localStorage.getItem("myGifos"))) {
@@ -98,7 +114,11 @@ function displayMisGifos(array, posicion, longitud) {
 
             gifoMax_cards[0].style.display = "grid";
             max_heart[0].setAttribute("id", `${gifo_id}`);
-            max_heart[0].setAttribute("src", "");
+            max_heart[0].src = "./img/icon_trash.svg";
+            max_heart[0].removeEventListener("click", heartActions);
+            max_heart[0].addEventListener("click", () =>{
+              deleteMyGifo(gifo_id)
+            });
             gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
             gifoMax_title.innerText = `${title}`;
             gifoMax_user.innerText = `${username}`;
@@ -108,7 +128,11 @@ function displayMisGifos(array, posicion, longitud) {
             DIV.addEventListener('click', () => {
                 gifoMax_cards[0].style.display = "grid";
                 max_heart[0].setAttribute("id", `${gifo_id}`);
-                max_heart[0].setAttribute("src", "");
+                max_heart[0].src="./img/icon_trash.svg";
+                max_heart[0].removeEventListener("click", heartActions);
+                max_heart[0].addEventListener("click", () => {
+                  deleteMyGifo(gifo_id)
+                });
                 gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
                 gifoMax_title.innerText = `${title}`;
                 gifoMax_user.innerText = `${username}`;

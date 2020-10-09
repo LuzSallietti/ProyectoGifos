@@ -48,6 +48,7 @@ function switchTheme() {
    let desktop_header = document.getElementsByClassName("desktop-header");
    let search_term = document.getElementsByClassName("search-query");
    let trends_p = document.getElementsByClassName("trends");
+   let autocomplete = document.getElementsByClassName("autocomplete");
 
 
    //función que togglea entre clases
@@ -79,7 +80,7 @@ function switchTheme() {
    toggleClasses(desktop_header, "dark-mode_desktop-header");
    toggleClasses(search_term, "dark_mode-search-query");
    toggleClasses(trends_p,"dark-mode_trends");
-  
+   toggleClasses(autocomplete, "dark-mode_autocomplete"); 
 
 
 

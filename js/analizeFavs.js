@@ -32,7 +32,7 @@ function analizeFavs(id) {
 function deleteFav(id) {
 
   favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
-
+  let i;
   for (i = 0; i < favourite_GIFOS.length; i++) {
     if (favourite_GIFOS[i].id == id) {
       favourite_GIFOS[i].fav = false;
@@ -59,7 +59,7 @@ function addFav(id) {
       else {
         isStorage = false;
         console.log("Hay contenidos pero no es el gif que querés guardar. La bandera es " + isStorage)
-        console.log(favourite_GIFOS[i]);
+        console.log(favourite_GIFOS[i].id);
       }
     }
     if (isStorage == false) {

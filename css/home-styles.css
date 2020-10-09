@@ -96,7 +96,7 @@ nav {
   height: 100vh;
   background-color: rgba(87, 46, 229, 0.9);
   padding-top: 1rem;
-  z-index: 25;
+  z-index: 12000;
 }
 
 nav ul {
@@ -147,7 +147,7 @@ form {
   border: 1px solid #572ee5;
   border-radius: 27px;
   width: 89%;
-  margin: 0 auto 45px auto;
+  margin: 0 auto 30px auto;
   padding: 0.5rem 1rem;
 }
 
@@ -202,12 +202,16 @@ form input[type="text"] {
   padding: 6px 15px;
 }
 
+.dark-mode_autocomplete {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .suggestions {
   display: none;
 }
 
 .giphy-terms {
-  color: #6b7989;
+  color: #9cafc3;
   border: none;
 }
 
@@ -371,6 +375,12 @@ main h4 {
 
 .dark-mode_trends {
   color: #fff;
+}
+
+.trends-line {
+  width: 25%;
+  margin: 2rem auto 4rem auto;
+  color: #9cafc3;
 }
 
 .container {
@@ -724,7 +734,7 @@ footer {
   -ms-flex-line-pack: justify;
       align-content: space-between;
   padding: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .creator-container .creator-frame .video-container {
@@ -820,7 +830,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   position: relative;
 }
 
@@ -870,8 +880,8 @@ footer {
   z-index: 300;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 50% 1fr;
-      grid-template-columns: 1fr 50% 1fr;
+  -ms-grid-columns: 25% 50% 25%;
+      grid-template-columns: 25% 50% 25%;
   -ms-grid-rows: 40% 20% 40%;
       grid-template-rows: 40% 20% 40%;
   visibility: hidden;

@@ -20,6 +20,7 @@ let resultados;
 let remaindersArray;
 const section_container = document.getElementById("searchedGifos");
 let close_search = document.getElementById("search-icon");
+let trends_line = document.getElementById("trends-line");
 
 
 window.onload = evaluateTheme(); // determinar color/clase que llevará el ícono de cruz que se crea dinámicamente al clickear el form
@@ -107,6 +108,7 @@ userQuery.addEventListener('input', () => {//keyup
 
 function show_autocomplete(array){
   let input = userQuery.value;
+  autocomplete.classList.remove("d-none");
   autocomplete.innerText=`${input}`;  
 
     for (let i = 0; i < array.length; i++) {
@@ -144,13 +146,14 @@ function hide_suggestions() {
 // crea un event listener que dispara la búsqueda al hacer click en al elegir una palabra desde autocompletar
 autocomplete.addEventListener("click", () => {
   query.value = autocomplete.innerText;
-  console.log("click");
+  query.disabled = true;  
   autocomplete.innerText = "";
   deleted_input = searchBox.removeChild(autocomplete_field);
   hide_suggestions();
   close_search = document.getElementById("close");
   title.innerText = `${query.value}`;
   title.style.display = "block";
+  trends_line.classList.remove("hidden");
   let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
     showGIFS(url)
       .then(response => {
@@ -176,8 +179,10 @@ for (i = 0; i < search_inputs.length; i++) {
 
   search_inputs[i].addEventListener("click", () => {
     query.value = kw.value;
+    query.disabled = true;
     title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
     title.style.display = "block";
+    trends_line.classList.remove("hidden");
     deleted_input = searchBox.removeChild(autocomplete_field);
     hide_suggestions();
     let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
@@ -202,7 +207,9 @@ for (i = 0; i < search_inputs.length; i++) {
 lupa.addEventListener('click', () => {
   title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
   title.style.display = "block";
+  trends_line.classList.remove("hidden");
   deleted_input = searchBox.removeChild(autocomplete_field);
+  query.disabled = true;
   hide_suggestions();
   let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
   showGIFS(url)
@@ -223,9 +230,10 @@ lupa.addEventListener('click', () => {
 //disparar búsqueda con enter
 query.addEventListener("keyup", (e) => {
   if (e.key === 13 || e.key === "Enter") {
-    console.log("Enter");
+    query.disabled = true;
     title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
     title.style.display = "block";
+    trends_line.classList.remove("hidden");
     deleted_input = searchBox.removeChild(autocomplete_field);
     hide_suggestions();
     let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
@@ -258,7 +266,9 @@ async function showGIFS(url) {
 function displayResults(array, posicion, longitud) {
   const results_container = document.querySelector("#results-container");
   results_container.classList.remove("d-none");
-  trends_headings.classList.add("d-none");
+  if (window.innerWidth >= 1024){
+    trends_headings.classList.add("d-none");
+  }
   section_container.style.paddingBottom = "5rem";
   view_more_btn.classList.replace("d-none", "d-block");
   if ((array.length) <= 14) {
@@ -398,7 +408,9 @@ view_more_btn.addEventListener('click', () => {
 })
 
 //refrescar búsqueda
-close_search.addEventListener("click", () => document.location.reload());
+close_search.addEventListener("click", () => {
+  document.location.reload();  
+});
 
 
 

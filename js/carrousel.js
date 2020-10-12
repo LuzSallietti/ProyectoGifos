@@ -46,9 +46,7 @@ function add_to_DOM(response) {
                   <h6 class="user white-text" id="${response[i].id}-user">${response[i].username}</h6>
                   <h5 class="gif-title white-text" id="${response[i].id}-title">${response[i].title}</h5>
                 </div>
-              </div>`;
-
-    console.log(id);
+              </div>`;    
     analizeFavs(id);
     iconsEvents(id);
     counter = counter + 1;
@@ -77,19 +75,16 @@ function add_to_DOM(response) {
         gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
         gifoMax_title.innerText = `${title}`;
         gifoMax_user.innerText = `${user}`;        
-        analizeFavs(id);//max_heart.src = analizeFavs(id);
-        
+        analizeFavs(id);        
       });
     }
   }
 }
 
-
 async function get_Trending_GIF() {
   let response = await fetch(trending_url);
   let JSON_response = await response.json();
   let GIF_data = JSON_response.data;
-
   return GIF_data;
 }
 get_Trending_GIF()
@@ -99,21 +94,16 @@ get_Trending_GIF()
   })
   .catch(error => console.log(error));
 
-
 //mostrar 3 nuevos (avanzar)
-
-function goFoward() {
-  console.log(counter);
+function goFoward() {  
   back_arrow.classList.replace("hidden", "visible");
   let trending_gif = document.getElementsByClassName("trending");
   let i;
   let id;
   for (i = 0; i < 3; i++) {
-
     if (counter >= 44) {
       forward_arow.classList.replace("visible", "hidden");
     }
-
     trending_gif[i].innerHTML = `<img class="gif-img trend-img" id="${trending_results[counter].id}-img" src=${trending_results[counter].images.fixed_height_downsampled.url}>
       <div class="gif-card large trend-card">
               <div class="icon-btn">
@@ -130,12 +120,9 @@ function goFoward() {
                 <h5 class="gif-title white-text" id="${trending_results[counter].id}-title">${trending_results[counter].title}</h5>
               </div>
             </div>`;
-
-    id = trending_results[counter].id;
-    console.log(id);
+    id = trending_results[counter].id;    
     analizeFavs(id);
     iconsEvents(id);
-
     counter = counter + 1;
   }
   //mostrar las tarjetas en hover solo a partir devices 1024px
@@ -145,37 +132,33 @@ function goFoward() {
     let gif_imgs = document.getElementsByClassName("trend-img");
     let gif_cards = document.getElementsByClassName("trend-card");
     let trends_hearts = document.getElementsByClassName("trend-heart");
-    
+    let i;
+      for (i =0 ; i < gif_imgs.length; i++) {
+        let gif_card = gif_cards[i];
+        let gif_img = gif_imgs[i];
+        let id = trends_hearts[i].id;
+        let image = gif_img.src;
+        let title = document.getElementById(`${id}-title`).innerHTML;
+        let user = document.getElementById(`${id}-user`).innerHTML;
 
-    for (i =0 ; i < gif_imgs.length; i++) {
-      let gif_card = gif_cards[i];
-      let gif_img = gif_imgs[i];
-      let id = trends_hearts[i].id;
-      let image = gif_img.src;
-      let title = document.getElementById(`${id}-title`).innerHTML;
-      let user = document.getElementById(`${id}-user`).innerHTML;
-
-      gif_img.addEventListener('click', () => {
-        gif_card.style.display = "hidden";
-        gifoMax_cards[0].style.display = "grid";
-        max_heart[0].setAttribute("id", `${id}`);
-        analizeFavs(id);
-        //max_heart.src = analizeFavs(id);
-        gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
-        gifoMax_title.innerText = `${title}`;
-        gifoMax_user.innerText = `${user}`;
-      });
+        gif_img.addEventListener('click', () => {
+          gif_card.style.display = "hidden";
+          gifoMax_cards[0].style.display = "grid";
+          max_heart[0].setAttribute("id", `${id}`);
+          analizeFavs(id);
+          //max_heart.src = analizeFavs(id);
+          gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
+          gifoMax_title.innerText = `${title}`;
+          gifoMax_user.innerText = `${user}`;
+        });
+      }
     }
   }
-}
 
 forward_arow.addEventListener("click", goFoward);
 
 //mostrar 3 anteriores (retroceder)
-
 function goBack() {
-
-
   let trending_gif = document.getElementsByClassName("trending");
   if (counter > 0) {
     counter = counter - 6;
@@ -200,53 +183,39 @@ function goBack() {
                 <h5 class="gif-title white-text" id="${trending_results[counter].id}-title">${trending_results[counter].title}</h5>
               </div>
             </div>`;
-
       id = trending_results[counter].id;
       console.log(id);
       analizeFavs(id);
       iconsEvents(id);
       counter = counter + 1;
-    }// fin de for
+    }// fin de ciclo for
     //mostrar las tarjetas en hover solo a partir devices 1024px > para dispositivos menores mostrar gifoMax cuando se hace click sobre la tarjeta
     if (window.innerWidth >= 1024) {
       show_hide_gifCards();
     } else {
       let gif_imgs = document.getElementsByClassName("trend-img");
       let gif_cards = document.getElementsByClassName("trend-card");
-      let trends_hearts = document.getElementsByClassName("trend-heart");
-      
-  
-      for (i = 0 ; i < gif_imgs.length; i++) {
-        let gif_card = gif_cards[i];
-        let gif_img = gif_imgs[i];
-        let id = trends_hearts[i].id;        
-        let image = gif_img.src;
-        let title = document.getElementById(`${id}-title`).innerHTML;
-        let user = document.getElementById(`${id}-user`).innerHTML;
-  
-        gif_img.addEventListener('click', () => {
-          gif_card.style.display = "hidden";
-          gifoMax_cards[0].style.display = "grid";
-          max_heart[0].setAttribute("id", `${id}`);
-          analizeFavs(id);
-          //max_heart.src = analizeFavs(id);          
-          gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
-          gifoMax_title.innerText = `${title}`;
-          gifoMax_user.innerText = `${user}`;
-        });
+      let trends_hearts = document.getElementsByClassName("trend-heart");    
+        for (i = 0 ; i < gif_imgs.length; i++) {
+          let gif_card = gif_cards[i];
+          let gif_img = gif_imgs[i];
+          let id = trends_hearts[i].id;        
+          let image = gif_img.src;
+          let title = document.getElementById(`${id}-title`).innerHTML;
+          let user = document.getElementById(`${id}-user`).innerHTML;
+    
+          gif_img.addEventListener('click', () => {
+            gif_card.style.display = "hidden";
+            gifoMax_cards[0].style.display = "grid";
+            max_heart[0].setAttribute("id", `${id}`);
+            analizeFavs(id);                    
+            gifo_container.innerHTML = `<img src=${image} class="gif-content" id="max-img">`;
+            gifoMax_title.innerText = `${title}`;
+            gifoMax_user.innerText = `${user}`;
+          });
+        }
       }
     }
-  }
-
-
 }
 
 back_arrow.addEventListener("click", goBack);
-
-
-
-
-
-
-
-

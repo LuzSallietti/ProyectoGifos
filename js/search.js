@@ -22,9 +22,6 @@ const section_container = document.getElementById("searchedGifos");
 let close_search = document.getElementById("search-icon");
 let trends_line = document.getElementById("trends-line");
 
-
-window.onload = evaluateTheme(); // determinar color/clase que llevará el ícono de cruz que se crea dinámicamente al clickear el form
-
 function evaluateTheme() {
   let iconColor;
   if (localStorage.getItem("dark_mode") == "true") {
@@ -36,11 +33,12 @@ function evaluateTheme() {
   };
 }
 
+window.onload = evaluateTheme(); // determinar color/clase que llevará el ícono de cruz que se crea dinámicamente al clickear el form
 
 //mostrar sugerencias al hacer click en el search form
 
 form.addEventListener('input', () => {
-  userQuery.style.borderBottom = "1px solid #9CAFC3"; //mostrar subrayado gris
+  userQuery.style.borderBottom = "1px solid #9CAFC3"; 
   lupa.classList.remove("d-none");
   lupa.classList.add("d-block");
   let search_icon = document.getElementById("search-icon"); //cambiar icono lupa por icono cruz
@@ -71,7 +69,6 @@ form.addEventListener('input', () => {
     //llamar al endpoint sugerencias
     async function search_suggestions() {
       let link = `${tags_URL + giphy_SUGGESTIONS_endopoint + userQuery.value}?&api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef`;
-      //let link = `${tags_URL + giphy_SUGGESTIONS_endopoint}?&api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${userQuery.value}`;
       let response = await fetch(link);
       let JSON_response = await response.json();
       let data = JSON_response.data;
@@ -85,7 +82,7 @@ form.addEventListener('input', () => {
       .catch(error => console.log(error));
   }
 });
-userQuery.addEventListener('input', () => {//keyup
+userQuery.addEventListener('input', () => {
   if (userQuery.value.length > 0) {
     // llamar al endpoint autocomplete
     async function autocomplete_request() {
@@ -109,8 +106,7 @@ userQuery.addEventListener('input', () => {//keyup
 function show_autocomplete(array){
   let input = userQuery.value;
   autocomplete.classList.remove("d-none");
-  autocomplete.innerText=`${input}`;  
-
+  autocomplete.innerText=`${input}`;
     for (let i = 0; i < array.length; i++) {
       if (array[i].name.match(input)) {
         autocomplete.innerText += array[i].name.slice(input.length, array[i].name.length);
@@ -118,15 +114,8 @@ function show_autocomplete(array){
       }
     }
 }
-/*userQuery.addEventListener('input', (e) => {//keydown
-	if(userQuery.value.length <= 1 && e.keyCode == 8){
-		autocomplete.innerHTML = '';
-  }
-})*/
-
 
 function show_suggestions(response) {
-
   for (i = 0; i < search_inputs.length; i++) {
     search_inputs[i].style.display = "flex";
     let text_input = terms[i];
@@ -141,116 +130,52 @@ function hide_suggestions() {
   for (i = 0; i < search_inputs.length; i++) {
     search_inputs[i].style.display = "none";   
   }
-
 }
-// crea un event listener que dispara la búsqueda al hacer click en al elegir una palabra desde autocompletar
-autocomplete.addEventListener("click", () => {
-  query.value = autocomplete.innerText;
-  query.disabled = true;  
-  autocomplete.innerText = "";
+//buscar en Giphy
+function giphySearch(query){
+  userQuery.disabled = true;
   deleted_input = searchBox.removeChild(autocomplete_field);
   hide_suggestions();
   close_search = document.getElementById("close");
-  title.innerText = `${query.value}`;
+  title.innerText = `${query}`;
   title.style.display = "block";
   trends_line.classList.remove("hidden");
   let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
     showGIFS(url)
-      .then(response => {
-        console.log(response);
-
+      .then(response => {        
         if (response.length != 0) {
           empty_search.classList.add("d-none");
           resultados = response;
           displayResults(resultados, 0, 12);
         } else {
-          empty_search.classList.remove("d-none");
-          console.log("No hay resultados para ese término");
+          empty_search.classList.remove("d-none");          
         }
       })
       .catch(error => console.log(error));  
-});
-
-
-//crea un event listener por cada término de sugerencias, que puede ser clickeado y dispara la búsqueda en GIPHY
-
-for (i = 0; i < search_inputs.length; i++) {
-  let kw = terms[i];
-
-  search_inputs[i].addEventListener("click", () => {
-    query.value = kw.value;
-    query.disabled = true;
-    title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
-    title.style.display = "block";
-    trends_line.classList.remove("hidden");
-    deleted_input = searchBox.removeChild(autocomplete_field);
-    hide_suggestions();
-    let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
-    showGIFS(url)
-      .then(response => {
-        console.log(response);
-        if (response.length != 0) {
-          empty_search.classList.add("d-none");
-          resultados = response;
-          displayResults(resultados, 0, 12);
-        } else {
-          empty_search.classList.remove("d-none");
-          console.log("No hay resultados para ese término");
-        }
-      })
-      .catch(error => console.log(error));
-  })
 }
 
+// crea un event listener que dispara la búsqueda al hacer click en al elegir una palabra desde autocompletar
+autocomplete.addEventListener("click", () => {
+  query.value = autocomplete.innerText;
+  giphySearch(query.value);  
+});
+//crea un event listener por cada término de sugerencias, que puede ser clickeado y dispara la búsqueda en GIPHY
+for (i = 0; i < search_inputs.length; i++) {
+  let kw = terms[i];
+  search_inputs[i].addEventListener("click", () => {
+    query.value = kw.value;
+    giphySearch(query.value);
+  })
+}
 //disparar búsqueda con icono lupa
-
 lupa.addEventListener('click', () => {
-  title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
-  title.style.display = "block";
-  trends_line.classList.remove("hidden");
-  deleted_input = searchBox.removeChild(autocomplete_field);
-  query.disabled = true;
-  hide_suggestions();
-  let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
-  showGIFS(url)
-    .then(response => {
-      console.log(response);
-      if (response.length != 0) {
-        empty_search.classList.add("d-none");
-        resultados = response;
-        displayResults(resultados, 0, 12);
-      } else {
-        empty_search.classList.remove("d-none");
-        console.log("No hay resultados para ese término");
-      }
-    })
-    .catch(error => console.log(error));
+  giphySearch(query.value);
 })
 
 //disparar búsqueda con enter
 query.addEventListener("keyup", (e) => {
   if (e.key === 13 || e.key === "Enter") {
-    query.disabled = true;
-    title.innerText = `${query.value}`; //mostrar el criterio de búsqueda en el h1 de resultados(contenedor de gifs)
-    title.style.display = "block";
-    trends_line.classList.remove("hidden");
-    deleted_input = searchBox.removeChild(autocomplete_field);
-    hide_suggestions();
-    let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
-    showGIFS(url)
-      .then(response => {
-        console.log(response);
-
-        if (response.length != 0) {
-          empty_search.classList.add("d-none");
-          resultados = response;
-          displayResults(resultados, 0, 12);
-        } else {
-          empty_search.classList.remove("d-none");
-          console.log("No hay resultados para ese término");
-        }
-      })
-      .catch(error => console.log(error));
+    giphySearch(query.value);
   }
 })
 
@@ -272,16 +197,12 @@ function displayResults(array, posicion, longitud) {
   section_container.style.paddingBottom = "5rem";
   view_more_btn.classList.replace("d-none", "d-block");
   if ((array.length) <= 14) {
-    view_more_btn.classList.replace("d-block", "d-none");
-    console.log("La longitud del array es " + array.length)
+    view_more_btn.classList.replace("d-block", "d-none");    
   }
-
-
   let i = posicion;
   if (array.length < 12) {
     longitud = array.length;
   }
-
   for (i; i < longitud; i++) {
 
     let DIV = document.createElement("div");
@@ -306,7 +227,6 @@ function displayResults(array, posicion, longitud) {
       </div>`;
 
     analizeFavs(array[i].id);
-
     let heart = document.getElementById(`${array[i].id}`);
     let gif_id = heart.getAttribute("id");
     let id = `${array[i].id}`;
@@ -317,44 +237,35 @@ function displayResults(array, posicion, longitud) {
     let username = (document.getElementById(`${array[i].id}-user`).innerHTML);
 
     //crear event listener para almacenar en Favoritos
-
     heart.addEventListener('click', () => {
-
       if (heart.getAttribute("src") == "./img/icon-fav-active.svg") {
-        heart.setAttribute("src", "./img/icon-fav-hover.svg");
-        console.log("Me desfavoriteo");
-        //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
-
-        console.log(gif_id);
+        heart.setAttribute("src", "./img/icon-fav-hover.svg"); //existe como favorito, desfavoritea y cambia el ícono  
         deleteFav(gif_id);
-
       }
       else {
-        heart.setAttribute("src", "./img/icon-fav-active.svg");
-        console.log("Me tengo que favoritear");
+        heart.setAttribute("src", "./img/icon-fav-active.svg"); // se almacena como favorito
         addFav(gif_id);
       }
     });
 
     //crear event listener para Descargar
     download.addEventListener('click', async () => {
-      //create new a element
+      //crea nuevo elemento
       let a = document.createElement('a');
-      // get image as blob
+      // crea una imagen
       let response = await fetch(image);
       let file = await response.blob();
-      // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+      // generar la descarga https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
       a.download = `${title}`;
       a.href = window.URL.createObjectURL(file);
-      //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+      //almacenar la url de descarga en javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
       a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-      //click on element to start download
+      //generar la descarga al hacer click
       a.click();
     });
-    //crear event listener para Maximizar y crear el contenido de la tarjeta max
 
+    //crear event listener para Maximizar y crear el contenido de la tarjeta gifo-max
     maximize.addEventListener('click', () => {
-
       gifoMax_cards[0].style.display = "grid";
       max_heart[0].setAttribute("id", `${id}`);
       max_heart[0].src = `${heart.src}`;
@@ -362,11 +273,8 @@ function displayResults(array, posicion, longitud) {
       gifoMax_title.innerText = `${title}`;
       gifoMax_user.innerText = `${username}`;
     });
-
-  } //FIN DEL CICLO FOR
-
-
-  array.splice(0, 12);
+  } //FIN DEL CICLO FOR  
+  array.splice(0, 12); //eliminar del array de resultados los 12 gifs que ya se mostraron y almacenar en nuevo array los restantes
   remaindersArray = array;
 
   //mostrar las tarjetas en hover solo a partir devices 1024px > para dispositivos menores mostrar gifoMax cuando se hace click sobre la tarjeta
@@ -376,18 +284,14 @@ function displayResults(array, posicion, longitud) {
     let gif_imgs = document.getElementsByClassName("search-img");
     let gif_cards = document.getElementsByClassName("search-card");
     let hearts = document.getElementsByClassName("search-heart");
-
     let i;
-
     for (i = 0; i < gif_imgs.length; i++) {
       let gif_card = gif_cards[i];
       let gif_img = gif_imgs[i];
-      let id = hearts[i].id;
-      console.log(id);
+      let id = hearts[i].id;      
       let image = gif_img.src;
       let gifo_title = document.getElementById(`${id}-title`);
       let gifo_user = document.getElementById(`${id}-user`);
-
       gif_img.addEventListener('click', () => {
         gif_card.style.display = "hidden";
         gifoMax_cards[0].style.display = "grid";
@@ -404,23 +308,9 @@ function displayResults(array, posicion, longitud) {
 //mostrar más resultados
 view_more_btn.addEventListener('click', () => {
   displayResults(remaindersArray, 0, 12);
-
 })
 
 //refrescar búsqueda
 close_search.addEventListener("click", () => {
   document.location.reload();  
 });
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,7 +2,10 @@ const trending_topics_url = `https://api.giphy.com/v1/trending/searches?api_key=
 let giphy_trends = document.getElementById("giphy-trends");
 let giphy_response; 
 
-document.onload = getTrendingTopics();
+//mostrar trending searches/topics en la home
+function showGiphyTrends(array){
+    giphy_trends.innerText = `${array[0]}, ${array[1]}, ${array[2]}, ${array[3]}, ${array[4]}`;
+}
 
 async function getTrendingTopics(){
     let response = await fetch(trending_topics_url);
@@ -17,6 +20,4 @@ getTrendingTopics()
 })
 .catch(error => console.log (error));
 
-function showGiphyTrends(array){
-    giphy_trends.innerText = `${array[0]}, ${array[1]}, ${array[2]}, ${array[3]}, ${array[4]}`;
-}
+document.onload = getTrendingTopics();

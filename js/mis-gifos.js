@@ -6,18 +6,16 @@ const empty_mis_gifos = document.getElementById("empty-mis-gifos");
 let remainders_misGifos;
 let misGifos_storage = [];
 
-//Evaluar si hay Mis Gifos almacenados (con valor true) para mostrarlos en la página
+//Evaluar si hay objetos Mis Gifos almacenados (con propiedad true) y mostrarlos en la página
 function showMisGifos(){
   if (JSON.parse(localStorage.getItem("myGifos"))) {
       let misGifos = JSON.parse(localStorage.getItem("myGifos"));
       let i;
       for (i = 0; i < misGifos.length; i++) {
           if (misGifos[i].display === true) {
-              misGifos_storage.push(misGifos[i]);
-              console.log(misGifos_storage);
+              misGifos_storage.push(misGifos[i]);              
           }
-      }
-      
+      }  
   }
   displayMisGifos (misGifos_storage, 0, 12);
 }
@@ -40,13 +38,12 @@ function deleteMyGifo (id){
 function displayMisGifos(array, posicion, longitud) {
     mis_gifos_container.classList.remove("d-none");
     view_more_btn.classList.replace("d-none", "d-block");
-    mis_gifos_section.style.paddingBottom = "5rem"; //esto hace falta? revisar el diseño
+    mis_gifos_section.style.paddingBottom = "5rem";
     //ocultar botón cuando hay menos de 12 resultados por mostrar
     if ((array.length) <= 12) {
         view_more_btn.classList.replace("d-block", "d-none");
     }
     let i = posicion;
-
     if (array.length < 12) {
         longitud = array.length;
     }
@@ -73,8 +70,7 @@ function displayMisGifos(array, posicion, longitud) {
           </div>`;
 
         let trash = document.getElementById(`mygifo-${array[i].id}`);
-        let gifo_id = `${trash.dataset.mgidentifier}`;
-        console.log(gifo_id);
+        let gifo_id = `${trash.dataset.mgidentifier}`;        
         let download = document.getElementById(`${array[i].id}-mygifo-dload`);
         let maximize = document.getElementById(`${array[i].id}-mygifo-max`);
         let image = (document.getElementById(`${array[i].id}-mygifo-img`)).src;
@@ -96,24 +92,17 @@ function displayMisGifos(array, posicion, longitud) {
             location.reload();
         })
         //crear event listener para Descargar
-        download.addEventListener('click', async () => {
-            //create new a element
-            let a = document.createElement('a');
-            // get image as blob
+        download.addEventListener('click', async () => {            
+            let a = document.createElement('a');            
             let response = await fetch(image);
-            let file = await response.blob();
-            // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+            let file = await response.blob();            
             a.download = `${title}`;
-            a.href = window.URL.createObjectURL(file);
-            //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-            a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-            //click on element to start download
+            a.href = window.URL.createObjectURL(file);            
+            a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');           
             a.click();
         });
         //crear event listener para Maximizar y crear el contenido de la tarjeta max
-
         maximize.addEventListener('click', () => {
-
             gifoMax_cards[0].style.display = "grid";
             max_heart[0].setAttribute("id", `${gifo_id}`);
             max_heart[0].src = "./img/icon_trash.svg";
@@ -146,10 +135,9 @@ function displayMisGifos(array, posicion, longitud) {
       } else {
         let gif_imgs = document.getElementsByClassName("gif");
         let gif_cards = document.getElementsByClassName("gif-card");
-    
+        let i;    
         for (i = 0; i < gif_imgs.length; i++) {
-          let gif_card = gif_cards[i];
-    
+          let gif_card = gif_cards[i];    
           gif_imgs[i].addEventListener('click', () => {
             gif_card.style.display = "hidden";
           });

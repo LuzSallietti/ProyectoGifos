@@ -7,10 +7,8 @@ $darkGrey: #6b7989;
 $active: #9cafc3;
 $montserrat: "Montserrat", sans-serif;
 $roboto: "Roboto", sans-serif;
-
 $darkMode_DarkGrey: #222326;
 $darkMode_LightGrey: #37383c;
-
 
 * {
   margin: 0;
@@ -512,7 +510,7 @@ footer {
   justify-content: center;
   align-items: center;
   margin: 20px auto 0 auto;
-  transition: all 0.5s ease;
+  
   .GIFOS-text {
     fill: $white;
   }
@@ -553,6 +551,7 @@ footer {
       position: absolute;
       top: 0;
     }
+
     .text-container {
       width: 90%;
       text-align: center;
@@ -710,6 +709,7 @@ footer {
   grid-row: 3/4;
   align-self: start;
 }
+
 @import"partials/mediaqueries-landscape";
 @import "partials/mediaqueries-md";
 @import "partials/mediaqueries-lg";

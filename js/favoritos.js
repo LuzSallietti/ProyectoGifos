@@ -5,19 +5,16 @@ const view_more_btn = document.getElementById("view-more");
 const empty_favs = document.getElementById("empty-favs")
 let remainders_Favs;
 let favourites_storage = []; //Evaluar si hay gifos almacenados como favoritos (con valor true) para mostrar solo esos
+
 if (JSON.parse(localStorage.getItem("favs"))) {
   let favs = JSON.parse(localStorage.getItem("favs"));
   let i;
   for (i = 0; i < favs.length; i++) {
     if (favs[i].fav == true) {
-      favourites_storage.push(favs[i]);
-      console.log(favourites_storage);
+      favourites_storage.push(favs[i]);      
     }
   }
 }
-
-document.onload = (JSON.parse(localStorage.getItem("favs"))) ? displayFavs(favourites_storage, 0, 12) : empty_favs.classList.replace("d-none", "d-block"); //si el key no existe en localStorage, mostrar diseño de Favoritos sin contenido
-
 
 function displayFavs(array, posicion, longitud) {
 
@@ -58,8 +55,7 @@ function displayFavs(array, posicion, longitud) {
       </div>`;
 
     let heart = document.getElementById(`fav-${array[i].id}`);
-    let gif_id = heart.dataset.identifier;
-    console.log(gif_id);
+    let gif_id = heart.dataset.identifier;    
     let download = document.getElementById(`${array[i].id}-fav-dload`);
     let maximize = document.getElementById(`${array[i].id}-fav-max`);
     let image = (document.getElementById(`${array[i].id}-fav-img`)).src;
@@ -67,58 +63,37 @@ function displayFavs(array, posicion, longitud) {
     let username = (document.getElementById(`${array[i].id}-fav-user`).innerHTML);
 
     //crear event listener para desfavoritear o volver a favoritear desde pagina Favoritos
-
     heart.addEventListener('click', () => {
-
-
       if (heart.getAttribute("src") == "./img/icon-fav-active.svg") {
-        heart.setAttribute("src", "./img/icon-fav-hover.svg");
-        console.log("Me desfavoriteo");
-        //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
-
-        console.log(gif_id);
+        heart.setAttribute("src", "./img/icon-fav-hover.svg");     
         deleteFav(gif_id);
         location.reload();
-
       }
       else {
-        heart.setAttribute("src", "./img/icon-fav-active.svg");
-        console.log("Me tengo que favoritear.Mi id es " + gif_id);
-
+        heart.setAttribute("src", "./img/icon-fav-active.svg");      
         favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
-
         for (i = 0; i < favourite_GIFOS.length; i++) {
           if (favourite_GIFOS[i].id == gif_id && favourite_GIFOS[i].fav == false) {
-
             favourite_GIFOS[i].fav = true;
             localStorage.setItem("favs", JSON.stringify(favourite_GIFOS));
           }
-
         }
       }
-
     });
 
     //crear event listener para Descargar
-    download.addEventListener('click', async () => {
-      //create new a element
-      let a = document.createElement('a');
-      // get image as blob
+    download.addEventListener('click', async () => {     
+      let a = document.createElement('a');      
       let response = await fetch(image);
-      let file = await response.blob();
-      // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+      let file = await response.blob();      
       a.download = `${title}`;
-      a.href = window.URL.createObjectURL(file);
-      //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-      a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-      //click on element to start download
+      a.href = window.URL.createObjectURL(file);     
+      a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');      
       a.click();
     });
 
-    //crear event listener para Maximizar y crear el contenido de la tarjeta max
-
+    //crear event listener para Maximizar y crear el contenido de la tarjeta Gifo-max
     maximize.addEventListener('click', () => {
-
       gifoMax_cards[0].style.display = "grid";
       max_heart[0].setAttribute("id", `${gif_id}`);
       max_heart[0].setAttribute("src", `${heart.src}`);
@@ -145,72 +120,20 @@ function displayFavs(array, posicion, longitud) {
   } else {
     let gif_imgs = document.getElementsByClassName("gif");
     let gif_cards = document.getElementsByClassName("gif-card");
-
     for (i = 0; i < gif_imgs.length; i++) {
       let gif_card = gif_cards[i];
-
       gif_imgs[i].addEventListener('click', () => {
         gif_card.style.display = "hidden";
       });
     }
   }
-
   array.splice(0, 12);
   remainders_Favs = array;
-
 }
+
+document.onload = (JSON.parse(localStorage.getItem("favs"))) ? displayFavs(favourites_storage, 0, 12) : empty_favs.classList.replace("d-none", "d-block"); //si el key no existe en localStorage, mostrar diseño de Favoritos sin contenido
 //mostrar más resultados
+
 view_more_btn.addEventListener('click', () => {
-  displayFavs(remainders_Favs, 0, 12);
-
+  displayFavs(remainders_Favs, 0, 12); //mostrar resultados de 12 en 12
 })
-// guardar en Favoritos desde Gifo Max
-/*max_heart[0].addEventListener('click', () => {
-  let gif_id = `${max_heart[0].getAttribute("id")}`;
-  console.log(gif_id);
-  max_heart[0].setAttribute("src","./img/icon-fav-hover.svg");
-  deleteFav(gif_id);
-  location.reload(); //OJO! RELOADEA también el gifMax del carrusel
-
-
-  /*if ((max_heart[0].getAttribute("src")) == "./img/icon-fav-active.svg"){
-
-    console.log("Me desfavoriteo");
-    //quiere decir que existe en localSrorage como favorito, hay que desfavoritearlo y psar el corazon a blanco
-
-    console.log(gif_id);
-    deleteFav(gif_id);
-
-  }
-  else {
-    max_heart[0].setAttribute("src","./img/icon-fav-active.svg");
-    console.log("Me tengo que favoritear");
-    addFav(gif_id);
-
-  }
-});*/
-
-//descargar desde Gifo Max
-/*max_download.addEventListener('click', async () => {
-  let image = (document.getElementById("max-img")).src;
-  let title = (document.getElementById("gif-max-title")).innerHTML;
-  //create new a element
-  let a = document.createElement('a');
-  // get image as blob
-  let response = await fetch(image);
-  let file = await response.blob();
-  // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
-  a.download = `${title}`;
-  a.href = window.URL.createObjectURL(file);
-  //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-  a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-  //click on element to start download
-  a.click();
-});*/
-
-
-
-
-
-
-

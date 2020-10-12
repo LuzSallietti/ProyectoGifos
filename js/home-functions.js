@@ -1,4 +1,3 @@
-
 const hamburger = document.getElementById("hamburger");
 const close_nav = document.getElementById("close-nav");
 const nav = document.getElementById("nav");
@@ -8,30 +7,17 @@ let header = document.getElementsByClassName("desktop-header");
 
 // mostrar y ocultar menu mobile
 
-function showMenu() {   
+function showMenu() {    
    nav.classList.toggle("visible");
    hamburger.classList.toggle("d-none");
    close_nav.classList.remove("d-none");
 }
 function hideMenu(){
+   create_GIFO_btn[0].classList.remove("visible");
    nav.classList.toggle("visible");
    hamburger.classList.toggle("d-none");
    close_nav.classList.add("d-none");
 }
-
-
-//mostrar el logo y nav que corresponde de acuerdo al dispositivo
-/*function showLogo() {
-let logo_mobile = document.querySelector('#logo-mobile');
-let logo_desktop = document.querySelector('#logo-desktop');
-if (window.innerWidth <1024){
-   logo_desktop.style.display="none";
-   
-} else {
-   logo_mobile.style.display="none";
-   hamburger.classList.add("d-none");
-}
-}*/
 
 // ir al html Crear GIFOS al hacer click en el botón del nav
 
@@ -41,15 +27,14 @@ for (i = 0; i < create_GIFO_btn.length; i++) {
 //función que togglea entre clases
 
 function toggleClasses(array, clase) {
+   let i;
    for (i = 0; i < array.length; i++) {
       array[i].classList.toggle(clase);
    }
 }
-
 // alternar theme colors entre modo diurno y modo nocturno
 
 function switchTheme() {
-
    let body = document.getElementsByTagName("body");
    let H1 = document.getElementsByTagName("h1");
    let H2 = document.getElementsByTagName("h2");
@@ -76,9 +61,8 @@ function switchTheme() {
    let cameraSVG = document.getElementById("camera");
    let peliculaSVG = document.getElementById("pelicula");
    let page_location = String(window.location.pathname);
-   let isCrearGifos = page_location.includes("crear-gifo.html");  
+   let isCrearGifos = page_location.includes("crear-gifo.html");
    
-
    toggleClasses(body, "dark-mode_body");
    toggleClasses(H1, "dark-mode_texts");
    toggleClasses(H2, "dark-mode_texts");
@@ -102,8 +86,7 @@ function switchTheme() {
    toggleClasses(trends_p,"dark-mode_trends");
    toggleClasses(autocomplete, "dark-mode_autocomplete");
    toggleClasses(creator_numbers, "dark-mode_number");
-   toggleClasses(light_texts, "dark-mode_texts");
-   
+   toggleClasses(light_texts, "dark-mode_texts");   
    
    if (isCrearGifos){
    let dark = (cameraSVG.src.indexOf("nocturno")>0);
@@ -114,36 +97,32 @@ function switchTheme() {
       cameraSVG.src = "./img/camara-con-luz.svg";
       peliculaSVG.src = "./img/pelicula.svg";
    }
-}
-   
-   
-    
-
-
+} 
 
 // Almacenar la elección del modo en localStorage (diurno/nocturno)
 
-   document.body.classList.contains("dark-mode_body") ? localStorage.setItem("dark_mode", "true") : localStorage.setItem("dark_mode", "false");
+document.body.classList.contains("dark-mode_body") ? localStorage.setItem("dark_mode", "true") : localStorage.setItem("dark_mode", "false");
 }
 //cambiar el texto en en el link de menú (Modo diurno / Modo Nocturno)
 
 function switch_LinkText() {
-
    if (theme_switcher[0].innerText == "Modo Nocturno" || theme_switcher[0].innerText == "MODO NOCTURNO") {
       theme_switcher[0].innerText = "Modo Diurno";
    } else if (theme_switcher[0].innerText == "Modo Diurno" || theme_switcher[0].innerText == "MODO DIURNO") {
       theme_switcher[0].innerText = "Modo Nocturno";
    }
 }
+
 //MANTENER la elección de modo (diurno/nocturno) en navegación entre páginas
+
 function keep_theme() {
    if (localStorage.getItem("dark_mode") == "true") {
       theme_switcher[0].innerText = "Modo Diurno";
-      switchTheme();        
-
+      switchTheme();      
    }
 };
 //aplicar SHADOW al header desktop cuando hay scroll
+
 function apply_shadow() {
    let i;
    for (i = 0; i < header.length; i++) {   
@@ -153,16 +132,9 @@ function apply_shadow() {
    }
 }
 
-
 document.body.onload = keep_theme;
 document.body.onscroll = apply_shadow;
 hamburger.addEventListener('click', showMenu);
 close_nav.addEventListener('click', hideMenu);
 theme_switcher[0].addEventListener('click', switchTheme);
 theme_switcher[0].addEventListener('click', switch_LinkText);
-
-
-
-
-
-

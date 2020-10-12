@@ -1,3 +1,4 @@
+//clase que define las propiedades de los nuevos objetos Mis Gifos a instanciar y almacenar en localStorage
 class MyGifos {
   constructor(id , src, title, user, display) {
       this.id = id;
@@ -5,7 +6,6 @@ class MyGifos {
       this.title = title;
       this.user = user;
       this.display = display;
-
   }
 }
 let storaged_GIFOS;
@@ -26,24 +26,18 @@ let two_btn = document.getElementById("two-btn");
 let three_btn = document.getElementById("three-btn");
 let record_counter= document.getElementById("record-counter");
 const text_container=document.getElementById("text-container");
-
 const GIPHY_KEY = 'ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef';
 const key = '?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef';
-
 let url = `https://upload.giphy.com/v1/gifs?api_key=${GIPHY_KEY}`;
 let urlGetById = 'https://api.giphy.com/v1/gifs/';
-
 let camera;
 let recorder;
 let is_recording = false;
-
 let gifId;
 let gifUrl;
-
 let seconds = document.getElementById("seconds");
 let decimal = document.getElementById("decimal");
 let minutes = document.getElementById("minutes");
-
 let form;
 let src;
 let blob;
@@ -62,19 +56,16 @@ let clock = function(){
   }              
   seconds.innerText=contador;
   decimal.innerText=decimals;
-  minutes.innerText=minutes_count;
-       
+  minutes.innerText=minutes_count;       
 }  
 let interval;
-//let cameraSVG = document.getElementById("camera");
-//let peliculaSVG = document.getElementById("pelicula");
-
-/*if(JSON.parse(localStorage.getItem("dark_mode"))==true){
-  cameraSVG.src = "./img/camara-con-luz-nocturno.svg";
-  peliculaSVG.src = "./img/pelicula-modo-noc.svg"
-}*/
-
-
+//iniciar proceso de acceso a la cámara
+function startCamera (){     
+  if (!is_recording)      
+      get_cam_access();
+      getStreamAndRecord();
+}
+//almacenar el gifo creado en localStorage
 function storage_my_gifo(myGifo){
   if (JSON.parse(localStorage.getItem("myGifos"))) {
     storaged_GIFOS = JSON.parse(localStorage.getItem("myGifos"));
@@ -84,42 +75,32 @@ function storage_my_gifo(myGifo){
     storaged_GIFOS = [];
     storaged_GIFOS.push(myGifo);
     localStorage.setItem("myGifos", JSON.stringify(storaged_GIFOS));
-
   }; 
 }
-
+//descargar el gifo creado
 function generate_dload(url) {
-    download_icon.addEventListener("click", async () => {
-      //create new a element
-      let a = document.createElement('a');
-      // get image as blob
+    download_icon.addEventListener("click", async () => {     
+      let a = document.createElement('a');      
       let response = await fetch(url);
-      let file = await response.blob();
-      // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+      let file = await response.blob();     
       a.download = "Mi Gifo";
-      a.href = window.URL.createObjectURL(file);
-      //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-      a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-      //click on element to start download
+      a.href = window.URL.createObjectURL(file);      
+      a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');      
       a.click();
   });
 }
-
+// ir a la sección Compartir en giphy
 function generate_share(url){
   share_icon.addEventListener("click",() => {
     window.open(url)});
-}
-    
-
+}   
+// mostrar carga exitosa
 function upload_succes(){
   upload_icon.src=`./img/check.svg`
   myGif_btns.style.visibility="visible";
   loading_msg.innerText="GIFO subido con éxito";
-
-}
-    
-
-
+}  
+//acceder a la cámara
 function get_cam_access(){
     H1_main_title.innerText="¿Nos das acceso a tu cámara?";
     instructions_paragraph.innerText="El acceso a tu camara será válido solo por el tiempo en el que estés creando el GIFO."
@@ -133,18 +114,15 @@ function get_cam_access(){
     one_btn.style.color="#fff";
     }
 }
-function getStreamAndRecord () {
-     
+//generar stream y grabar
+function getStreamAndRecord () {     
     navigator.mediaDevices.getUserMedia({
     audio: false,
     video: {
        height: { max: 480 }
     }
  })
-
-
- .then(function(stream) { 
-          
+ .then(function(stream) {          
     video_container.srcObject = stream;    
     video_container.play()
     H1_main_title.style.visibility="hidden";
@@ -174,61 +152,45 @@ function getStreamAndRecord () {
   start_button.style.visibility="hidden";
   });
  }
-
+//grabar con RecordRTC
  function startRecord(){
     start_button.removeEventListener("click", startRecord);
     start_button.innerText="Finalizar";
-
     let recorder_options = {
         video: true,
         audio: false,
         type: "gif",
       };
-    let camera = video_container.srcObject;
-    
-            
+    let camera = video_container.srcObject;            
     recorder = RecordRTC(camera, recorder_options);
             recorder.startRecording();
             recorder.camera = camera;
             is_recording = true;
-
-
-    interval = setInterval(clock, 1000);    
-
+    interval = setInterval(clock, 1000);  
     start_button.addEventListener("click", stop_recording);
  }
-
-
+//detener la grabación
 function stop_recording() {
   clearInterval(interval);
-    recorder.stopRecording();
-    
-    record_counter.innerHTML=`<p id="repeat-capture">REPETIR CAPTURA</p>`;
-   
+    recorder.stopRecording();    
+    record_counter.innerHTML=`<p id="repeat-capture">REPETIR CAPTURA</p>`;   
     record_counter.addEventListener("click", () => {
       location.reload();      
     });
-
     start_button.removeEventListener("click", stop_recording);
-    start_button.innerText="Subir GIFO";               
-   
+    start_button.innerText="Subir GIFO";              
     recorder.camera.stop();    
     blob = recorder.getBlob();
     console.log(blob);
-    src = URL.createObjectURL(blob);
-    
+    src = URL.createObjectURL(blob);    
     img_element.src = src;
-
     recorder.destroy();
     recorder = null;
     video_container.srcObject = null;
-
     is_recording = false;
-
-    start_button.addEventListener("click", upload_gif);
-    
+    start_button.addEventListener("click", upload_gif);    
   }
-
+//subir el gifo a Giphy
 function upload_gif(){
     upload_details.style.visibility="visible";
     start_button.removeEventListener("click",upload_gif);
@@ -246,13 +208,9 @@ function upload_gif(){
       two_btn.style.color="#572ee5";
       three_btn.style.color="#fff";
       three_btn.style.backgroundColor="#572ee5";
-    }
-    
-
+    } 
     form = new FormData();
-    form.append("file", blob, 'migifo.gif');
-    // here is where upload happens
-  
+    form.append("file", blob, 'migifo.gif');   
     fetch(url, {
       method:'POST',
       body: form
@@ -278,19 +236,9 @@ function upload_gif(){
           loading_msg.innerText="Ups! Hubo un error. Crea un nuevo Gifo.";
         })
     });
-
-  
-   
 }
 
 start_button.addEventListener("click", startCamera);
 
-function startCamera (){
-     
-        if (!is_recording)
-            
-            get_cam_access();
-            getStreamAndRecord();
-    
-}
+
 

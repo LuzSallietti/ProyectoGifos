@@ -24,8 +24,7 @@ function heartActions (){
   
   if (isFavourite) {
     max_heart[0].src = "./img/icon-fav-hover.svg";
-    deleteFav(gif_id);
-      
+    deleteFav(gif_id);      
   }     
   else {
     max_heart[0].src = "./img/icon-fav-active.svg";
@@ -34,7 +33,7 @@ function heartActions (){
 }
 
 close_icon.addEventListener('click', () => {  
-  hide(gifoMax_cards)
+  hide(gifoMax_cards);
   max_heart[0].src="./img/icon-fav-hover.svg";
   if (isFavsPage){
     window.location.reload();
@@ -42,21 +41,15 @@ close_icon.addEventListener('click', () => {
 });
 max_heart[0].addEventListener('click', heartActions);
 
-
 //descargar desde Gifo Max
 max_download.addEventListener('click', async () => {
   let image = (document.getElementById("max-img")).src;
-  let title = (document.getElementById("gif-max-title")).innerHTML;
-  //create new a element
-  let a = document.createElement('a');
-  // get image as blob
+  let title = (document.getElementById("gif-max-title")).innerHTML;  
+  let a = document.createElement('a'); 
   let response = await fetch(image);
-  let file = await response.blob();
-  // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+  let file = await response.blob();  
   a.download = `${title}`;
-  a.href = window.URL.createObjectURL(file);
-  //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-  a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-  //click on element to start download
+  a.href = window.URL.createObjectURL(file);  
+  a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');  
   a.click();
 });

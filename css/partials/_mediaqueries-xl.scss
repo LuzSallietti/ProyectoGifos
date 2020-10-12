@@ -1,0 +1,126 @@
+@media (min-width: 1440px){
+    .top-bar {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 5px solid $purple;
+        padding: 20px 156px;
+      }
+    .container {
+        overflow: hidden;
+        padding-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;       
+    }
+    .carousel {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        position: relative;
+        padding: 0 1rem;
+        width: auto;             
+      }
+      .arrow-left {
+        display: block;
+        width:40px;
+        height: 40px;
+        border:1px solid $purple;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        justify-self: self-end;
+        
+        &:hover{
+            background-color: $purple;
+            transition: all .5s ease;
+            .GIFOS-text{
+              fill:$white;
+              
+            }
+          }
+      }
+      .arrow-right {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $purple;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        justify-self: self-start;
+       
+        &:hover{
+            background-color: $purple;
+            transition: all .5s ease;
+            .GIFOS-text{
+              fill:$white;
+              
+            }
+          }
+      }
+      .dark-mode_arrow-right{
+        border:1px solid $white;
+        &:hover{
+          background-color: $white;
+          transition: all .5s ease;
+          .GIFOS-text{
+            fill:$black;
+            
+          }
+        }
+      
+      }
+      .dark-mode_arrow-left{
+        border:1px solid $white;
+        &:hover{
+          background-color: $white;
+          transition: all .5s ease;
+          .GIFOS-text{
+            fill:$black;
+            
+          }
+        }
+      
+      }
+      .btns-container {
+        width: 10%;
+    }
+      .creator-container {
+        margin: 10px 150px;   
+        display: grid;   
+        grid-template-columns: 20% 60% 20%;  
+        grid-template-rows: 45vh 8vh auto;
+        height: auto;
+        .btn-view-more{
+          grid-column:2/3;
+          grid-row: 3/4;
+          align-self: start;
+          margin: 2rem auto 2rem auto;    
+        }
+    }
+      footer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding:55px 156px;
+        .share{
+          width:10%;
+          text-align: left;      
+        }
+        .icons {
+          width:10%;
+          margin:0;
+          justify-content: space-evenly;
+        }
+        .copy{
+          width: 80%;
+          text-align: right;
+          margin-bottom: 0;
+        }
+      }  
+}

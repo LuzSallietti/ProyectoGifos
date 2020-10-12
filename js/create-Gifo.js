@@ -25,9 +25,7 @@ let one_btn = document.getElementById("one-btn");
 let two_btn = document.getElementById("two-btn");
 let three_btn = document.getElementById("three-btn");
 let record_counter= document.getElementById("record-counter");
-
 const text_container=document.getElementById("text-container");
-
 
 const GIPHY_KEY = 'ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef';
 const key = '?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef';
@@ -68,6 +66,14 @@ let clock = function(){
        
 }  
 let interval;
+//let cameraSVG = document.getElementById("camera");
+//let peliculaSVG = document.getElementById("pelicula");
+
+/*if(JSON.parse(localStorage.getItem("dark_mode"))==true){
+  cameraSVG.src = "./img/camara-con-luz-nocturno.svg";
+  peliculaSVG.src = "./img/pelicula-modo-noc.svg"
+}*/
+
 
 function storage_my_gifo(myGifo){
   if (JSON.parse(localStorage.getItem("myGifos"))) {
@@ -118,9 +124,14 @@ function get_cam_access(){
     H1_main_title.innerText="¿Nos das acceso a tu cámara?";
     instructions_paragraph.innerText="El acceso a tu camara será válido solo por el tiempo en el que estés creando el GIFO."
     start_button.style.visibility="hidden";
+    if (JSON.parse(localStorage.getItem("dark_mode")) == true){
+      one_btn.style.backgroundColor="#fff";
+      one_btn.style.color="#37383c";
+      one_btn.style.border="1px solid #fff";
+    } else {
     one_btn.style.backgroundColor="#572ee5";
     one_btn.style.color="#fff";
-
+    }
 }
 function getStreamAndRecord () {
      
@@ -138,22 +149,31 @@ function getStreamAndRecord () {
     video_container.play()
     H1_main_title.style.visibility="hidden";
     instructions_paragraph.style.visibility="hidden";
-    one_btn.style.backgroundColor="#fff";
-    one_btn.style.color="#572ee5";
-    two_btn.style.color="#fff";
-    two_btn.style.backgroundColor="#572ee5";
+    if (JSON.parse(localStorage.getItem("dark_mode")) == true){
+      one_btn.style.backgroundColor="#37383c";
+      one_btn.style.color="#fff";
+      two_btn.style.color="#37383c";
+      one_btn.style.border="1px solid #fff";
+      two_btn.style.backgroundColor="#fff";
+      two_btn.style.border="1px solid #fff";
+    } else {
+      one_btn.style.backgroundColor="#fff";
+      one_btn.style.color="#572ee5";
+      two_btn.style.color="#fff";
+      two_btn.style.backgroundColor="#572ee5";
+    }    
     start_button.style.visibility="visible";
     start_button.removeEventListener("click",startCamera);
     start_button.innerText="Grabar";
     start_button.addEventListener("click", startRecord);
-
-
 })
-.catch(error=> console.log(error));
+.catch(error => {
+  console.log(error);
+  H1_main_title.innerText="No detectamos tu cámara";
+  instructions_paragraph.innerText="Revisa tu dispositivo y recarga la página."
+  start_button.style.visibility="hidden";
+  });
  }
-
- 
-
 
  function startRecord(){
     start_button.removeEventListener("click", startRecord);
@@ -164,7 +184,7 @@ function getStreamAndRecord () {
         audio: false,
         type: "gif",
       };
-    let camera=video_container.srcObject;
+    let camera = video_container.srcObject;
     
             
     recorder = RecordRTC(camera, recorder_options);
@@ -173,7 +193,7 @@ function getStreamAndRecord () {
             is_recording = true;
 
 
-    interval=setInterval(clock, 1000);    
+    interval = setInterval(clock, 1000);    
 
     start_button.addEventListener("click", stop_recording);
  }
@@ -186,8 +206,7 @@ function stop_recording() {
     record_counter.innerHTML=`<p id="repeat-capture">REPETIR CAPTURA</p>`;
    
     record_counter.addEventListener("click", () => {
-      location.reload();
-      
+      location.reload();      
     });
 
     start_button.removeEventListener("click", stop_recording);
@@ -215,11 +234,19 @@ function upload_gif(){
     start_button.removeEventListener("click",upload_gif);
     start_button.style.visibility="hidden";
     record_counter.style.display="none";
-    two_btn.style.backgroundColor="#fff";
-    two_btn.style.color="#572ee5";
-    three_btn.style.color="#fff";
-    three_btn.style.backgroundColor="#572ee5";
-    
+    if (JSON.parse(localStorage.getItem("dark_mode"))==true){
+      two_btn.style.backgroundColor="#37383c";
+      two_btn.style.color="#fff";
+      two_btn.style.border="1px solid #fff";
+      three_btn.style.color="#37383c";
+      three_btn.style.backgroundColor="#fff";
+      three_btn.style.border="1px solid #fff";
+    } else { 
+      two_btn.style.backgroundColor="#fff";
+      two_btn.style.color="#572ee5";
+      three_btn.style.color="#fff";
+      three_btn.style.backgroundColor="#572ee5";
+    }
     
 
     form = new FormData();
@@ -245,7 +272,10 @@ function upload_gif(){
           myGifo= new MyGifos(data.data.id, gifUrl, data.data.title, data.data.username, true);
           console.log(myGifo);
           storage_my_gifo(myGifo);
-
+        })
+        .catch (error => {
+          console.log (error);
+          loading_msg.innerText="Ups! Hubo un error. Crea un nuevo Gifo.";
         })
     });
 

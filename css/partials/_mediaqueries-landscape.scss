@@ -1,0 +1,15 @@
+@media (max-width: 1023px) and (orientation:landscape){
+    .create-btn{
+        display: none;
+    }
+    .creator-container {
+        margin: 14px;
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        -ms-grid-rows: 50vh 12.5vh 12.5vh;
+        grid-template-rows: 75% 12.5% 12.5%;
+        height: 150%;
+    }
+}

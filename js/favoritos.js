@@ -127,7 +127,7 @@ function displayFavs(array, posicion, longitud) {
       gifoMax_user.innerText = `${username}`;
     })
     // mostrar el contenido de la tarjeta max en mobile, al hacer clic en el gif 
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth <= 1024) {
       DIV.addEventListener('click', () => {
         console.log("Version mobile, heart src modificado");
         gifoMax_cards[0].style.display = "grid";
@@ -140,7 +140,7 @@ function displayFavs(array, posicion, longitud) {
     }
   } //fin de ciclo FOR
 
-  if (window.innerWidth >= 1024) {
+  if (window.innerWidth > 1024) {
     show_hide_gifCards();
   } else {
     let gif_imgs = document.getElementsByClassName("gif");

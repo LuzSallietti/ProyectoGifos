@@ -44,15 +44,20 @@ function deleteFav(id) {
 
 function addFav(id) {
   let isStorage;
+  let i;
   if (JSON.parse(localStorage.getItem("favs"))) {
     favourite_GIFOS = JSON.parse(localStorage.getItem("favs"));
     console.log(favourite_GIFOS.length);
-
+    
     for (i = 0; i < favourite_GIFOS.length; i++) {
       if ((favourite_GIFOS[i].id) == id && (favourite_GIFOS[i].fav) == false) {
         favourite_GIFOS[i].fav = true;
         console.log("Me encontré, me cambié y salgo del ciclo");
         console.log(favourite_GIFOS[i]);
+        isStorage = true;
+        break;
+      } else if ((favourite_GIFOS[i].id) == id && (favourite_GIFOS[i].fav) == true){
+        console.log("Ya estoy favoriteado/contenido duplicado");
         isStorage = true;
         break;
       }

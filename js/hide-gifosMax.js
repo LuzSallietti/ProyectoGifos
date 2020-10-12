@@ -6,18 +6,11 @@ let gifoMax_user = document.getElementById("gif-max-user");
 let max_heart = document.getElementsByClassName("max-heart");
 let max_download = document.getElementById("max-download");
 let gifoMax_img = document.getElementById("max-img");
-let close_icon = document.getElementById("close");
+let close_icon = document.getElementById("hide-gifo");
 let page_location = String(window.location.pathname);
 let isFavsPage = page_location.includes("favoritos.html");
 
-close_icon.addEventListener('click', () => {
-  hide(gifoMax_cards)
-  max_heart[0].src="./img/icon-fav-hover.svg";
-  if (isFavsPage){
-    window.location.reload();
-  }
-});
-
+//ocultar Gifo-Max
 function hide(array) {
   for (i = 0; i < array.length; i++) {
     return array[i].style.display = "none";
@@ -39,9 +32,15 @@ function heartActions (){
     addFav(gif_id);
   }
 }
+
+close_icon.addEventListener('click', () => {  
+  hide(gifoMax_cards)
+  max_heart[0].src="./img/icon-fav-hover.svg";
+  if (isFavsPage){
+    window.location.reload();
+  }
+});
 max_heart[0].addEventListener('click', heartActions);
-  
- 
 
 
 //descargar desde Gifo Max

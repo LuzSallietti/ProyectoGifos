@@ -370,7 +370,7 @@ function displayResults(array, posicion, longitud) {
   remaindersArray = array;
 
   //mostrar las tarjetas en hover solo a partir devices 1024px > para dispositivos menores mostrar gifoMax cuando se hace click sobre la tarjeta
-  if (window.innerWidth >= 1024) {
+  if (window.innerWidth > 1024) {
     show_hide_gifCards();
   } else {
     let gif_imgs = document.getElementsByClassName("search-img");

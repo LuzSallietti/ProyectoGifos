@@ -54,7 +54,7 @@ function add_to_DOM(response) {
     counter = counter + 1;
   }  //fin del ciclo for     
 
-  if (window.innerWidth >= 1024) {
+  if (window.innerWidth > 1024) {
     show_hide_gifCards();
   } else {
     let gif_imgs = document.getElementsByClassName("trend-img");
@@ -139,7 +139,7 @@ function goFoward() {
     counter = counter + 1;
   }
   //mostrar las tarjetas en hover solo a partir devices 1024px
-  if (window.innerWidth >= 1024) {
+  if (window.innerWidth > 1024) {
     show_hide_gifCards();
   } else {
     let gif_imgs = document.getElementsByClassName("trend-img");

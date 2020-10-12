@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="182px" height="162px" viewBox="0 0 182 162" enable-background="new 0 0 182 162" xml:space="preserve">
+<title>camara</title>
+<desc>Created with Sketch.</desc>
+<g id="_x30_0-UI-Kit" transform="translate(-639.000000, -2141.000000)">
+	<g id="camara" transform="translate(639.000000, 2141.000000)">
+		<g id="Group-97">
+			<path id="Fill-1" fill="#FFFFFF" d="M103.13,96.851c0,4.706-3.853,8.557-8.562,8.557H18.035c-4.709,0-8.562-3.851-8.562-8.557
+				V66.614c0-4.706,3.853-8.556,8.562-8.556h76.534c4.709,0,8.562,3.851,8.562,8.556V96.851z"/>
+			<g id="Group-5" transform="translate(8.328125, 57.055375)">
+				<g id="Clip-4">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0.454" y="0.312" width="95.038" height="48.73">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.454" y="0.312" width="95.038" height="48.73" id="mask-2">
+					<g filter="url(#Adobe_OpacityMaskFilter)">
+						<path id="path-1" fill="#FFFFFF" d="M9.707,0.312c-5.102,0-9.252,4.148-9.252,9.246l0,0v30.238
+							c0,5.098,4.151,9.246,9.252,9.246l0,0H86.24c5.102,0,9.252-4.148,9.252-9.246l0,0V9.558c0-5.098-4.15-9.246-9.252-9.246l0,0
+							H9.707z M1.835,39.796V9.558c0-4.336,3.532-7.865,7.871-7.865l0,0H86.24c4.339,0,7.871,3.529,7.871,7.865l0,0v30.238
+							c0,4.337-3.532,7.865-7.871,7.865l0,0H9.707C5.367,47.661,1.835,44.133,1.835,39.796L1.835,39.796z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-3_1_" gradientUnits="userSpaceOnUse" x1="-241.8447" y1="436.9583" x2="-240.8447" y2="436.9583" gradientTransform="matrix(95.0386 0 0 -48.73 22985.0977 21317.6641)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-3" mask="url(#mask-2)" fill="url(#Fill-3_1_)" d="M9.707,0.312c-5.102,0-9.252,4.148-9.252,9.246l0,0v30.238
+					c0,5.098,4.151,9.246,9.252,9.246l0,0H86.24c5.102,0,9.252-4.148,9.252-9.246l0,0V9.558c0-5.098-4.15-9.246-9.252-9.246l0,0
+					H9.707z M1.835,39.796V9.558c0-4.336,3.532-7.865,7.871-7.865l0,0H86.24c4.339,0,7.871,3.529,7.871,7.865l0,0v30.238
+					c0,4.337-3.532,7.865-7.871,7.865l0,0H9.707C5.367,47.661,1.835,44.133,1.835,39.796L1.835,39.796z"/>
+			</g>
+			<path id="Fill-6" fill="#FFFFFF" d="M111.914,32.422c0,17.171-13.928,31.092-31.107,31.092S49.699,49.593,49.699,32.422
+				c0-17.171,13.928-31.092,31.107-31.092S111.914,15.25,111.914,32.422"/>
+			<g id="Group-10" transform="translate(48.687500, 0.067233)">
+				<g id="Clip-9">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="0.322" y="0.573" width="63.595" height="63.564">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.322" y="0.573" width="63.595" height="63.564" id="mask-5">
+					<g filter="url(#Adobe_OpacityMaskFilter_1_)">
+						<path id="path-4" fill="#FFFFFF" d="M32.119,0.573c-17.533,0-31.797,14.257-31.797,31.782l0,0
+							c0,17.525,14.264,31.782,31.797,31.782l0,0c17.533,0,31.798-14.257,31.798-31.782l0,0C63.917,14.83,49.652,0.573,32.119,0.573
+							z M1.703,32.355c0-16.764,13.645-30.401,30.417-30.401l0,0c16.771,0,30.416,13.638,30.416,30.401l0,0
+							c0,16.763-13.645,30.401-30.416,30.401l0,0C15.348,62.756,1.703,49.118,1.703,32.355L1.703,32.355z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-8_1_" gradientUnits="userSpaceOnUse" x1="-280.9775" y1="495.5773" x2="-279.9775" y2="495.5773" gradientTransform="matrix(63.5955 0 0 -63.5636 17869.2148 31532.9688)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-8" mask="url(#mask-5)" fill="url(#Fill-8_1_)" d="M32.119,0.573c-17.533,0-31.797,14.257-31.797,31.782l0,0
+					c0,17.525,14.264,31.782,31.797,31.782l0,0c17.533,0,31.798-14.257,31.798-31.782l0,0C63.917,14.83,49.652,0.573,32.119,0.573z
+					 M1.703,32.355c0-16.764,13.645-30.401,30.417-30.401l0,0c16.771,0,30.416,13.638,30.416,30.401l0,0
+					c0,16.763-13.645,30.401-30.416,30.401l0,0C15.348,62.756,1.703,49.118,1.703,32.355L1.703,32.355z"/>
+			</g>
+			<path id="Fill-11" fill="#FFFFFF" d="M45.21,41.265c0,12.288-9.967,22.249-22.261,22.249S0.691,53.553,0.691,41.265
+				s9.965-22.249,22.258-22.249S45.21,28.977,45.21,41.265"/>
+			<g id="Group-15" transform="translate(0.000000, 17.996087)">
+				<g id="Clip-14">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_2_" filterUnits="userSpaceOnUse" x="0" y="0.331" width="45.901" height="45.877">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0" y="0.331" width="45.901" height="45.877" id="mask-8">
+					<g filter="url(#Adobe_OpacityMaskFilter_2_)">
+						<path id="path-7" fill="#FFFFFF" d="M0,23.269c0,12.648,10.295,22.938,22.95,22.938l0,0c12.656,0,22.951-10.29,22.951-22.938
+							l0,0c0-12.648-10.295-22.938-22.951-22.938l0,0C10.295,0.331,0,10.621,0,23.269 M1.381,23.269
+							c0-11.887,9.675-21.558,21.568-21.558l0,0c11.893,0,21.569,9.671,21.569,21.558l0,0c0,11.887-9.677,21.558-21.569,21.558l0,0
+							C11.057,44.827,1.381,35.156,1.381,23.269"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-13_1_" gradientUnits="userSpaceOnUse" x1="-230.8594" y1="475.584" x2="-229.8594" y2="475.584" gradientTransform="matrix(45.9008 0 0 -45.8774 10596.6152 21841.8008)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-13" mask="url(#mask-8)" fill="url(#Fill-13_1_)" d="M0,23.269c0,12.648,10.295,22.938,22.95,22.938l0,0
+					c12.656,0,22.951-10.29,22.951-22.938l0,0c0-12.648-10.295-22.938-22.951-22.938l0,0C10.295,0.331,0,10.621,0,23.269
+					 M1.381,23.269c0-11.887,9.675-21.558,21.568-21.558l0,0c11.893,0,21.569,9.671,21.569,21.558l0,0
+					c0,11.887-9.677,21.558-21.569,21.558l0,0C11.057,44.827,1.381,35.156,1.381,23.269"/>
+			</g>
+			<path id="Fill-16" fill="#FFFFFF" d="M86.336,32.421c0,3.053-2.475,5.527-5.529,5.527s-5.53-2.474-5.53-5.527
+				c0-3.052,2.476-5.526,5.53-5.526S86.336,29.369,86.336,32.421"/>
+			<g id="Group-20" transform="translate(74.953125, 26.320198)">
+				<g id="Clip-19">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_3_" filterUnits="userSpaceOnUse" x="0.019" y="0.27" width="11.669" height="11.664">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.019" y="0.27" width="11.669" height="11.664" id="mask-11">
+					<g filter="url(#Adobe_OpacityMaskFilter_3_)">
+						<path id="path-10" fill="#FFFFFF" d="M0.019,6.102c0,3.215,2.618,5.832,5.835,5.832l0,0c3.217,0,5.834-2.617,5.834-5.832l0,0
+							c0-3.216-2.617-5.832-5.834-5.832l0,0C2.637,0.27,0.019,2.886,0.019,6.102 M0.629,6.102c0-2.879,2.344-5.222,5.225-5.222l0,0
+							c2.881,0,5.225,2.342,5.225,5.222l0,0c0,2.879-2.344,5.222-5.225,5.222l0,0C2.973,11.324,0.629,8.981,0.629,6.102"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-18_1_" gradientUnits="userSpaceOnUse" x1="-290.7334" y1="445.4943" x2="-289.7334" y2="445.4943" gradientTransform="matrix(11.6696 0 0 -11.664 3392.7686 5202.333)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-18" mask="url(#mask-11)" fill="url(#Fill-18_1_)" d="M0.019,6.102c0,3.215,2.618,5.832,5.835,5.832l0,0
+					c3.217,0,5.834-2.617,5.834-5.832l0,0c0-3.216-2.617-5.832-5.834-5.832l0,0C2.637,0.27,0.019,2.886,0.019,6.102 M0.629,6.102
+					c0-2.879,2.344-5.222,5.225-5.222l0,0c2.881,0,5.225,2.342,5.225,5.222l0,0c0,2.879-2.344,5.222-5.225,5.222l0,0
+					C2.973,11.324,0.629,8.981,0.629,6.102"/>
+			</g>
+			<path id="Fill-21" fill="#FFFFFF" d="M41.02,105.407v0.292c0,3.855,3.127,6.981,6.985,6.981h16.592
+				c3.86,0,6.987-3.126,6.987-6.981v-0.292H41.02z"/>
+			<g id="Group-25" transform="translate(39.718750, 104.438775)">
+				<g id="Clip-24">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_4_" filterUnits="userSpaceOnUse" x="0.61" y="0.278" width="31.945" height="8.654">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.61" y="0.278" width="31.945" height="8.654" id="mask-14">
+					<g filter="url(#Adobe_OpacityMaskFilter_4_)">
+						<path id="path-13" fill="#FFFFFF" d="M1.301,0.278c-0.382,0-0.691,0.309-0.691,0.691l0,0V1.26c0,4.23,3.445,7.672,7.676,7.672
+							l0,0h16.591c4.234,0,7.678-3.441,7.678-7.672l0,0V0.969c0-0.383-0.309-0.691-0.689-0.691l0,0H1.301z M2.004,1.659h29.157
+							c-0.206,3.284-2.946,5.893-6.284,5.893l0,0H8.286C4.95,7.551,2.21,4.943,2.004,1.659L2.004,1.659z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-23_1_" gradientUnits="userSpaceOnUse" x1="-268.332" y1="357.2194" x2="-267.332" y2="357.2194" gradientTransform="matrix(31.9454 0 0 -8.6532 8572.6045 3095.7056)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-23" mask="url(#mask-14)" fill="url(#Fill-23_1_)" d="M1.301,0.278c-0.382,0-0.691,0.309-0.691,0.691l0,0V1.26
+					c0,4.23,3.445,7.672,7.676,7.672l0,0h16.591c4.234,0,7.678-3.441,7.678-7.672l0,0V0.969c0-0.383-0.309-0.691-0.689-0.691l0,0
+					H1.301z M2.004,1.659h29.157c-0.206,3.284-2.946,5.893-6.284,5.893l0,0H8.286C4.95,7.551,2.21,4.943,2.004,1.659L2.004,1.659z"
+					/>
+			</g>
+			<g id="Group-28" transform="translate(55.093750, 111.482253)">
+				<g id="Clip-27">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_5_" filterUnits="userSpaceOnUse" x="0.517" y="0.508" width="1.381" height="48.875">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.517" y="0.508" width="1.381" height="48.875" id="mask-17">
+					<g filter="url(#Adobe_OpacityMaskFilter_5_)">
+						<path id="path-16" fill="#FFFFFF" d="M0.517,1.199v47.494c0,0.381,0.309,0.689,0.69,0.689l0,0c0.382,0,0.69-0.309,0.69-0.689
+							l0,0V1.199c0-0.383-0.309-0.691-0.69-0.691l0,0C0.826,0.508,0.517,0.817,0.517,1.199"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-26_1_" gradientUnits="userSpaceOnUse" x1="-120.2554" y1="382.5529" x2="-119.2554" y2="382.5529" gradientTransform="matrix(1.3812 0 0 -48.8753 166.6117 18722.3281)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-26" mask="url(#mask-17)" fill="url(#Fill-26_1_)" d="M0.517,1.199v47.494c0,0.381,0.309,0.689,0.69,0.689l0,0
+					c0.382,0,0.69-0.309,0.69-0.689l0,0V1.199c0-0.383-0.309-0.691-0.69-0.691l0,0C0.826,0.508,0.517,0.817,0.517,1.199"/>
+			</g>
+			<g id="Group-31" transform="translate(7.046875, 111.482253)">
+				<g id="Clip-30">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_6_" filterUnits="userSpaceOnUse" x="0.487" y="0.508" width="49.458" height="49.437">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.487" y="0.508" width="49.458" height="49.437" id="mask-20">
+					<g filter="url(#Adobe_OpacityMaskFilter_6_)">
+						<path id="path-19" fill="#FFFFFF" d="M48.766,0.71L0.69,48.766c-0.271,0.27-0.271,0.707,0,0.977l0,0
+							c0.135,0.135,0.312,0.202,0.488,0.202l0,0c0.177,0,0.354-0.067,0.488-0.202l0,0L49.743,1.687c0.27-0.271,0.27-0.706,0-0.977
+							l0,0c-0.135-0.134-0.312-0.202-0.488-0.202l0,0C49.078,0.508,48.901,0.576,48.766,0.71"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-29_1_" gradientUnits="userSpaceOnUse" x1="-238.2764" y1="382.631" x2="-237.2764" y2="382.631" gradientTransform="matrix(49.4577 0 0 -49.4363 11785.0537 18941.0957)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-29" mask="url(#mask-20)" fill="url(#Fill-29_1_)" d="M48.766,0.71L0.69,48.766c-0.271,0.27-0.271,0.707,0,0.977
+					l0,0c0.135,0.135,0.312,0.202,0.488,0.202l0,0c0.177,0,0.354-0.067,0.488-0.202l0,0L49.743,1.687c0.27-0.271,0.27-0.706,0-0.977
+					l0,0c-0.135-0.134-0.312-0.202-0.488-0.202l0,0C49.078,0.508,48.901,0.576,48.766,0.71"/>
+			</g>
+			<g id="Group-34" transform="translate(55.093750, 111.482253)">
+				<g id="Clip-33">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_7_" filterUnits="userSpaceOnUse" x="0.517" y="0.508" width="49.458" height="49.437">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.517" y="0.508" width="49.458" height="49.437" id="mask-23">
+					<g filter="url(#Adobe_OpacityMaskFilter_7_)">
+						<path id="path-22" fill="#FFFFFF" d="M0.719,0.71c-0.27,0.271-0.27,0.706,0,0.977l0,0l48.077,48.056
+							c0.136,0.135,0.312,0.202,0.489,0.202l0,0c0.176,0,0.353-0.067,0.488-0.202l0,0c0.27-0.27,0.27-0.707,0-0.977l0,0L1.696,0.71
+							C1.561,0.576,1.384,0.508,1.208,0.508l0,0C1.031,0.508,0.854,0.576,0.719,0.71"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-32_1_" gradientUnits="userSpaceOnUse" x1="-286.3228" y1="382.632" x2="-285.3228" y2="382.632" gradientTransform="matrix(49.4579 0 0 -49.4363 14161.4346 18941.0957)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-32" mask="url(#mask-23)" fill="url(#Fill-32_1_)" d="M0.719,0.71c-0.27,0.271-0.27,0.706,0,0.977l0,0
+					l48.077,48.056c0.136,0.135,0.312,0.202,0.489,0.202l0,0c0.176,0,0.353-0.067,0.488-0.202l0,0c0.27-0.27,0.27-0.707,0-0.977l0,0
+					L1.696,0.71C1.561,0.576,1.384,0.508,1.208,0.508l0,0C1.031,0.508,0.854,0.576,0.719,0.71"/>
+			</g>
+			<g id="Group-37" transform="translate(17.296875, 91.632451)">
+				<g id="Clip-36">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_8_" filterUnits="userSpaceOnUse" x="-0.229" y="-0.106" width="27.853" height="7.513">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="-0.229" y="-0.106" width="27.853" height="7.513" id="mask-26">
+					<g filter="url(#Adobe_OpacityMaskFilter_8_)">
+						<path id="path-25" fill="#FFFFFF" d="M0.962,0.394c-0.383,0-0.691,0.309-0.691,0.69l0,0v5.132c0,0.381,0.308,0.69,0.691,0.69
+							l0,0h25.47c0.382,0,0.691-0.31,0.691-0.69l0,0V1.084c0-0.382-0.31-0.69-0.691-0.69l0,0H0.962z M1.653,5.526h24.089V1.774
+							H1.653V5.526z"/>
+					</g>
+				</mask>
+				<linearGradient id="Fill-35_1_" gradientUnits="userSpaceOnUse" x1="-0.2285" y1="3.6508" x2="27.624" y2="3.6508">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-35" mask="url(#mask-26)" fill="none" stroke="url(#Fill-35_1_)" stroke-miterlimit="10" d="M0.962,0.394
+					c-0.383,0-0.691,0.309-0.691,0.69l0,0v5.132c0,0.381,0.308,0.69,0.691,0.69l0,0h25.47c0.382,0,0.691-0.31,0.691-0.69l0,0V1.084
+					c0-0.382-0.31-0.69-0.691-0.69l0,0H0.962z M1.653,5.526h24.089V1.774H1.653V5.526z"/>
+			</g>
+			<g id="Group-40" transform="translate(46.765625, 91.632451)">
+				<g id="Clip-39">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_9_" filterUnits="userSpaceOnUse" x="0.054" y="-0.106" width="7.626" height="7.513">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.054" y="-0.106" width="7.626" height="7.513" id="mask-29">
+					<g filter="url(#Adobe_OpacityMaskFilter_9_)">
+						<path id="path-28" fill="#FFFFFF" d="M1.245,0.394c-0.382,0-0.69,0.309-0.69,0.69l0,0v5.132c0,0.381,0.309,0.69,0.69,0.69l0,0
+							H6.49c0.382,0,0.69-0.31,0.69-0.69l0,0V1.084c0-0.382-0.309-0.69-0.69-0.69l0,0H1.245z M1.936,5.526h3.863V1.774H1.936V5.526z
+							"/>
+					</g>
+				</mask>
+				<linearGradient id="Fill-38_1_" gradientUnits="userSpaceOnUse" x1="0.0542" y1="3.6508" x2="7.6802" y2="3.6508">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-38" mask="url(#mask-29)" fill="none" stroke="url(#Fill-38_1_)" stroke-miterlimit="10" d="M1.245,0.394
+					c-0.382,0-0.69,0.309-0.69,0.69l0,0v5.132c0,0.381,0.309,0.69,0.69,0.69l0,0H6.49c0.382,0,0.69-0.31,0.69-0.69l0,0V1.084
+					c0-0.382-0.309-0.69-0.69-0.69l0,0H1.245z M1.936,5.526h3.863V1.774H1.936V5.526z"/>
+			</g>
+			<g id="Group-43" transform="translate(17.296875, 83.948656)">
+				<g id="Clip-42">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_10_" filterUnits="userSpaceOnUse" x="0.271" y="0.375" width="26.853" height="1.38">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.271" y="0.375" width="26.853" height="1.38" id="mask-32">
+					<g filter="url(#Adobe_OpacityMaskFilter_10_)">
+						<path id="path-31" fill="#FFFFFF" d="M0.962,0.375c-0.383,0-0.691,0.308-0.691,0.69l0,0c0,0.381,0.308,0.689,0.691,0.689l0,0
+							h25.47c0.382,0,0.691-0.309,0.691-0.689l0,0c0-0.383-0.31-0.69-0.691-0.69l0,0H0.962z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-41_1_" gradientUnits="userSpaceOnUse" x1="-244.5103" y1="170.4537" x2="-243.5103" y2="170.4537" gradientTransform="matrix(26.8524 0 0 -1.3805 6565.9507 236.3777)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-41" mask="url(#mask-32)" fill="url(#Fill-41_1_)" d="M0.962,0.375c-0.383,0-0.691,0.308-0.691,0.69l0,0
+					c0,0.381,0.308,0.689,0.691,0.689l0,0h25.47c0.382,0,0.691-0.309,0.691-0.689l0,0c0-0.383-0.31-0.69-0.691-0.69l0,0H0.962z"/>
+			</g>
+			<g id="Group-46" transform="translate(17.296875, 76.905178)">
+				<g id="Clip-45">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_11_" filterUnits="userSpaceOnUse" x="0.271" y="0.429" width="36.377" height="1.381">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.271" y="0.429" width="36.377" height="1.381" id="mask-35">
+					<g filter="url(#Adobe_OpacityMaskFilter_11_)">
+						<path id="path-34" fill="#FFFFFF" d="M0.962,0.429c-0.383,0-0.691,0.31-0.691,0.69l0,0c0,0.382,0.308,0.691,0.691,0.691l0,0
+							h34.996c0.382,0,0.69-0.309,0.69-0.691l0,0c0-0.381-0.309-0.69-0.69-0.69l0,0H0.962z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-44_1_" gradientUnits="userSpaceOnUse" x1="-246.8096" y1="177.6104" x2="-245.8096" y2="177.6104" gradientTransform="matrix(36.3773 0 0 -1.3812 8978.541 246.4285)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-44" mask="url(#mask-35)" fill="url(#Fill-44_1_)" d="M0.962,0.429c-0.383,0-0.691,0.31-0.691,0.69l0,0
+					c0,0.382,0.308,0.691,0.691,0.691l0,0h34.996c0.382,0,0.69-0.309,0.69-0.691l0,0c0-0.381-0.309-0.69-0.69-0.69l0,0H0.962z"/>
+			</g>
+			<polygon id="Fill-47" fill="#FFFFFF" points="105.873,73.548 105.873,89.918 117.447,96.598 117.447,66.868 			"/>
+			<g id="Group-51" transform="translate(105.062500, 66.019802)">
+				<g id="Clip-50">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_12_" filterUnits="userSpaceOnUse" x="0.119" y="0.158" width="12.957" height="31.109">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.119" y="0.158" width="12.957" height="31.109" id="mask-38">
+					<g filter="url(#Adobe_OpacityMaskFilter_12_)">
+						<path id="path-37" fill="#FFFFFF" d="M12.04,0.25L0.465,6.93C0.252,7.054,0.119,7.281,0.119,7.528l0,0v16.37
+							c0,0.246,0.133,0.474,0.346,0.598l0,0l11.575,6.68c0.105,0.061,0.226,0.092,0.345,0.092l0,0c0.118,0,0.238-0.031,0.346-0.092
+							l0,0c0.213-0.123,0.346-0.352,0.346-0.598l0,0V0.848c0-0.247-0.133-0.474-0.346-0.598l0,0
+							c-0.107-0.061-0.227-0.092-0.346-0.092l0,0C12.266,0.158,12.146,0.189,12.04,0.25L12.04,0.25z M1.5,23.499V7.926l10.195-5.882
+							v27.337L1.5,23.499z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-49_1_" gradientUnits="userSpaceOnUse" x1="-322.8496" y1="424.0368" x2="-321.8496" y2="424.0368" gradientTransform="matrix(12.956 0 0 -31.1098 4182.9619 13207.417)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-49" mask="url(#mask-38)" fill="url(#Fill-49_1_)" d="M12.04,0.25L0.465,6.93
+					C0.252,7.054,0.119,7.281,0.119,7.528l0,0v16.37c0,0.246,0.133,0.474,0.346,0.598l0,0l11.575,6.68
+					c0.105,0.061,0.226,0.092,0.345,0.092l0,0c0.118,0,0.238-0.031,0.346-0.092l0,0c0.213-0.123,0.346-0.352,0.346-0.598l0,0V0.848
+					c0-0.247-0.133-0.474-0.346-0.598l0,0c-0.107-0.061-0.227-0.092-0.346-0.092l0,0C12.266,0.158,12.146,0.189,12.04,0.25
+					L12.04,0.25z M1.5,23.499V7.926l10.195-5.882v27.337L1.5,23.499z"/>
+			</g>
+			<polygon id="Fill-52" fill="#FFFFFF" points="117.447,64.968 117.447,98.495 122.282,101.287 122.282,62.178 			"/>
+			<g id="Group-56" transform="translate(116.593750, 60.897273)">
+				<g id="Clip-55">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_13_" filterUnits="userSpaceOnUse" x="0.164" y="0.591" width="6.215" height="40.488">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.164" y="0.591" width="6.215" height="40.488" id="mask-41">
+					<g filter="url(#Adobe_OpacityMaskFilter_13_)">
+						<path id="path-40" fill="#FFFFFF" d="M5.343,0.683L0.509,3.474C0.295,3.596,0.164,3.824,0.164,4.071l0,0v33.528
+							c0,0.246,0.131,0.475,0.345,0.598l0,0l4.834,2.791c0.106,0.061,0.228,0.092,0.347,0.092l0,0c0.117,0,0.238-0.031,0.345-0.092
+							l0,0c0.212-0.123,0.345-0.352,0.345-0.598l0,0V1.281c0-0.247-0.133-0.475-0.345-0.598l0,0
+							C5.928,0.622,5.809,0.591,5.689,0.591l0,0C5.568,0.591,5.449,0.622,5.343,0.683L5.343,0.683z M1.545,37.2V4.47l3.453-1.992
+							v36.714L1.545,37.2z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-54_1_" gradientUnits="userSpaceOnUse" x1="-314.6333" y1="431.6945" x2="-313.6333" y2="431.6945" gradientTransform="matrix(6.216 0 0 -40.4885 1955.9204 17499.498)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-54" mask="url(#mask-41)" fill="url(#Fill-54_1_)" d="M5.343,0.683L0.509,3.474
+					C0.295,3.596,0.164,3.824,0.164,4.071l0,0v33.528c0,0.246,0.131,0.475,0.345,0.598l0,0l4.834,2.791
+					c0.106,0.061,0.228,0.092,0.347,0.092l0,0c0.117,0,0.238-0.031,0.345-0.092l0,0c0.212-0.123,0.345-0.352,0.345-0.598l0,0V1.281
+					c0-0.247-0.133-0.475-0.345-0.598l0,0C5.928,0.622,5.809,0.591,5.689,0.591l0,0C5.568,0.591,5.449,0.622,5.343,0.683
+					L5.343,0.683z M1.545,37.2V4.47l3.453-1.992v36.714L1.545,37.2z"/>
+			</g>
+			<path id="Fill-57" fill="#FFFFFF" d="M84.732,8.386v15.236c2.174,0.959,3.918,2.703,4.877,4.875h15.244
+				C103.205,18.192,95.041,10.033,84.732,8.386"/>
+			<g id="Group-61" transform="translate(83.921875, 7.751028)">
+				<g id="Clip-60">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_14_" filterUnits="userSpaceOnUse" x="0.294" y="0.119" width="21.154" height="21.143">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.294" y="0.119" width="21.154" height="21.143" id="mask-44">
+					<g filter="url(#Adobe_OpacityMaskFilter_14_)">
+						<path id="path-43" fill="#FFFFFF" d="M0.477,0.242C0.361,0.341,0.294,0.484,0.294,0.635l0,0v15.237
+							c0,0.205,0.121,0.389,0.308,0.472l0,0c2.064,0.911,3.702,2.548,4.613,4.611l0,0c0.082,0.187,0.268,0.307,0.473,0.307l0,0
+							h15.244c0.151,0,0.295-0.066,0.395-0.18l0,0c0.098-0.116,0.139-0.269,0.116-0.417l0,0C19.748,10.073,11.49,1.818,0.893,0.125
+							l0,0C0.867,0.121,0.84,0.119,0.814,0.119l0,0C0.691,0.119,0.57,0.162,0.477,0.242 M1.327,15.542V1.248
+							c9.669,1.795,17.194,9.318,18.991,18.982l0,0h-14.3C5.027,18.179,3.381,16.531,1.327,15.542"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-59_1_" gradientUnits="userSpaceOnUse" x1="-308.7676" y1="477.1484" x2="-307.7676" y2="477.1484" gradientTransform="matrix(21.1545 0 0 -21.1432 6532.1079 10099.1406)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-59" mask="url(#mask-44)" fill="url(#Fill-59_1_)" d="M0.477,0.242C0.361,0.341,0.294,0.484,0.294,0.635l0,0
+					v15.237c0,0.205,0.121,0.389,0.308,0.472l0,0c2.064,0.911,3.702,2.548,4.613,4.611l0,0c0.082,0.187,0.268,0.307,0.473,0.307l0,0
+					h15.244c0.151,0,0.295-0.066,0.395-0.18l0,0c0.098-0.116,0.139-0.269,0.116-0.417l0,0C19.748,10.073,11.49,1.818,0.893,0.125
+					l0,0C0.867,0.121,0.84,0.119,0.814,0.119l0,0C0.691,0.119,0.57,0.162,0.477,0.242 M1.327,15.542V1.248
+					c9.669,1.795,17.194,9.318,18.991,18.982l0,0h-14.3C5.027,18.179,3.381,16.531,1.327,15.542"/>
+			</g>
+			<path id="Fill-62" fill="#FFFFFF" d="M76.881,8.386c-10.31,1.646-18.473,9.806-20.122,20.111h15.244
+				c0.961-2.171,2.704-3.916,4.878-4.875V8.386z"/>
+			<g id="Group-66" transform="translate(55.734375, 7.751028)">
+				<g id="Clip-65">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_15_" filterUnits="userSpaceOnUse" x="0.508" y="0.119" width="21.156" height="21.143">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.508" y="0.119" width="21.156" height="21.143" id="mask-47">
+					<g filter="url(#Adobe_OpacityMaskFilter_15_)">
+						<path id="path-46" fill="#FFFFFF" d="M21.065,0.125C10.468,1.818,2.209,10.073,0.515,20.665l0,0
+							c-0.024,0.148,0.019,0.301,0.117,0.417l0,0c0.099,0.114,0.241,0.18,0.394,0.18l0,0h15.243c0.205,0,0.39-0.12,0.473-0.307l0,0
+							c0.913-2.063,2.552-3.701,4.614-4.611l0,0c0.188-0.083,0.309-0.268,0.309-0.472l0,0V0.635c0-0.151-0.066-0.294-0.182-0.393
+							l0,0c-0.096-0.08-0.216-0.123-0.338-0.123l0,0C21.118,0.119,21.092,0.121,21.065,0.125 M20.631,1.248v14.294
+							c-2.053,0.988-3.701,2.635-4.691,4.688l0,0H1.639C3.435,10.565,10.961,3.043,20.631,1.248"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-64_1_" gradientUnits="userSpaceOnUse" x1="-280.5811" y1="477.1474" x2="-279.5811" y2="477.1474" gradientTransform="matrix(21.1553 0 0 -21.1432 5936.2886 10099.1406)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-64" mask="url(#mask-47)" fill="url(#Fill-64_1_)" d="M21.065,0.125C10.468,1.818,2.209,10.073,0.515,20.665l0,0
+					c-0.024,0.148,0.019,0.301,0.117,0.417l0,0c0.099,0.114,0.241,0.18,0.394,0.18l0,0h15.243c0.205,0,0.39-0.12,0.473-0.307l0,0
+					c0.913-2.063,2.552-3.701,4.614-4.611l0,0c0.188-0.083,0.309-0.268,0.309-0.472l0,0V0.635c0-0.151-0.066-0.294-0.182-0.393l0,0
+					c-0.096-0.08-0.216-0.123-0.338-0.123l0,0C21.118,0.119,21.092,0.121,21.065,0.125 M20.631,1.248v14.294
+					c-2.053,0.988-3.701,2.635-4.691,4.688l0,0H1.639C3.435,10.565,10.961,3.043,20.631,1.248"/>
+			</g>
+			<path id="Fill-67" fill="#FFFFFF" d="M72.003,36.345H56.759c1.648,10.306,9.812,18.464,20.122,20.112V41.22
+				C74.708,40.26,72.964,38.517,72.003,36.345"/>
+			<g id="Group-71" transform="translate(55.734375, 35.284625)">
+				<g id="Clip-70">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_16_" filterUnits="userSpaceOnUse" x="0.508" y="0.544" width="21.156" height="21.146">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.508" y="0.544" width="21.156" height="21.146" id="mask-50">
+					<g filter="url(#Adobe_OpacityMaskFilter_16_)">
+						<path id="path-49" fill="#FFFFFF" d="M1.026,0.544c-0.153,0-0.295,0.067-0.394,0.182l0,0C0.534,0.841,0.491,0.993,0.515,1.142
+							l0,0c1.694,10.591,9.952,18.846,20.551,20.541l0,0c0.027,0.004,0.054,0.006,0.081,0.006l0,0c0.122,0,0.242-0.043,0.336-0.123
+							l0,0c0.115-0.099,0.182-0.242,0.182-0.395l0,0V5.936c0-0.205-0.121-0.39-0.309-0.473l0,0c-2.063-0.91-3.701-2.548-4.614-4.611
+							l0,0c-0.083-0.187-0.268-0.308-0.473-0.308l0,0H1.026z M1.639,1.576h14.301c0.99,2.053,2.639,3.7,4.691,4.689l0,0v14.293
+							C10.961,18.763,3.435,11.24,1.639,1.576L1.639,1.576z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-69_1_" gradientUnits="userSpaceOnUse" x1="-280.5811" y1="449.6158" x2="-279.5811" y2="449.6158" gradientTransform="matrix(21.1553 0 0 -21.1452 5936.2886 9518.3057)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-69" mask="url(#mask-50)" fill="url(#Fill-69_1_)" d="M1.026,0.544c-0.153,0-0.295,0.067-0.394,0.182l0,0
+					C0.534,0.841,0.491,0.993,0.515,1.142l0,0c1.694,10.591,9.952,18.846,20.551,20.541l0,0c0.027,0.004,0.054,0.006,0.081,0.006
+					l0,0c0.122,0,0.242-0.043,0.336-0.123l0,0c0.115-0.099,0.182-0.242,0.182-0.395l0,0V5.936c0-0.205-0.121-0.39-0.309-0.473l0,0
+					c-2.063-0.91-3.701-2.548-4.614-4.611l0,0c-0.083-0.187-0.268-0.308-0.473-0.308l0,0H1.026z M1.639,1.576h14.301
+					c0.99,2.053,2.639,3.7,4.691,4.689l0,0v14.293C10.961,18.763,3.435,11.24,1.639,1.576L1.639,1.576z"/>
+			</g>
+			<path id="Fill-72" fill="#FFFFFF" d="M84.732,56.457c10.309-1.648,18.473-9.807,20.121-20.112H89.609
+				c-0.959,2.172-2.703,3.916-4.877,4.875V56.457z"/>
+			<g id="Group-76" transform="translate(83.921875, 35.284625)">
+				<g id="Clip-75">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_17_" filterUnits="userSpaceOnUse" x="0.294" y="0.544" width="21.154" height="21.146">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.294" y="0.544" width="21.154" height="21.146" id="mask-53">
+					<g filter="url(#Adobe_OpacityMaskFilter_17_)">
+						<path id="path-52" fill="#FFFFFF" d="M5.688,0.544c-0.205,0-0.391,0.121-0.473,0.308l0,0c-0.911,2.063-2.549,3.7-4.613,4.611
+							l0,0C0.415,5.546,0.294,5.731,0.294,5.936l0,0v15.236c0,0.152,0.067,0.296,0.183,0.395l0,0
+							c0.094,0.08,0.212,0.123,0.334,0.123l0,0c0.027,0,0.055-0.002,0.082-0.006l0,0c10.598-1.695,18.855-9.95,20.55-20.541l0,0
+							c0.022-0.149-0.019-0.301-0.116-0.417l0,0c-0.1-0.115-0.243-0.182-0.395-0.182l0,0H5.688z M1.327,6.266
+							c2.054-0.99,3.7-2.637,4.691-4.689l0,0h14.3c-1.795,9.664-9.322,17.187-18.991,18.983l0,0V6.266z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-74_1_" gradientUnits="userSpaceOnUse" x1="-308.7676" y1="449.6158" x2="-307.7676" y2="449.6158" gradientTransform="matrix(21.1545 0 0 -21.1452 6532.1079 9518.3057)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-74" mask="url(#mask-53)" fill="url(#Fill-74_1_)" d="M5.688,0.544c-0.205,0-0.391,0.121-0.473,0.308l0,0
+					c-0.911,2.063-2.549,3.7-4.613,4.611l0,0C0.415,5.546,0.294,5.731,0.294,5.936l0,0v15.236c0,0.152,0.067,0.296,0.183,0.395l0,0
+					c0.094,0.08,0.212,0.123,0.334,0.123l0,0c0.027,0,0.055-0.002,0.082-0.006l0,0c10.598-1.695,18.855-9.95,20.55-20.541l0,0
+					c0.022-0.149-0.019-0.301-0.116-0.417l0,0c-0.1-0.115-0.243-0.182-0.395-0.182l0,0H5.688z M1.327,6.266
+					c2.054-0.99,3.7-2.637,4.691-4.689l0,0h14.3c-1.795,9.664-9.322,17.187-18.991,18.983l0,0V6.266z"/>
+			</g>
+			<path id="Fill-77" fill="#FFFFFF" d="M25.926,24.393v10.772c1.537,0.678,2.77,1.911,3.448,3.446h10.778
+				C38.986,31.327,33.214,25.557,25.926,24.393"/>
+			<g id="Group-81" transform="translate(24.984375, 23.758933)">
+				<g id="Clip-80">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_18_" filterUnits="userSpaceOnUse" x="0.577" y="0.269" width="14.956" height="14.948">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.577" y="0.269" width="14.956" height="14.948" id="mask-56">
+					<g filter="url(#Adobe_OpacityMaskFilter_18_)">
+						<path id="path-55" fill="#FFFFFF" d="M0.705,0.356C0.624,0.427,0.577,0.527,0.577,0.635l0,0v10.772
+							c0,0.145,0.085,0.275,0.217,0.333l0,0c1.459,0.644,2.617,1.802,3.261,3.261l0,0c0.058,0.131,0.189,0.217,0.334,0.217l0,0
+							h10.778c0.107,0,0.208-0.046,0.278-0.128l0,0c0.069-0.082,0.1-0.189,0.082-0.294l0,0C14.33,7.306,8.492,1.472,1,0.273l0,0
+							C0.981,0.271,0.962,0.269,0.944,0.269l0,0C0.856,0.269,0.772,0.3,0.705,0.356 M1.307,11.174V1.068
+							c6.836,1.269,12.157,6.587,13.426,13.419l0,0H4.624C3.923,13.037,2.758,11.873,1.307,11.174"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-79_1_" gradientUnits="userSpaceOnUse" x1="-245.207" y1="454.4657" x2="-244.207" y2="454.4657" gradientTransform="matrix(14.9556 0 0 -14.9482 3667.8049 6801.1875)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-79" mask="url(#mask-56)" fill="url(#Fill-79_1_)" d="M0.705,0.356C0.624,0.427,0.577,0.527,0.577,0.635l0,0
+					v10.772c0,0.145,0.085,0.275,0.217,0.333l0,0c1.459,0.644,2.617,1.802,3.261,3.261l0,0c0.058,0.131,0.189,0.217,0.334,0.217l0,0
+					h10.778c0.107,0,0.208-0.046,0.278-0.128l0,0c0.069-0.082,0.1-0.189,0.082-0.294l0,0C14.33,7.306,8.492,1.472,1,0.273l0,0
+					C0.981,0.271,0.962,0.269,0.944,0.269l0,0C0.856,0.269,0.772,0.3,0.705,0.356 M1.307,11.174V1.068
+					c6.836,1.269,12.157,6.587,13.426,13.419l0,0H4.624C3.923,13.037,2.758,11.873,1.307,11.174"/>
+			</g>
+			<path id="Fill-82" fill="#FFFFFF" d="M20.375,24.393c-7.289,1.164-13.061,6.934-14.226,14.218h10.778
+				c0.679-1.535,1.912-2.768,3.448-3.446V24.393z"/>
+			<g id="Group-86" transform="translate(5.765625, 23.758933)">
+				<g id="Clip-85">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_19_" filterUnits="userSpaceOnUse" x="0.018" y="0.269" width="14.957" height="14.948">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.018" y="0.269" width="14.957" height="14.948" id="mask-59">
+					<g filter="url(#Adobe_OpacityMaskFilter_19_)">
+						<path id="path-58" fill="#FFFFFF" d="M14.552,0.273C7.061,1.472,1.22,7.306,0.022,14.795l0,0
+							C0.006,14.9,0.036,15.008,0.105,15.09l0,0c0.07,0.082,0.171,0.128,0.278,0.128l0,0h10.778c0.144,0,0.275-0.085,0.333-0.217
+							l0,0c0.645-1.459,1.804-2.617,3.263-3.261l0,0c0.132-0.058,0.218-0.189,0.218-0.333l0,0V0.635
+							c0-0.108-0.047-0.208-0.128-0.279l0,0c-0.067-0.056-0.153-0.086-0.239-0.086l0,0C14.589,0.269,14.57,0.271,14.552,0.273
+							 M14.244,1.068v10.105c-1.45,0.698-2.616,1.863-3.316,3.314l0,0H0.817C2.087,7.656,7.408,2.337,14.244,1.068"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-84_1_" gradientUnits="userSpaceOnUse" x1="-225.9893" y1="454.4657" x2="-224.9893" y2="454.4657" gradientTransform="matrix(14.9571 0 0 -14.9482 3380.1641 6801.1875)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-84" mask="url(#mask-59)" fill="url(#Fill-84_1_)" d="M14.552,0.273C7.061,1.472,1.22,7.306,0.022,14.795l0,0
+					C0.006,14.9,0.036,15.008,0.105,15.09l0,0c0.07,0.082,0.171,0.128,0.278,0.128l0,0h10.778c0.144,0,0.275-0.085,0.333-0.217l0,0
+					c0.645-1.459,1.804-2.617,3.263-3.261l0,0c0.132-0.058,0.218-0.189,0.218-0.333l0,0V0.635c0-0.108-0.047-0.208-0.128-0.279l0,0
+					c-0.067-0.056-0.153-0.086-0.239-0.086l0,0C14.589,0.269,14.57,0.271,14.552,0.273 M14.244,1.068v10.105
+					c-1.45,0.698-2.616,1.863-3.316,3.314l0,0H0.817C2.087,7.656,7.408,2.337,14.244,1.068"/>
+			</g>
+			<path id="Fill-87" fill="#FFFFFF" d="M16.927,44.16H6.149c1.165,7.286,6.937,13.054,14.226,14.219V47.607
+				C18.838,46.928,17.605,45.695,16.927,44.16"/>
+			<g id="Group-91" transform="translate(5.765625, 43.608735)">
+				<g id="Clip-90">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_20_" filterUnits="userSpaceOnUse" x="0.018" y="0.186" width="14.957" height="14.95">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.018" y="0.186" width="14.957" height="14.95" id="mask-62">
+					<g filter="url(#Adobe_OpacityMaskFilter_20_)">
+						<path id="path-61" fill="#FFFFFF" d="M0.383,0.186c-0.106,0-0.208,0.047-0.278,0.129l0,0c-0.07,0.081-0.099,0.188-0.083,0.294
+							l0,0C1.22,8.097,7.059,13.933,14.552,15.132l0,0c0.019,0.002,0.039,0.004,0.058,0.004l0,0c0.086,0,0.171-0.031,0.237-0.087
+							l0,0c0.081-0.07,0.128-0.171,0.128-0.279l0,0V3.998c0-0.146-0.085-0.275-0.218-0.334l0,0c-1.458-0.644-2.618-1.801-3.263-3.26
+							l0,0c-0.058-0.131-0.189-0.218-0.333-0.218l0,0H0.383z M0.817,0.916h10.11c0.701,1.452,1.866,2.617,3.316,3.315l0,0v10.107
+							C7.408,13.067,2.087,7.749,0.817,0.916L0.817,0.916z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-89_1_" gradientUnits="userSpaceOnUse" x1="-225.9893" y1="434.6217" x2="-224.9893" y2="434.6217" gradientTransform="matrix(14.9571 0 0 -14.9501 3380.1641 6505.2798)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-89" mask="url(#mask-62)" fill="url(#Fill-89_1_)" d="M0.383,0.186c-0.106,0-0.208,0.047-0.278,0.129l0,0
+					c-0.07,0.081-0.099,0.188-0.083,0.294l0,0C1.22,8.097,7.059,13.933,14.552,15.132l0,0c0.019,0.002,0.039,0.004,0.058,0.004l0,0
+					c0.086,0,0.171-0.031,0.237-0.087l0,0c0.081-0.07,0.128-0.171,0.128-0.279l0,0V3.998c0-0.146-0.085-0.275-0.218-0.334l0,0
+					c-1.458-0.644-2.618-1.801-3.263-3.26l0,0c-0.058-0.131-0.189-0.218-0.333-0.218l0,0H0.383z M0.817,0.916h10.11
+					c0.701,1.452,1.866,2.617,3.316,3.315l0,0v10.107C7.408,13.067,2.087,7.749,0.817,0.916L0.817,0.916z"/>
+			</g>
+			<path id="Fill-92" fill="#FFFFFF" d="M25.926,58.379c7.289-1.165,13.061-6.934,14.226-14.219H29.374
+				c-0.678,1.535-1.912,2.768-3.448,3.447V58.379z"/>
+			<g id="Group-96" transform="translate(24.984375, 43.608735)">
+				<g id="Clip-95">
+				</g>
+				<defs>
+					<filter id="Adobe_OpacityMaskFilter_21_" filterUnits="userSpaceOnUse" x="0.577" y="0.186" width="14.956" height="14.95">
+						<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+					</filter>
+				</defs>
+				<mask maskUnits="userSpaceOnUse" x="0.577" y="0.186" width="14.956" height="14.95" id="mask-65">
+					<g filter="url(#Adobe_OpacityMaskFilter_21_)">
+						<path id="path-64" fill="#FFFFFF" d="M4.389,0.186c-0.145,0-0.276,0.086-0.334,0.218l0,0c-0.644,1.458-1.802,2.616-3.261,3.26
+							l0,0C0.662,3.723,0.577,3.853,0.577,3.998l0,0V14.77c0,0.108,0.047,0.209,0.128,0.279l0,0
+							c0.067,0.056,0.151,0.087,0.236,0.087l0,0c0.02,0,0.039-0.002,0.059-0.004l0,0c7.493-1.198,13.33-7.035,14.528-14.522l0,0
+							c0.018-0.106-0.013-0.213-0.082-0.294l0,0c-0.07-0.082-0.171-0.129-0.278-0.129l0,0H4.389z M1.307,4.231
+							c1.452-0.699,2.617-1.863,3.317-3.315l0,0h10.109c-1.27,6.833-6.59,12.151-13.426,13.422l0,0V4.231z"/>
+					</g>
+				</mask>
+				
+					<linearGradient id="Fill-94_1_" gradientUnits="userSpaceOnUse" x1="-245.207" y1="434.6217" x2="-244.207" y2="434.6217" gradientTransform="matrix(14.9556 0 0 -14.9501 3667.8049 6505.2798)">
+					<stop  offset="0" style="stop-color:#7C72FF"/>
+					<stop  offset="1" style="stop-color:#6D64F4"/>
+				</linearGradient>
+				<path id="Fill-94" mask="url(#mask-65)" fill="url(#Fill-94_1_)" d="M4.389,0.186c-0.145,0-0.276,0.086-0.334,0.218l0,0
+					c-0.644,1.458-1.802,2.616-3.261,3.26l0,0C0.662,3.723,0.577,3.853,0.577,3.998l0,0V14.77c0,0.108,0.047,0.209,0.128,0.279l0,0
+					c0.067,0.056,0.151,0.087,0.236,0.087l0,0c0.02,0,0.039-0.002,0.059-0.004l0,0c7.493-1.198,13.33-7.035,14.528-14.522l0,0
+					c0.018-0.106-0.013-0.213-0.082-0.294l0,0c-0.07-0.082-0.171-0.129-0.278-0.129l0,0H4.389z M1.307,4.231
+					c1.452-0.699,2.617-1.863,3.317-3.315l0,0h10.109c-1.27,6.833-6.59,12.151-13.426,13.422l0,0V4.231z"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g id="GIFOS_1_">
+	<g id="_x30_0-UI-Kit_1_" transform="translate(-764.000000, -2162.000000)">
+		
+			<linearGradient id="element-luz-camara_1_" gradientUnits="userSpaceOnUse" x1="532.563" y1="2660.5713" x2="532.0103" y2="2660.5029" gradientTransform="matrix(91 0 0 -151 -47519.9375 403995.125)">
+			<stop  offset="0" style="stop-color:#88F3E2;stop-opacity:0"/>
+			<stop  offset="1" style="stop-color:#50E3C2"/>
+		</linearGradient>
+		<polygon id="element-luz-camara" fill="url(#element-luz-camara_1_)" points="888,2223.173 979,2166 979,2317 888,2264.111 		"/>
+	</g>
+</g>
+</svg>

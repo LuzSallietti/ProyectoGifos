@@ -6,34 +6,36 @@ const empty_mis_gifos = document.getElementById("empty-mis-gifos");
 let remainders_misGifos;
 let misGifos_storage = [];
 
+//Evaluar si hay Mis Gifos almacenados (con valor true) para mostrarlos en la página
+function showMisGifos(){
+  if (JSON.parse(localStorage.getItem("myGifos"))) {
+      let misGifos = JSON.parse(localStorage.getItem("myGifos"));
+      let i;
+      for (i = 0; i < misGifos.length; i++) {
+          if (misGifos[i].display === true) {
+              misGifos_storage.push(misGifos[i]);
+              console.log(misGifos_storage);
+          }
+      }
+      
+  }
+  displayMisGifos (misGifos_storage, 0, 12);
+}
+
 // Eliminar miGifo desde Gifo Max
 
 function deleteMyGifo (id){
   let misGifos = JSON.parse(localStorage.getItem("myGifos"));
   let i;
   for (i = 0; i < misGifos.length; i++) {
-    if (misGifos[i].id == id) {
+    if (misGifos[i].id === id) {
       misGifos[i].display = false;
       localStorage.setItem("myGifos", JSON.stringify(misGifos));
       break;                
     }
   }
-  location.reload();
+  document.location.reload();
 }
-
-//Evaluar si hay Mis Gifos almacenados (con valor true) para mostrarlos en la página
-
-if (JSON.parse(localStorage.getItem("myGifos"))) {
-    let misGifos = JSON.parse(localStorage.getItem("myGifos"));
-    let i;
-    for (i = 0; i < misGifos.length; i++) {
-        if (misGifos[i].display == true) {
-            misGifos_storage.push(misGifos[i]);
-            console.log(misGifos_storage);
-        }
-    }
-}
-document.onload = (JSON.parse(localStorage.getItem("myGifos"))) ? displayMisGifos(misGifos_storage, 0, 12) : empty_mis_gifos.classList.replace("d-none", "d-block"); //si el key no existe en localStorage, mostrar diseño de Mis Gifos sin contenido
 
 function displayMisGifos(array, posicion, longitud) {
     mis_gifos_container.classList.remove("d-none");
@@ -124,7 +126,7 @@ function displayMisGifos(array, posicion, longitud) {
             gifoMax_user.innerText = `${username}`;
         })
         // mostrar el contenido de la tarjeta max en mobile, al hacer clic en el gif 
-        if (window.innerWidth < 1024) {
+        if (window.innerWidth <= 1024) {
             DIV.addEventListener('click', () => {
                 gifoMax_cards[0].style.display = "grid";
                 max_heart[0].setAttribute("id", `${gifo_id}`);
@@ -139,7 +141,7 @@ function displayMisGifos(array, posicion, longitud) {
             });
         }
     } //fin del ciclo for
-    if (window.innerWidth >= 1024) {
+    if (window.innerWidth > 1024) {
         show_hide_gifCards();
       } else {
         let gif_imgs = document.getElementsByClassName("gif");
@@ -161,3 +163,5 @@ view_more_btn.addEventListener('click', () => {
     displayMisGifos(remainders_misGifos, 0, 12);
 
 })
+
+document.onload = (JSON.parse(localStorage.getItem("myGifos"))) ? showMisGifos() : empty_mis_gifos.classList.replace("d-none", "d-block"); //si el key no existe en localStorage, mostrar diseño de Mis Gifos sin contenido

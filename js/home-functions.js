@@ -1,30 +1,52 @@
-// mostrar menu mobile
-let hamburger = document.getElementById("hamburger");
-hamburger.addEventListener('click', showMenu);
 
-function showMenu() {
-   let nav = document.getElementById("nav");
+const hamburger = document.getElementById("hamburger");
+const close_nav = document.getElementById("close-nav");
+const nav = document.getElementById("nav");
+let create_GIFO_btn = document.getElementsByClassName("create-btn");
+let theme_switcher = document.getElementsByClassName("theme-switcher");
+let header = document.getElementsByClassName("desktop-header");
+
+// mostrar y ocultar menu mobile
+
+function showMenu() {   
    nav.classList.toggle("visible");
-   hamburger.classList.toggle("fa-times");
+   hamburger.classList.toggle("d-none");
+   close_nav.classList.remove("d-none");
+}
+function hideMenu(){
+   nav.classList.toggle("visible");
+   hamburger.classList.toggle("d-none");
+   close_nav.classList.add("d-none");
 }
 
 
-// ir al html Crear GIFOS al hacer click en el botón del nav
+//mostrar el logo y nav que corresponde de acuerdo al dispositivo
+/*function showLogo() {
+let logo_mobile = document.querySelector('#logo-mobile');
+let logo_desktop = document.querySelector('#logo-desktop');
+if (window.innerWidth <1024){
+   logo_desktop.style.display="none";
+   
+} else {
+   logo_mobile.style.display="none";
+   hamburger.classList.add("d-none");
+}
+}*/
 
-let create_GIFO_btn = document.getElementsByClassName("create-btn");
+// ir al html Crear GIFOS al hacer click en el botón del nav
 
 for (i = 0; i < create_GIFO_btn.length; i++) { 
    create_GIFO_btn[i].addEventListener("click", () => document.location.href = "./crear-gifo.html");
 }
+//función que togglea entre clases
 
-
-
+function toggleClasses(array, clase) {
+   for (i = 0; i < array.length; i++) {
+      array[i].classList.toggle(clase);
+   }
+}
 
 // alternar theme colors entre modo diurno y modo nocturno
-
-let theme_switcher = document.getElementsByClassName("theme-switcher");
-theme_switcher[0].addEventListener('click', switchTheme);
-theme_switcher[0].addEventListener('click', switch_LinkText);
 
 function switchTheme() {
 
@@ -49,15 +71,13 @@ function switchTheme() {
    let search_term = document.getElementsByClassName("search-query");
    let trends_p = document.getElementsByClassName("trends");
    let autocomplete = document.getElementsByClassName("autocomplete");
-
-
-   //función que togglea entre clases
-
-   function toggleClasses(array, clase) {
-      for (i = 0; i < array.length; i++) {
-         array[i].classList.toggle(clase);
-      }
-   }
+   let creator_numbers = document.getElementsByClassName("number");
+   let light_texts = document.getElementsByClassName("light-mode_texts");
+   let cameraSVG = document.getElementById("camera");
+   let peliculaSVG = document.getElementById("pelicula");
+   let page_location = String(window.location.pathname);
+   let isCrearGifos = page_location.includes("crear-gifo.html");  
+   
 
    toggleClasses(body, "dark-mode_body");
    toggleClasses(H1, "dark-mode_texts");
@@ -80,16 +100,31 @@ function switchTheme() {
    toggleClasses(desktop_header, "dark-mode_desktop-header");
    toggleClasses(search_term, "dark_mode-search-query");
    toggleClasses(trends_p,"dark-mode_trends");
-   toggleClasses(autocomplete, "dark-mode_autocomplete"); 
+   toggleClasses(autocomplete, "dark-mode_autocomplete");
+   toggleClasses(creator_numbers, "dark-mode_number");
+   toggleClasses(light_texts, "dark-mode_texts");
+   
+   
+   if (isCrearGifos){
+   let dark = (cameraSVG.src.indexOf("nocturno")>0);
+   if (!dark){
+      cameraSVG.src = "./img/camara-con-luz-nocturno.svg";
+      peliculaSVG.src = "./img/pelicula-modo-noc.svg";
+   } else {
+      cameraSVG.src = "./img/camara-con-luz.svg";
+      peliculaSVG.src = "./img/pelicula.svg";
+   }
+}
+   
+   
+    
 
 
 
-   // Almacenar la elección del modo en localStorage (diurno/nocturno)
+// Almacenar la elección del modo en localStorage (diurno/nocturno)
 
    document.body.classList.contains("dark-mode_body") ? localStorage.setItem("dark_mode", "true") : localStorage.setItem("dark_mode", "false");
 }
-
-
 //cambiar el texto en en el link de menú (Modo diurno / Modo Nocturno)
 
 function switch_LinkText() {
@@ -100,36 +135,33 @@ function switch_LinkText() {
       theme_switcher[0].innerText = "Modo Nocturno";
    }
 }
-
 //MANTENER la elección de modo (diurno/nocturno) en navegación entre páginas
-
-document.body.onload = keep_theme;
-
 function keep_theme() {
    if (localStorage.getItem("dark_mode") == "true") {
       theme_switcher[0].innerText = "Modo Diurno";
-      switchTheme();
+      switchTheme();        
 
    }
 };
-
 //aplicar SHADOW al header desktop cuando hay scroll
-
-document.body.onscroll = apply_shadow;
-let header = document.getElementsByClassName("desktop-header");
-
-
 function apply_shadow() {
    let i;
-   for (i = 0; i < header.length; i++) {
-      
-      
+   for (i = 0; i < header.length; i++) {   
       if (window.innerWidth >= 1024) {
          header[i].style.boxShadow = "0 2px 4px 1px rgba(156,175,195,0.55)";
-
       }
    }
 }
+
+
+document.body.onload = keep_theme;
+document.body.onscroll = apply_shadow;
+hamburger.addEventListener('click', showMenu);
+close_nav.addEventListener('click', hideMenu);
+theme_switcher[0].addEventListener('click', switchTheme);
+theme_switcher[0].addEventListener('click', switch_LinkText);
+
+
 
 
 

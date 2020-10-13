@@ -40,6 +40,10 @@
     grid-column: 3/4;
     margin-left: 6rem;
   }
+  .gifo-max{
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 25% 50% 25%;
+  }
   .gifo-container {
     grid-column: 2/3;
     grid-row: 2/3;

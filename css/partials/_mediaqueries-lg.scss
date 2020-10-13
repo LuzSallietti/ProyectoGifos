@@ -41,17 +41,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
     height: auto;
     background-color: transparent;
     padding-top: 20px;
     z-index: 25;
 
     ul {
-      text-align: center;
+      text-align: center;      
       display: inline-flex;
-      width: 90%;
-      justify-content: space-evenly;
+      width: auto;      
+      padding: 0 20px;
       li {
         list-style: none;
         a {

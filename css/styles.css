@@ -226,19 +226,6 @@ form input[type="text"] {
   fill: #572ee5;
 }
 
-main {
-  /*.search-gif-cards {
-    width: 42%;
-    margin: 1rem 0;
-
-    img {
-      width: 100%;
-      height: calc(84vw / 2);
-      object-fit: cover;
-    }
-  }*/
-}
-
 main h1 {
   font-size: 1.786rem;
   text-align: center;
@@ -1043,6 +1030,12 @@ footer {
     grid-column: 3/4;
     margin-left: 6rem;
   }
+  .gifo-max {
+    -ms-grid-columns: 1fr 3fr 1fr;
+        grid-template-columns: 1fr 3fr 1fr;
+    -ms-grid-rows: 25% 50% 25%;
+        grid-template-rows: 25% 50% 25%;
+  }
   .gifo-container {
     -ms-grid-column: 2;
     -ms-grid-column-span: 1;
@@ -1130,7 +1123,7 @@ footer {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    width: 40%;
+    width: 50%;
     height: auto;
     background-color: transparent;
     padding-top: 20px;
@@ -1141,10 +1134,8 @@ footer {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    width: 90%;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    width: auto;
+    padding: 0 20px;
   }
   nav ul li {
     list-style: none;
@@ -1483,6 +1474,9 @@ footer {
     border-top: 5px solid #572ee5;
     padding: 20px 156px;
   }
+  nav {
+    width: 40%;
+  }
   .container {
     overflow: hidden;
     padding-bottom: 0;
@@ -1641,4 +1635,4 @@ footer {
     margin-bottom: 0;
   }
 }
-/*# sourceMappingURL=home-styles.css.map */
+/*# sourceMappingURL=styles.css.map */

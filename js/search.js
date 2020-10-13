@@ -140,7 +140,7 @@ function giphySearch(query){
   title.innerText = `${query}`;
   title.style.display = "block";
   trends_line.classList.remove("hidden");
-  let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query.value}`;
+  let url = `https://api.giphy.com/v1/gifs/search?api_key=ZKclmP8V3fhuu7RAjeaGJ7XdNzu28bef&q=${query}`;  
     showGIFS(url)
       .then(response => {        
         if (response.length != 0) {

@@ -182,8 +182,9 @@ function stop_recording() {
     recorder.camera.stop();    
     blob = recorder.getBlob();
     console.log(blob);
-    src = URL.createObjectURL(blob);    
+    src = URL.createObjectURL(blob);            
     img_element.src = src;
+    img_element.classList.remove("d-none");
     recorder.destroy();
     recorder = null;
     video_container.srcObject = null;

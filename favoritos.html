@@ -1,15 +1,16 @@
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="incluir descripción" />
-    <meta name="keywords" content="incluir kws" />
+    <meta name="description" content="Proyecto integrador módulo 2 de carrera Desarrollo Web Full Stack Acámica. Consumo de API Rest del sitio web Giphy.com" />
+    <meta name="keywords" content="gifos, gifs, giphy, desarrollo web, api, api rest, acamica, javascript"/>
     <title>GIFOS Favoritos</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <link href="./css/home-styles.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <header class="desktop-header">
@@ -256,12 +257,16 @@
       <nav id="nav">
         <ul>
           <li><a href="#" class="theme-switcher">Modo Nocturno</a></li>
-          <hr class="menu-line" />
-          <li><a href="./favoritos.html">Favoritos</a></li>
-          <hr class="menu-line" />
-          <li><a href="./mis-gifos.html">Mis GIFOS</a></li>
-          <hr class="menu-line" />
         </ul>
+        <hr class="menu-line" />
+        <ul>
+          <li><a href="./favoritos.html">Favoritos</a></li>
+        </ul>
+        <hr class="menu-line" />
+        <ul>
+          <li><a href="./mis-gifos.html">Mis GIFOS</a></li>
+        </ul>
+        <hr class="menu-line" />        
         <div class="create-btn">
           <svg
             version="1.1"
@@ -312,7 +317,7 @@
         </div>
       </nav>
     </header>
-    <!--SECTION (GIFO MAX) QUE SE DESPLIEGA AL HACER CLICK EN CADA GIFO decidir dónde irá finalmente en el html o crearlo dinámicamente con JS?-->
+    <!--SECTION (GIFO MAX) QUE SE DESPLIEGA AL HACER CLICK EN CADA GIFO -->
     <section class="gifo-max">
       <div class="close-icon align-items-center justify-content-end">
         <svg
@@ -368,6 +373,7 @@
           id="max-img"
           src="https://media.giphy.com/media/12rTjvF0ANQJsk/giphy.gif"
           class="gif-content"
+          alt="gif en tamaño original"
         />
       </div>
       <div class="actions space-between">
@@ -379,16 +385,16 @@
         </div>
         <div class="btns-container space-between">
           <div class="icon-btn">
-            <img src="./img/icon-fav-hover.svg" class="icon heart max-heart" />
+            <img src="./img/icon-fav-hover.svg" class="icon heart max-heart" alt="ícono marcar gif como favorito"/>
           </div>
           <div class="icon-btn">
-            <img src="./img/icon-download.svg" class="icon" id="max-download" />
+            <img src="./img/icon-download.svg" class="icon" id="max-download" alt="ícono descargar gif" />
           </div>
         </div>
       </div>
     </section>
     <main>
-      <!-- SECCION FAVORITOS  editar!-->
+      <!-- SECCION FAVORITOS -->
       <section id="favouriteGifos">
         <div class="section-icon align-center">
           <img src="./img/icon-favoritos.svg" alt="ícono de Favoritos" />

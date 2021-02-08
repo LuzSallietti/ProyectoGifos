@@ -1,4 +1,4 @@
-#Proyecto GIFOS
+# Proyecto GIFOS
 
 Trabajo práctico correspondiente al módulo 2 del bootcamp de Desarrollo Web Full Stack de Acámica.
 
